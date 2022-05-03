@@ -2,15 +2,19 @@
 #define LOGIN_H
 #include "UserData.h"
 #include "DataBase.h"
+
 #include <iostream>
 using namespace std;
 #include<string>
 #include<vector>
 
 class Login {
-	DataBase dataBase[3];
+	int menu;
+	int sign;
+	DataBase* LoginDataBase;
 public:
-	void sign_up();
-	void sign_in();
+	Login();
+	UserData getUser();
+	void get_menu();
 };
 #endif

@@ -7,9 +7,9 @@ using namespace std;
 #include<vector>
 
 
-void DataBase::sign_in() {
+void DataBase_apart::sign_in() {
 	cout << "대충 로그인 화면" << endl;
 }
-void DataBase::sign_up() {
+void DataBase_apart::sign_up() {
 	cout << "대충 회원가입 화면" << endl;
 }

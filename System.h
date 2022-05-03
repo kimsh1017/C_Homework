@@ -2,14 +2,14 @@
 #define SYSTEM_H
 #include <iostream>
 using namespace std;
-#include<string>
+#include <string>
 #include "Login.h"
 
 class System {
 	int menu;
 	Login* login;
+	UserData* UserNow;
 public:
 	void running();
-	void get_menu();
 };
 #endif
