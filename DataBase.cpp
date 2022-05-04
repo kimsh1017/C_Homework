@@ -7,9 +7,28 @@ using namespace std;
 #include<vector>
 
 
-void DataBase::sign_in() {
-	cout << "대충 로그인 화면" << endl;
+DataBase::DataBase() {
+	n = 0;
+}
+bool DataBase::sign_in() {
+	string id;
+	string password;
+	cout << "id >>";
+	cin >> id;
+	cout << "password >>";
+	cin >> password;
+	for (int i = 0; i < Users.size(); i++) {
+		if (Users[i].checkData(id, password)) {
+			n = i;
+			return true;
+		}
+	}
+	return false;
 }
 void DataBase::sign_up() {
 	cout << "대충 회원가입 화면" << endl;
+}
+
+UserData* DataBase::getUser() {
+	return &Users[n];
 }

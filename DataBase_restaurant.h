@@ -1,16 +1,21 @@
-#ifndef DATABASE_APART_H
-#define DATABASE_APART_H
+#ifndef DATABASE_RESTAURANT_H
+#define DATABASE_RESTAURANT_H
+
 #include "DataBase.h"
-#include "UserData_apart.h"
+#include "DataBase_restaurant.h"
+#include "UserData_restaurant.h"
 #include <iostream>
 using namespace std;
 #include<string>
 #include<vector>
 
-class DataBase_apart : public DataBase {
-	vector <UserData_apart> Users;
+class DataBase_restaurant : public DataBase {
+	vector <UserData_restaurant> Users;
+	int n;
 public:
+	DataBase_restaurant();
 	void sign_up();
-	void sign_in();
+	bool sign_in();
+	UserData* getUser();
 };
 #endif

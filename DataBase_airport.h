@@ -1,6 +1,7 @@
 #ifndef DATABASE_AIRPORT_H
 #define DATABASE_AIRPORT_H
 #include "DataBase.h"
+#include "DataBase_airport.h"
 #include "UserData_airport.h"
 #include <iostream>
 using namespace std;
@@ -9,8 +10,11 @@ using namespace std;
 
 class DataBase_airport : public DataBase {
 	vector <UserData_airport> Users;
+	int n;
 public:
+	DataBase_airport();
 	void sign_up();
-	void sign_in();
+	bool sign_in();
+	UserData* getUser();
 };
 #endif

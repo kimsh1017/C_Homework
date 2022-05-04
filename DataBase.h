@@ -1,9 +1,7 @@
 #ifndef DATABASE_H
 #define DATABASE_H
 #include "UserData.h"
-#include "DataBase_airport.h"
-#include "DataBase_apart.h"
-#include "DataBase_restaurant.h"
+#include "DataBase.h"
 
 #include <iostream>
 using namespace std;
@@ -12,8 +10,11 @@ using namespace std;
 
 class DataBase {
 	vector <UserData> Users;
+	int n;
 public:
-	void sign_up();
-	void sign_in();
+	DataBase();
+	virtual void sign_up();
+	virtual bool sign_in();
+	virtual UserData* getUser();
 };
 #endif

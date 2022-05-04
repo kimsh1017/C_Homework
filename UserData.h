@@ -1,10 +1,6 @@
 #ifndef USERDATA_H
 #define USERDATA_H
 
-#include "UserData_airport.h"
-#include "UserData_restaurant.h"
-#include "UserData_apart.h"
-
 #include <iostream>
 using namespace std;
 #include<string>

@@ -1,6 +1,5 @@
 #ifndef LOGIN_H
 #define LOGIN_H
-#include "UserData.h"
 #include "DataBase.h"
 
 #include <iostream>
@@ -9,12 +8,12 @@ using namespace std;
 #include<vector>
 
 class Login {
-	int menu;
-	int sign;
-	DataBase* LoginDataBase;
+	DataBase* LoginDataBase[3];
+	UserData* User;
 public:
 	Login();
-	UserData getUser();
-	void get_menu();
+	UserData* getUser();
+	void sign_up(int);
+	bool sign_in(int);
 };
 #endif
