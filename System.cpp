@@ -1,44 +1,37 @@
 #include "System.h"
 #include "UserData.h"
 #include "Login.h"
+#include "Console.h"
 #include <iostream>
 using namespace std;
 #include<string>
 
 System::System() {
-	place_menu = -1;
-	sign_menu = -1;
 	login = new Login;
+	UserNow = NULL;
 }
-
-void System::get_place() {
-	cout << "프로그램 선택" << endl;
-	cout << "1: 비행기 예약 / 2: 식당 예약 / 3: 독서실 예약 / 4: 종료>>";
-	cin >> place_menu;
-}
-void System::get_sign() {
-	cout << "환영합니다" << endl;
-	cout << "1: 로그인 / 2: 회원 가입>>";
-	cin >> sign_menu;
-}
-
 void System::running() {
-	get_place();
-	while (place_menu != 4) {
-		get_sign();
-		if (sign_menu == 1) {
-			if (login->sign_in(place_menu)) {
-				UserNow = login->getUser();
-				cout << "환영합니다" << endl;
-				UserNow->showData();
-			}
-			else {
-				cout << "정보가 올바르지 않습니다" << endl;
-			}
+	Console::set_place_menu(); 
+
+	while (Console::get_place_menu() != 4) {
+		UserNow = NULL;
+		Console::set_login_menu();
+
+		if (Console::get_login_menu() == 1) { // 로그인 sign_in
+			UserNow = login->sign_in(Console::get_place_menu());
 		}
-		else {
-			login->sign_up(place_menu);
+		else { // 회원가입 sign_up
+			login->sign_up(Console::get_place_menu());
 		}
-		get_place();
+
+		
+		if (UserNow != NULL) {
+			cout << "로그인 성공" << endl;
+			UserNow->showData();
+		}
+
+		Console::set_place_menu();
 	}
+	cout << "프로그램을 종료합니다" << endl;
+	delete login;
 }

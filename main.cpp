@@ -5,4 +5,5 @@ using namespace std;
 int main() {
 	System* system = new System();
 	system->running();
+	delete system;
 }

@@ -8,12 +8,12 @@ using namespace std;
 #include<vector>
 
 class Login {
-	DataBase* LoginDataBase[3];
+	DataBase** LoginDataBase;
 	UserData* User;
 public:
 	Login();
-	UserData* getUser();
+	~Login();
 	void sign_up(int);
-	bool sign_in(int);
+	UserData* sign_in(int);
 };
 #endif

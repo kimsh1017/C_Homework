@@ -12,12 +12,13 @@ UserData::UserData() {
 	password = "";
 	next = NULL;
 }
+
 void UserData::createUser(string id) {
 	this->id = id;
 	cout << "비밀번호 >>";
-	password = Console::get_string();
+	cin >> password;
 	cout << "이름 >>";
-	name = Console::get_string();
+	cin >> name;
 
 }
 void UserData::showData() {

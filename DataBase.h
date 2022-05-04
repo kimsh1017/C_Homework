@@ -12,17 +12,15 @@ using namespace std;
 
 class DataBase {
 protected:
-	int n;
 	string id;
 
 	UserData* start;
 	UserData* last;
-	UserData* User;
 public:
 	DataBase();
-	virtual void sign_up();
-	bool sign_in();
-	UserData* getUser();
+	~DataBase();
+	virtual void sign_up() = 0;
+	UserData* sign_in(string,string);
 	bool check_id();
 };
 #endif

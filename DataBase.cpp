@@ -9,35 +9,30 @@ using namespace std;
 
 DataBase::DataBase() {
 	id = "";
-	n = 0;
 	start = NULL;
 	last = NULL;
 }
-
-bool DataBase::sign_in() {
-	string password = "";
+DataBase::~DataBase() {
 	UserData* p = start;
+	UserData* temp = p;
+	while (p != NULL) {
+		temp = p->next;
+		delete p;
+		p = temp;
+	}
+}
 
-	cout << "id >>";
-	cin >> id;
-	cout << "password >>";
-	cin >> password;
+UserData* DataBase::sign_in(string id,string password) {
+	UserData* p = start;
 
 	while(p != NULL){
 		if (p->checkData(id, password)) {
-			User = p;
-			return true;
+			return p;
 		}
 		p = p->next;
 	}
-	return false;
-}
-void DataBase::sign_up() {
-	cout << "대충 회원가입 화면" << endl;
-}
-
-UserData* DataBase::getUser() {
-	return User;
+	cout << "회원정보가 올바르지 않습니다" << endl;
+	return NULL;
 }
 
 bool DataBase::check_id() {
