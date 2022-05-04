@@ -8,9 +8,10 @@ using namespace std;
 
 class UserData_restaurant : public UserData {
 	int age;
-	string gender;
 public:
 	UserData_restaurant();
+	void createUser(string);
+	void showData();
 };
 
 #endif

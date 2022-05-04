@@ -16,6 +16,7 @@ Login::Login() {
 	LoginDataBase[0] = new DataBase_airport;
 	LoginDataBase[1] = new DataBase_restaurant; 
 	LoginDataBase[2] = new DataBase_apart;
+	User = NULL;
 }
 
 void Login::sign_up(int place) {

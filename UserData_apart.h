@@ -9,8 +9,11 @@ using namespace std;
 
 class UserData_apart : public UserData {
 	int age;
+	string gender;
 public:
 	UserData_apart();
+	void createUser(string);
+	void showData();
 };
 
 #endif

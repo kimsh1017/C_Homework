@@ -8,13 +8,21 @@ using namespace std;
 #include<string>
 #include<vector>
 
+//template <class T>
+
 class DataBase {
-	vector <UserData> Users;
+protected:
 	int n;
+	string id;
+
+	UserData* start;
+	UserData* last;
+	UserData* User;
 public:
 	DataBase();
 	virtual void sign_up();
-	virtual bool sign_in();
-	virtual UserData* getUser();
+	bool sign_in();
+	UserData* getUser();
+	bool check_id();
 };
 #endif

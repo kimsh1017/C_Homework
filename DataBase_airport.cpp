@@ -8,31 +8,22 @@ using namespace std;
 #include<string>
 #include<vector>
 
-DataBase_airport::DataBase_airport() {
-	n = 0;
-}
 void DataBase_airport::sign_up() {
-	cout << "비행기 회원가입 " << endl;
-	Users.push_back(UserData_airport());
-	Users.back().createUser();
-}
-
-bool DataBase_airport::sign_in() {
-	string id;
-	string password;
-	cout << "id >>";
+	cout << "항공사 회원가입 " << endl;
+	cout << "아이디를 입력하세요 >>";
 	cin >> id;
-	cout << "password >>";
-	cin >> password;
-	for (int i = 0; i < Users.size(); i++) {
-		if (Users[i].checkData(id, password)) {
-			n = i;
-			return true;
-		}
+	if (check_id()) {
+		cout << "사용이 불가능한 아이디 입니다" << endl;
 	}
-	return false;
-}
-
-UserData* DataBase_airport::getUser() {
-	return &Users[n];
+	else {
+		if (start == NULL) {
+			start = new UserData_airport;
+			last = start;
+		}
+		else {
+			last->next = new UserData_airport;
+			last = last->next;
+		}
+		last->createUser(id);
+	}
 }

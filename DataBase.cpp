@@ -8,20 +8,27 @@ using namespace std;
 
 
 DataBase::DataBase() {
+	id = "";
 	n = 0;
+	start = NULL;
+	last = NULL;
 }
+
 bool DataBase::sign_in() {
-	string id;
-	string password;
+	string password = "";
+	UserData* p = start;
+
 	cout << "id >>";
 	cin >> id;
 	cout << "password >>";
 	cin >> password;
-	for (int i = 0; i < Users.size(); i++) {
-		if (Users[i].checkData(id, password)) {
-			n = i;
+
+	while(p != NULL){
+		if (p->checkData(id, password)) {
+			User = p;
 			return true;
 		}
+		p = p->next;
 	}
 	return false;
 }
@@ -30,5 +37,16 @@ void DataBase::sign_up() {
 }
 
 UserData* DataBase::getUser() {
-	return &Users[n];
+	return User;
+}
+
+bool DataBase::check_id() {
+	UserData* p = start;
+	while(p!= NULL) {
+		if (p->get_id() == id) {
+			return true;
+		}
+		p = p->next;
+	}
+	return false;
 }

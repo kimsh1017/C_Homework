@@ -25,6 +25,9 @@
     <Filter Include="소스 파일\DataBase">
       <UniqueIdentifier>{f3884bce-7695-4a72-927f-84efe62ce68a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\Place">
+      <UniqueIdentifier>{4fd868c8-1988-4075-8f15-1cf9325cbdcf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Console.h">
@@ -97,6 +100,18 @@
     </ClInclude>
     <ClInclude Include="DataBase_apart.h">
       <Filter>헤더 파일\DataBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Airport.h">
+      <Filter>헤더 파일\Place</Filter>
+    </ClInclude>
+    <ClInclude Include="Apart.h">
+      <Filter>헤더 파일\Place</Filter>
+    </ClInclude>
+    <ClInclude Include="Place.h">
+      <Filter>헤더 파일\Place</Filter>
+    </ClInclude>
+    <ClInclude Include="Restaurant.h">
+      <Filter>헤더 파일\Place</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

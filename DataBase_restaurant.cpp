@@ -7,31 +7,23 @@ using namespace std;
 #include<string>
 #include<vector>
 
-DataBase_restaurant::DataBase_restaurant() {
-	n = 0;
-}
+
 void DataBase_restaurant::sign_up() {
 	cout << "식당 회원가입 " << endl;
-	Users.push_back(UserData_restaurant());
-	Users.back().createUser();
-}
-
-bool DataBase_restaurant::sign_in() {
-	string id;
-	string password;
-	cout << "id >>";
+	cout << "아이디를 입력하세요 >>";
 	cin >> id;
-	cout << "password >>";
-	cin >> password;
-	for (int i = 0; i < Users.size(); i++) {
-		if (Users[i].checkData(id, password)) {
-			n = i;
-			return true;
-		}
+	if (check_id()) {
+		cout << "사용이 불가능한 아이디 입니다" << endl;
 	}
-	return false;
-}
-
-UserData* DataBase_restaurant::getUser() {
-	return &Users[n];
+	else {
+		if (start == NULL) {
+			start = new UserData_restaurant;
+			last = start;
+		}
+		else {
+			last->next = new UserData_restaurant;
+			last = last->next;
+		}
+		last->createUser(id);
+	}
 }

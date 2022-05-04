@@ -34,11 +34,15 @@
     <ClCompile Include="UserData_restaurant.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Airport.h" />
+    <ClInclude Include="Apart.h" />
     <ClInclude Include="DataBase.h" />
     <ClInclude Include="DataBase_airport.h" />
     <ClInclude Include="DataBase_apart.h" />
     <ClInclude Include="DataBase_restaurant.h" />
     <ClInclude Include="Login.h" />
+    <ClInclude Include="Place.h" />
+    <ClInclude Include="Restaurant.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="UserData.h" />
     <ClInclude Include="UserData_airport.h" />

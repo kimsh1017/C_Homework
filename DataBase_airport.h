@@ -9,12 +9,8 @@ using namespace std;
 #include<vector>
 
 class DataBase_airport : public DataBase {
-	vector <UserData_airport> Users;
-	int n;
+	
 public:
-	DataBase_airport();
 	void sign_up();
-	bool sign_in();
-	UserData* getUser();
 };
 #endif

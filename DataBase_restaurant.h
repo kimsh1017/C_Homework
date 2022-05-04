@@ -10,12 +10,7 @@ using namespace std;
 #include<vector>
 
 class DataBase_restaurant : public DataBase {
-	vector <UserData_restaurant> Users;
-	int n;
 public:
-	DataBase_restaurant();
 	void sign_up();
-	bool sign_in();
-	UserData* getUser();
 };
 #endif
