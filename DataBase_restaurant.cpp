@@ -10,8 +10,9 @@ using namespace std;
 
 void DataBase_restaurant::sign_up() {
 	cout << "식당 회원가입 " << endl;
-	cout << "아이디를 입력하세요 >>";
-	cin >> id;
+	cout << "회원정보를 입력해주세요 >>";
+
+	Console::set_id();
 	if (check_id()) {
 		cout << "사용이 불가능한 아이디 입니다" << endl;
 	}
@@ -24,6 +25,6 @@ void DataBase_restaurant::sign_up() {
 			last->next = new UserData_restaurant;
 			last = last->next;
 		}
-		last->createUser(id);
+		last->createUser(Console::get_id());
 	}
 }

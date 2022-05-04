@@ -10,8 +10,10 @@ using namespace std;
 
 void DataBase_airport::sign_up() {
 	cout << "항공사 회원가입 " << endl;
-	cout << "아이디를 입력하세요 >>";
-	cin >> id;
+	cout << "회원 정보를 입력해주세요" << endl;
+
+
+	Console::set_id();
 	if (check_id()) {
 		cout << "사용이 불가능한 아이디 입니다" << endl;
 	}
@@ -24,6 +26,6 @@ void DataBase_airport::sign_up() {
 			last->next = new UserData_airport;
 			last = last->next;
 		}
-		last->createUser(id);
+		last->createUser(Console::get_id());
 	}
 }

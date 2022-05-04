@@ -12,8 +12,6 @@ using namespace std;
 
 class DataBase {
 protected:
-	string id;
-
 	UserData* start;
 	UserData* last;
 public:

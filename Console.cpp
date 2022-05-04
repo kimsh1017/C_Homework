@@ -3,11 +3,12 @@
 #include <string>
 using namespace std;
 
-
 string Console::id = "";
 string Console::password = "";
 int Console::place_menu = 0;
 int Console::login_menu = 0;
+
+
 
 void Console::set_id() {
 	cout << "ID >>";

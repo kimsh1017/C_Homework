@@ -9,7 +9,6 @@ using namespace std;
 #include<vector>
 
 class DataBase_apart : public DataBase {
-	vector<UserData_apart> Users;
 public:
 	void sign_up();
 };

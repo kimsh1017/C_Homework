@@ -30,6 +30,8 @@ void System::running() {
 			UserNow->showData();
 		}
 
+		cout << endl;
+		cout << "====================================" << endl;
 		Console::set_place_menu();
 	}
 	cout << "프로그램을 종료합니다" << endl;

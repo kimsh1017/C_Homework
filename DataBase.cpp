@@ -8,7 +8,6 @@ using namespace std;
 
 
 DataBase::DataBase() {
-	id = "";
 	start = NULL;
 	last = NULL;
 }
@@ -38,7 +37,7 @@ UserData* DataBase::sign_in(string id,string password) {
 bool DataBase::check_id() {
 	UserData* p = start;
 	while(p!= NULL) {
-		if (p->get_id() == id) {
+		if (p->get_id() == Console::get_id()) {
 			return true;
 		}
 		p = p->next;

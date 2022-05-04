@@ -32,8 +32,6 @@ void Login::sign_up(int place) {
 UserData* Login::sign_in(int place) {
 	Console::set_id();
 	Console::set_password();
-
-	cout << "회원정보를 등록해주세요" << endl;
 	return LoginDataBase[place - 1]->sign_in(Console::get_id(),Console::get_password());
 }
 
