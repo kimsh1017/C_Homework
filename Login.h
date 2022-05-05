@@ -15,5 +15,7 @@ public:
 	~Login();
 	void sign_up(int);
 	UserData* sign_in(int);
+
+	UserData* sign_in_or_up(int);
 };
 #endif

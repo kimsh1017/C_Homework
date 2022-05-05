@@ -20,17 +20,11 @@ void System::running() {
 	Console::set_place_menu(); 
 
 	while (Console::get_place_menu() != 4) {
+		// 로그인 또는 회원가입
 		UserNow = NULL;
-		Console::set_login_menu();
+		UserNow = login->sign_in_or_up(Console::get_place_menu());
 
-		if (Console::get_login_menu() == 1) { // 로그인 sign_in
-			UserNow = login->sign_in(Console::get_place_menu());
-		}
-		else { // 회원가입 sign_up
-			login->sign_up(Console::get_place_menu());
-		}
-
-		
+		// 로그인 성공시
 		if (UserNow != NULL) {
 			cout << "로그인 성공" << endl;
 			UserNow->showData();

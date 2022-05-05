@@ -40,3 +40,15 @@ UserData* Login::sign_in(int place) {
 	return LoginDataBase[place - 1].sign_in(Console::get_id(),Console::get_password());
 }
 
+UserData* Login::sign_in_or_up(int place) {
+	Console::set_login_menu();
+
+	if (Console::get_login_menu() == 1) { // 로그인
+		return sign_in(place);
+	}
+	else { // 회원가입
+		sign_up(place);
+		return NULL;
+	}
+}
+
