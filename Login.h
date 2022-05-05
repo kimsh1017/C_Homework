@@ -1,14 +1,14 @@
 #ifndef LOGIN_H
 #define LOGIN_H
 #include "DataBase.h"
+#include "UserData.h"
 
 #include <iostream>
 using namespace std;
 #include<string>
-#include<vector>
 
 class Login {
-	DataBase** LoginDataBase;
+	DataBase* LoginDataBase;
 	UserData* User;
 public:
 	Login();

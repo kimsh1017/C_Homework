@@ -6,6 +6,12 @@
 using namespace std;
 #include<string>
 
+string Console::id = "";
+string Console::password = "";
+int Console::place_menu = 0;
+int Console::login_menu = 0;
+
+
 System::System() {
 	login = new Login;
 	UserNow = NULL;

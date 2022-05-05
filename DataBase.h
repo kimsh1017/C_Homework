@@ -11,13 +11,12 @@ using namespace std;
 //template <class T>
 
 class DataBase {
-protected:
 	UserData* start;
 	UserData* last;
 public:
 	DataBase();
 	~DataBase();
-	virtual void sign_up() = 0;
+	void sign_up(UserData*);
 	UserData* sign_in(string,string);
 	bool check_id();
 };

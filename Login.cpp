@@ -2,36 +2,41 @@
 #include "Console.h"
 
 #include "DataBase.h"
-#include "DataBase_airport.h"
-#include "DataBase_apart.h"
-#include "DataBase_restaurant.h"
+
+#include "UserData.h"
+#include "UserData_airport.h"
+#include "UserData_apart.h"
+#include "UserData_restaurant.h"
 
 #include <iostream>
 using namespace std;
 #include <string>
-#include <vector>
 
 
 Login::Login() {
-	LoginDataBase = new DataBase*[3];
-	LoginDataBase[0] = new DataBase_airport;
-	LoginDataBase[1] = new DataBase_restaurant; 
-	LoginDataBase[2] = new DataBase_apart;
+	LoginDataBase = new DataBase[3];
 	User = NULL;
 }
 Login::~Login() {
-	for (int i = 0; i < 3; i++) {
-		delete LoginDataBase[i];
-	}
 	delete []LoginDataBase;
 }
 
 void Login::sign_up(int place) {
-	LoginDataBase[place - 1]->sign_up();
+	switch (place) {
+	case 1: // 항공사 회원가입
+		LoginDataBase[place - 1].sign_up(new UserData_airport);
+		break;
+	case 2: // 식당 회원가입
+		LoginDataBase[place - 1].sign_up(new UserData_restaurant);
+		break;
+	case 3: // 독서실 회원가입
+		LoginDataBase[place - 1].sign_up(new UserData_apart);
+		break;
+	}
 }
 UserData* Login::sign_in(int place) {
 	Console::set_id();
 	Console::set_password();
-	return LoginDataBase[place - 1]->sign_in(Console::get_id(),Console::get_password());
+	return LoginDataBase[place - 1].sign_in(Console::get_id(),Console::get_password());
 }
 

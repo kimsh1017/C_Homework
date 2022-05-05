@@ -60,15 +60,6 @@
     <ClCompile Include="DataBase.cpp">
       <Filter>소스 파일\DataBase</Filter>
     </ClCompile>
-    <ClCompile Include="DataBase_airport.cpp">
-      <Filter>소스 파일\DataBase</Filter>
-    </ClCompile>
-    <ClCompile Include="DataBase_restaurant.cpp">
-      <Filter>소스 파일\DataBase</Filter>
-    </ClCompile>
-    <ClCompile Include="DataBase_apart.cpp">
-      <Filter>소스 파일\DataBase</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -90,15 +81,6 @@
       <Filter>헤더 파일\UserData</Filter>
     </ClInclude>
     <ClInclude Include="DataBase.h">
-      <Filter>헤더 파일\DataBase</Filter>
-    </ClInclude>
-    <ClInclude Include="DataBase_airport.h">
-      <Filter>헤더 파일\DataBase</Filter>
-    </ClInclude>
-    <ClInclude Include="DataBase_restaurant.h">
-      <Filter>헤더 파일\DataBase</Filter>
-    </ClInclude>
-    <ClInclude Include="DataBase_apart.h">
       <Filter>헤더 파일\DataBase</Filter>
     </ClInclude>
     <ClInclude Include="Airport.h">

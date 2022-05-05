@@ -34,6 +34,28 @@ UserData* DataBase::sign_in(string id,string password) {
 	return NULL;
 }
 
+void DataBase::sign_up(UserData* newUser) {
+	cout << "항공사 회원가입 " << endl;
+	cout << "회원 정보를 입력해주세요" << endl;
+
+
+	Console::set_id();
+	if (check_id()) {
+		cout << "사용이 불가능한 아이디 입니다" << endl;
+	}
+	else {
+		if (start == NULL) {
+			start = newUser;
+			last = start;
+		}
+		else {
+			last->next = newUser;
+			last = last->next;
+		}
+		last->createUser(Console::get_id());
+	}
+}
+
 bool DataBase::check_id() {
 	UserData* p = start;
 	while(p!= NULL) {
@@ -44,3 +66,4 @@ bool DataBase::check_id() {
 	}
 	return false;
 }
+

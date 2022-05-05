@@ -22,9 +22,6 @@
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="Console.h" />
     <ClCompile Include="DataBase.cpp" />
-    <ClCompile Include="DataBase_airport.cpp" />
-    <ClCompile Include="DataBase_apart.cpp" />
-    <ClCompile Include="DataBase_restaurant.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="System.cpp" />
@@ -37,9 +34,6 @@
     <ClInclude Include="Airport.h" />
     <ClInclude Include="Apart.h" />
     <ClInclude Include="DataBase.h" />
-    <ClInclude Include="DataBase_airport.h" />
-    <ClInclude Include="DataBase_apart.h" />
-    <ClInclude Include="DataBase_restaurant.h" />
     <ClInclude Include="Login.h" />
     <ClInclude Include="Place.h" />
     <ClInclude Include="Restaurant.h" />
