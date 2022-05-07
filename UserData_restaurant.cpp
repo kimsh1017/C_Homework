@@ -24,3 +24,7 @@ void UserData_restaurant::showData() {
 	cout << "password:" << password << endl;
 	cout << "age:" << age << endl;
 }
+
+int UserData_restaurant::get_age() {
+	return age;
+}

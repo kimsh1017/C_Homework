@@ -8,8 +8,6 @@ using namespace std;
 #include<string>
 #include<vector>
 
-//template <class T>
-
 class DataBase {
 	UserData* start;
 	UserData* last;

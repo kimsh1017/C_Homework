@@ -12,6 +12,7 @@ public:
 	UserData_restaurant();
 	void createUser(string);
 	void showData();
+	int get_age();
 };
 
 #endif

@@ -34,3 +34,10 @@ bool UserData::checkData(string id, string password) {
 string UserData::get_id() {
 	return id;
 }
+string UserData::get_name() {
+	return name;
+}
+
+int UserData::get_age() {
+	return 0;
+}

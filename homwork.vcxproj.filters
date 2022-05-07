@@ -25,17 +25,20 @@
     <Filter Include="소스 파일\DataBase">
       <UniqueIdentifier>{f3884bce-7695-4a72-927f-84efe62ce68a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\Place">
+    <Filter Include="소스 파일\Restaurant">
+      <UniqueIdentifier>{308bf5bc-89ec-42a2-a9b8-7041aa4acd0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Restaurant">
       <UniqueIdentifier>{4fd868c8-1988-4075-8f15-1cf9325cbdcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Console">
+      <UniqueIdentifier>{fcb26220-0479-487d-8774-7cc1a1b1c352}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Console">
+      <UniqueIdentifier>{c75260d2-a95f-42b6-bb2b-0510693f3d6b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Console.h">
-      <Filter>헤더 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Console.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -60,6 +63,24 @@
     <ClCompile Include="DataBase.cpp">
       <Filter>소스 파일\DataBase</Filter>
     </ClCompile>
+    <ClCompile Include="Restaruant.cpp">
+      <Filter>소스 파일\Restaurant</Filter>
+    </ClCompile>
+    <ClCompile Include="Schedule_restaurant.cpp">
+      <Filter>소스 파일\Restaurant</Filter>
+    </ClCompile>
+    <ClCompile Include="table.cpp">
+      <Filter>소스 파일\Restaurant</Filter>
+    </ClCompile>
+    <ClCompile Include="Console.h">
+      <Filter>헤더 파일\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Console.cpp">
+      <Filter>소스 파일\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Console_restaurant.cpp">
+      <Filter>소스 파일\Console</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -83,17 +104,17 @@
     <ClInclude Include="DataBase.h">
       <Filter>헤더 파일\DataBase</Filter>
     </ClInclude>
-    <ClInclude Include="Airport.h">
-      <Filter>헤더 파일\Place</Filter>
-    </ClInclude>
-    <ClInclude Include="Apart.h">
-      <Filter>헤더 파일\Place</Filter>
-    </ClInclude>
-    <ClInclude Include="Place.h">
-      <Filter>헤더 파일\Place</Filter>
-    </ClInclude>
     <ClInclude Include="Restaurant.h">
-      <Filter>헤더 파일\Place</Filter>
+      <Filter>헤더 파일\Restaurant</Filter>
+    </ClInclude>
+    <ClInclude Include="Schedule_restaurant.h">
+      <Filter>헤더 파일\Restaurant</Filter>
+    </ClInclude>
+    <ClInclude Include="Table.h">
+      <Filter>헤더 파일\Restaurant</Filter>
+    </ClInclude>
+    <ClInclude Include="Console_restaurant.h">
+      <Filter>헤더 파일\Console</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

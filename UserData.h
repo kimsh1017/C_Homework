@@ -16,8 +16,10 @@ public:
 	UserData();
 	virtual void createUser(string);
 	virtual void showData();
+	virtual int get_age();
 	bool checkData(string, string);
 	string get_id();
+	string get_name();
 };
 
 #endif

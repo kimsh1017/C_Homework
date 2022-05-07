@@ -2,6 +2,9 @@
 #include "UserData.h"
 #include "Login.h"
 #include "Console.h"
+
+#include "Restaurant.h"
+
 #include <iostream>
 using namespace std;
 #include<string>
@@ -11,10 +14,10 @@ string Console::password = "";
 int Console::place_menu = 0;
 int Console::login_menu = 0;
 
-
 System::System() {
 	login = new Login;
 	UserNow = NULL;
+	restaurant = new Restaurant;
 }
 void System::running() {
 	Console::set_place_menu(); 
@@ -26,8 +29,18 @@ void System::running() {
 
 		// 로그인 성공시
 		if (UserNow != NULL) {
-			cout << "로그인 성공" << endl;
-			UserNow->showData();
+			switch (Console::get_place_menu()) {
+			case 1:
+				cout << "비행기 예약 로그인 성공" << endl;
+				break;
+			case 2:
+				restaurant->sign_in(UserNow);
+				restaurant->open();
+				break;
+			case 3:
+				cout << "독서실 로그인 성공" << endl;
+				break;
+			}
 		}
 
 		cout << endl;

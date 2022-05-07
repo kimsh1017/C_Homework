@@ -3,8 +3,6 @@
 #include <string>
 using namespace std;
 
-
-
 void Console::set_id() {
 	cout << "ID >>";
 	cin >> id;
