@@ -13,6 +13,7 @@ public:
 	void sign_in(UserData*);
 	void set_date();
 	void appointment();
+	void cancel();
 	void walk_in();
 	void open();
 };

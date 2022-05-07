@@ -40,3 +40,13 @@ void Console_restaurant::set_people() {
 int Console_restaurant::get_people() {
 	return people;
 }
+
+void Console_restaurant::set_table() {
+	cout << "\'불가\'라고 쓰인 좌석은 예약할 수 없습니다" << endl;
+	cout << "예약하실 좌석의 번호를 입력해주세요 >>";
+	cin >> table;
+}
+
+int Console_restaurant::get_table() {
+	return table;
+}

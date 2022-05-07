@@ -11,7 +11,7 @@ void Schedule_restaurant::setTableSeat() {
 		reservation_4[i].set_seat_number(4);
 	}
 	for (int i = 0; i < 2; i++) {
-		reservation_4[i].set_seat_number(6);
+		reservation_6[i].set_seat_number(6);
 	}
 }
 
@@ -27,24 +27,50 @@ void Schedule_restaurant::setDate(string date) {
 }
 
 void Schedule_restaurant::appointment(UserData* User) {
-	int n;
 	this->User = User;
 	cout << date << endl;
+
+	//인원수 입력 받고 좌석 보여주기
 	Console_restaurant::set_people();
 	show_table(Console_restaurant::get_people());
 	
-	cout << "예약하시겠습니까? (예:1 /아니오:0)>>";
-	cin >> n;
-	if (n == 1) {
-		reservation_4[0].appointment(User);
+	//예약 받기
+	Console_restaurant::set_table();
+	if (Console_restaurant::get_table() / 6 == 0) {
+		if (reservation_4[Console_restaurant::get_table() - 1].get_appointed(Console_restaurant::get_people()) == "가능") {
+			reservation_4[Console_restaurant::get_table() - 1].appointment(User);
+		}
+		else {
+			cout << "예약이 불가능한 좌석입니다" << endl;
+		}
 	}
+	else {
+		if (reservation_4[Console_restaurant::get_table() - 5].get_appointed(Console_restaurant::get_people()) == "가능") {
+			reservation_4[Console_restaurant::get_table() - 5].appointment(User);
+		}
+		else {
+			cout << "예약이 불가능한 좌석입니다" << endl;
+		}
+	}
+	cout << endl;
 }
 
 void Schedule_restaurant::show_table(int people) {
-	User->showData();
-	cout << "========================" << endl;
-	cout << "  ┌────┐  " << endl;
-	cout << "o │ 1  │ o" << endl;
-	cout << "o │"<<reservation_4[0].get_appointed() << "│ o" << endl;
-	cout << "  └────┘  " << endl;
+	cout << "==============================" << endl;
+	cout << "  ┌────┐     ┌────┐     ┌────┐     ┌────┐   " << endl;
+	cout << " o│ 1  │ o  o│ 2  │ o  o│ 3  │ o  o│ 4  │ o " << endl;
+	cout << " o│"<<reservation_4[0].get_appointed(people) << "│ o  o│" << reservation_4[1].get_appointed(people) << "│ o  o│" << reservation_4[2].get_appointed(people) << "│ o  o│" << reservation_4[3].get_appointed(people) << "│ o " << endl;
+	cout << "  └────┘     └────┘     └────┘     └────┘   " << endl;
+	cout << endl;
+	cout << "    o o o      o o o  " << endl;
+	cout << "  ┌──────┐   ┌──────┐" << endl;
+	cout << "  │ 5" << reservation_6[0].get_appointed(people) << "│   │ 6" << reservation_6[1].get_appointed(people) << "│ " <<endl;
+	cout << "  └──────┘   └──────┘" << endl;
+	cout << "    o o o      o o o  " << endl;
+	cout << "==============================" << endl;
+}
+
+void Schedule_restaurant::cancel(UserData* User) {
+	this->User = User;
+	// 여기 구현?
 }

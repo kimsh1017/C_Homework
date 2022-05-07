@@ -11,17 +11,12 @@ void Table::set_seat_number(int number) {
 }
 
 void Table::appointment(UserData* User) {
-	if (this->name != "---") {
-		cout << "이미 예약된 좌석입니다" << endl;
-	}
-	else {
-		this->name = User->get_name();
-		cout << name << "님 예약되었습니다" << endl;
-	}
+	this->name = User->get_name();
+	cout << name << "님 예약되었습니다" << endl;	
 }
 
-string Table::get_appointed() {
-	if (this->name == "---") {
+string Table::get_appointed(int people) {
+	if (this->name == "---" && people <= this->seat_number) {
 		return "가능";
 	}
 	else {

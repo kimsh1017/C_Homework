@@ -24,31 +24,34 @@ Login::~Login() {
 void Login::sign_up(int place) {
 	switch (place) {
 	case 1: // 항공사 회원가입
-		LoginDataBase[place - 1].sign_up(new UserData_airport);
+		User = new UserData_airport;
+		LoginDataBase[place - 1].sign_up(User);
 		break;
 	case 2: // 식당 회원가입
-		LoginDataBase[place - 1].sign_up(new UserData_restaurant);
+		User = new UserData_restaurant;
+		LoginDataBase[place - 1].sign_up(User);
 		break;
 	case 3: // 독서실 회원가입
-		LoginDataBase[place - 1].sign_up(new UserData_apart);
+		User = new UserData_apart;
+		LoginDataBase[place - 1].sign_up(User);
 		break;
 	}
 }
-UserData* Login::sign_in(int place) {
+void Login::sign_in(int place) {
 	Console::set_id();
 	Console::set_password();
-	return LoginDataBase[place - 1].sign_in(Console::get_id(),Console::get_password());
+	User = LoginDataBase[place - 1].sign_in(Console::get_id(),Console::get_password());
 }
 
 UserData* Login::sign_in_or_up(int place) {
 	Console::set_login_menu();
 
 	if (Console::get_login_menu() == 1) { // 로그인
-		return sign_in(place);
+		sign_in(place);
 	}
 	else { // 회원가입
 		sign_up(place);
-		return NULL;
 	}
+	return User;
 }
 

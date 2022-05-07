@@ -9,6 +9,7 @@ using namespace std;
 int Console_restaurant::menu = 0;
 int Console_restaurant::date = 0;
 int Console_restaurant::people = 0;
+int Console_restaurant::table = 0;
 
 void Restaurant::set_date() {
 	schedules[0].setDate("5월 1일 일요일");
@@ -40,22 +41,30 @@ void Restaurant::walk_in() {
 
 void Restaurant::open() {
 	Console_restaurant::set_menu();
-	switch (Console_restaurant::get_menu()) {
-	case 1:
-		if (User->get_age() <= 7) {
-			cout << "7세 이하 미취학 아동은 예약이 불가능합니다." << endl;
+	while (Console_restaurant::get_menu() != 5) {
+		switch (Console_restaurant::get_menu()) {
+		case 1:
+			if (User->get_age() <= 7) {
+				cout << "7세 이하 미취학 아동은 예약이 불가능합니다." << endl;
+			}
+			else {
+				appointment();
+			}
+			break;
+		case 2:
+			cancel();
+		case 3:
+		case 4:
+		case 5:
+			cout << "로그아웃 합니다" << endl;
+			break;
 		}
-		else {
-			appointment();
-		}
-		break;
-	case 2:
-	case 3:
-	case 4:
-	case 5:
-		cout << "로그아웃 합니다" << endl;
-		break;
+		Console_restaurant::set_menu();
 	}
 }
 
+void Restaurant::cancel() {
+	Console_restaurant::set_date();
+	schedules[Console_restaurant::get_date() - 1].cancel(User);
+}
 

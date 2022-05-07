@@ -8,6 +8,7 @@ class Console_restaurant {
 	static int menu;
 	static int date;
 	static int people;
+	static int table;
 public:
 	static void set_menu();
 	static int get_menu();
@@ -17,5 +18,8 @@ public:
 
 	static void set_people();
 	static int get_people();
+
+	static void set_table();
+	static int get_table();
 };
 #endif

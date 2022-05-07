@@ -16,6 +16,7 @@ public:
 	void setTableSeat();
 	void setDate(string);
 	void appointment(UserData*);
+	void cancel(UserData* );
 	void show_table(int);
 };
 #endif

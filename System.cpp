@@ -28,17 +28,20 @@ void System::running() {
 		UserNow = login->sign_in_or_up(Console::get_place_menu());
 
 		// 로그인 성공시
-		if (UserNow != NULL) {
+		while (UserNow != NULL) {
 			switch (Console::get_place_menu()) {
 			case 1:
 				cout << "비행기 예약 로그인 성공" << endl;
+				UserNow = NULL;
 				break;
 			case 2:
 				restaurant->sign_in(UserNow);
 				restaurant->open();
+				UserNow = NULL;
 				break;
 			case 3:
 				cout << "독서실 로그인 성공" << endl;
+				UserNow = NULL;
 				break;
 			}
 		}
