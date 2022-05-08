@@ -31,7 +31,7 @@ void Restaurant::sign_in(UserData* User) {
 }
 
 void Restaurant::appointment() {
-	Console_restaurant::set_date();
+	Console_restaurant::set_date(); // 예외처리
 	schedules[Console_restaurant::get_date() - 1].appointment(User);
 }
 
@@ -53,8 +53,10 @@ void Restaurant::open() {
 			break;
 		case 2:
 			cancel();
+			break;
 		case 3:
 		case 4:
+			break;
 		case 5:
 			cout << "로그아웃 합니다" << endl;
 			break;
@@ -64,7 +66,8 @@ void Restaurant::open() {
 }
 
 void Restaurant::cancel() {
-	Console_restaurant::set_date();
-	schedules[Console_restaurant::get_date() - 1].cancel(User);
+	User->showTickets();
+	Console_restaurant::set_ticket_number();
+	User->cancel(Console_restaurant::get_ticket_number())
 }
 

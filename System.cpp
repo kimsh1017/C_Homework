@@ -24,7 +24,6 @@ void System::running() {
 
 	while (Console::get_place_menu() != 4) {
 		// 로그인 또는 회원가입
-		UserNow = NULL;
 		UserNow = login->sign_in_or_up(Console::get_place_menu());
 
 		// 로그인 성공시

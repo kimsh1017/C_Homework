@@ -37,6 +37,12 @@
     <Filter Include="소스 파일\Console">
       <UniqueIdentifier>{c75260d2-a95f-42b6-bb2b-0510693f3d6b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\TIcket">
+      <UniqueIdentifier>{18ed83de-74de-4fa9-b9e2-51ee2f447e98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Ticket">
+      <UniqueIdentifier>{36ee3c7c-04a5-4440-ab5a-c9bea4eeba67}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -81,6 +87,12 @@
     <ClCompile Include="System.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Ticket.cpp">
+      <Filter>소스 파일\Ticket</Filter>
+    </ClCompile>
+    <ClCompile Include="Ticket_restaurant.cpp">
+      <Filter>소스 파일\Ticket</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -115,6 +127,12 @@
     </ClInclude>
     <ClInclude Include="Console_restaurant.h">
       <Filter>헤더 파일\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Ticket.h">
+      <Filter>헤더 파일\TIcket</Filter>
+    </ClInclude>
+    <ClInclude Include="Ticket_restaurant.h">
+      <Filter>헤더 파일\TIcket</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -41,3 +41,16 @@ string UserData::get_name() {
 int UserData::get_age() {
 	return 0;
 }
+
+void UserData::cancel(int n){
+	cout << "대충 취소" << endl;
+}
+
+void UserData::appointment(int a, int b, int c) {
+	cout << "대충 예약" << endl;
+
+}
+
+void UserData::showTickets() {
+	cout << "대충 티켓 출력" << endl;
+}

@@ -36,17 +36,19 @@ void Schedule_restaurant::appointment(UserData* User) {
 	
 	//예약 받기
 	Console_restaurant::set_table();
-	if (Console_restaurant::get_table() / 6 == 0) {
+	if (Console_restaurant::get_table() / 5 == 0) {
 		if (reservation_4[Console_restaurant::get_table() - 1].get_appointed(Console_restaurant::get_people()) == "가능") {
 			reservation_4[Console_restaurant::get_table() - 1].appointment(User);
+			User->appointment(Console_restaurant::get_date(), Console_restaurant::get_table() , Console_restaurant::get_people(),&reservation_4[Console_restaurant::get_table() - 1]);
 		}
 		else {
 			cout << "예약이 불가능한 좌석입니다" << endl;
 		}
 	}
-	else {
-		if (reservation_4[Console_restaurant::get_table() - 5].get_appointed(Console_restaurant::get_people()) == "가능") {
-			reservation_4[Console_restaurant::get_table() - 5].appointment(User);
+	else if(Console_restaurant::get_table() != 7) {
+		if (reservation_6[Console_restaurant::get_table() - 5].get_appointed(Console_restaurant::get_people()) == "가능") {
+			reservation_6[Console_restaurant::get_table() - 5].appointment(User);
+			User->appointment(Console_restaurant::get_date(), Console_restaurant::get_table(), Console_restaurant::get_people(), &reservation_4[Console_restaurant::get_table() - 1]);
 		}
 		else {
 			cout << "예약이 불가능한 좌석입니다" << endl;
@@ -64,13 +66,8 @@ void Schedule_restaurant::show_table(int people) {
 	cout << endl;
 	cout << "    o o o      o o o  " << endl;
 	cout << "  ┌──────┐   ┌──────┐" << endl;
-	cout << "  │ 5" << reservation_6[0].get_appointed(people) << "│   │ 6" << reservation_6[1].get_appointed(people) << "│ " <<endl;
+	cout << "  │ 5" << reservation_6[0].get_appointed(people) << "│   │ 6" << reservation_6[1].get_appointed(people) << "│          7: 돌아가기" <<endl;
 	cout << "  └──────┘   └──────┘" << endl;
 	cout << "    o o o      o o o  " << endl;
 	cout << "==============================" << endl;
-}
-
-void Schedule_restaurant::cancel(UserData* User) {
-	this->User = User;
-	// 여기 구현?
 }
