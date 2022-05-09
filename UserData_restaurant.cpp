@@ -32,7 +32,12 @@ int UserData_restaurant::get_age() {
 }
 
 void UserData_restaurant::cancel(int ticket_number) {
-	cout << "대충 취소 화면" << endl;
+	if (ticket_number > tickets.size() || ticket_number < 1) {
+		cout << "잘못된 입력입니다" << endl;
+	}
+	else if (ticket_number != 0) {
+		tickets.erase(tickets.begin() + ticket_number - 1);
+	}
 }
 
 void UserData_restaurant::appointment(int date, int table_number ,int people) {
@@ -46,5 +51,16 @@ void UserData_restaurant::showTickets() {
 		cout << i+1 << "번 티켓" << endl;
 		tickets[i].showTicket();
 		cout << "------------------------------" << endl;
+	}
+}
+
+Ticket* UserData_restaurant::getTicket(int ticket_number) {
+	// 0일때 예외처리 & 반복?
+	if (ticket_number < 1 || ticket_number > tickets.size()){
+		cout << "잘못된 입력입니다" << endl;
+		return NULL;
+	}
+	else if (ticket_number != 0) {
+		return &tickets[ticket_number - 1];
 	}
 }

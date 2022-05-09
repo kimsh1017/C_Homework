@@ -24,4 +24,7 @@ string Table::get_appointed(int people) {
 	}
 }
 
+void Table::cancel() {
+	name = "---";
+}
 

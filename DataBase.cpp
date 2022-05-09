@@ -35,25 +35,15 @@ UserData* DataBase::sign_in(string id,string password) {
 }
 
 void DataBase::sign_up(UserData* newUser) {
-	cout << "회원가입 " << endl;
-	cout << "회원 정보를 입력해주세요" << endl;
-
-	//아이디 중복 체크
-	Console::set_id();
-	if (check_id()) {
-		cout << "사용이 불가능한 아이디 입니다" << endl;
+	if (start == NULL) {
+		start = newUser;
+		last = start;
 	}
 	else {
-		if (start == NULL) {
-			start = newUser;
-			last = start;
-		}
-		else {
-			last->next = newUser;
-			last = last->next;
-		}
-		last->createUser(Console::get_id());
+		last->next = newUser;
+		last = last->next;
 	}
+	last->createUser(Console::get_id());
 }
 
 bool DataBase::check_id() {

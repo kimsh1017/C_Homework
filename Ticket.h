@@ -12,5 +12,7 @@ protected:
 public:
 	Ticket();
 	virtual void showTicket();
+	virtual int get_date();
+	virtual int get_table_number();
 };
 #endif

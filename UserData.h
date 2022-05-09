@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 #include<string>
+#include "Ticket.h"
 
 class UserData {
 protected:
@@ -21,6 +22,8 @@ public:
 	virtual void appointment(int,int, int );
 
 	virtual void showTickets();
+	virtual Ticket* getTicket(int);
+
 	virtual int get_age();
 	bool checkData(string, string);
 	string get_id();

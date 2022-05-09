@@ -22,19 +22,29 @@ Login::~Login() {
 }
 
 void Login::sign_up(int place) {
-	switch (place) {
-	case 1: // 항공사 회원가입
-		User = new UserData_airport;
-		LoginDataBase[place - 1].sign_up(User);
-		break;
-	case 2: // 식당 회원가입
-		User = new UserData_restaurant;
-		LoginDataBase[place - 1].sign_up(User);
-		break;
-	case 3: // 독서실 회원가입
-		User = new UserData_apart;
-		LoginDataBase[place - 1].sign_up(User);
-		break;
+	cout << "회원가입 " << endl;
+	cout << "회원 정보를 입력해주세요" << endl;
+
+	Console::set_id(); // 아이디 중복 체크
+	if (LoginDataBase[place-1].check_id()) {
+		cout << "사용이 불가능한 아이디 입니다" << endl;
+		User = NULL;
+	}
+	else {
+		switch (place) {
+		case 1: // 항공사 회원가입
+			User = new UserData_airport;
+			LoginDataBase[place - 1].sign_up(User);
+			break;
+		case 2: // 식당 회원가입
+			User = new UserData_restaurant;
+			LoginDataBase[place - 1].sign_up(User);
+			break;
+		case 3: // 독서실 회원가입
+			User = new UserData_apart;
+			LoginDataBase[place - 1].sign_up(User);
+			break;
+		}
 	}
 }
 void Login::sign_in(int place) {

@@ -13,7 +13,9 @@ class Ticket_restaurant :public Ticket{
 	int people;
 	Table* table;
 public:
-	Ticket_restaurant(int, int, int, Table*);
+	Ticket_restaurant(int, int, int );
 	void showTicket();
+	int get_date();
+	int get_table_number();
 };
 #endif

@@ -39,7 +39,7 @@ void Schedule_restaurant::appointment(UserData* User) {
 	if (Console_restaurant::get_table() / 5 == 0) {
 		if (reservation_4[Console_restaurant::get_table() - 1].get_appointed(Console_restaurant::get_people()) == "가능") {
 			reservation_4[Console_restaurant::get_table() - 1].appointment(User);
-			User->appointment(Console_restaurant::get_date(), Console_restaurant::get_table() , Console_restaurant::get_people(),&reservation_4[Console_restaurant::get_table() - 1]);
+			User->appointment(Console_restaurant::get_date(), Console_restaurant::get_table() , Console_restaurant::get_people());
 		}
 		else {
 			cout << "예약이 불가능한 좌석입니다" << endl;
@@ -48,7 +48,7 @@ void Schedule_restaurant::appointment(UserData* User) {
 	else if(Console_restaurant::get_table() != 7) {
 		if (reservation_6[Console_restaurant::get_table() - 5].get_appointed(Console_restaurant::get_people()) == "가능") {
 			reservation_6[Console_restaurant::get_table() - 5].appointment(User);
-			User->appointment(Console_restaurant::get_date(), Console_restaurant::get_table(), Console_restaurant::get_people(), &reservation_4[Console_restaurant::get_table() - 1]);
+			User->appointment(Console_restaurant::get_date(), Console_restaurant::get_table(), Console_restaurant::get_people());
 		}
 		else {
 			cout << "예약이 불가능한 좌석입니다" << endl;
@@ -70,4 +70,13 @@ void Schedule_restaurant::show_table(int people) {
 	cout << "  └──────┘   └──────┘" << endl;
 	cout << "    o o o      o o o  " << endl;
 	cout << "==============================" << endl;
+}
+
+void Schedule_restaurant::cancel(int table_number) {
+	if (table_number > 4) {
+		reservation_6[table_number - 5].cancel();
+	}
+	else {
+		reservation_4[table_number-1].cancel();
+	}
 }

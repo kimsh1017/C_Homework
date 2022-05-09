@@ -19,8 +19,10 @@ public:
 	void appointment(int,int, int);
 	void showData();
 
+
 	int get_age();
 	void showTickets();
+	Ticket* getTicket(int);
 };
 
 #endif

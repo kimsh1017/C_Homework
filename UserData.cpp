@@ -54,3 +54,8 @@ void UserData::appointment(int a, int b, int c) {
 void UserData::showTickets() {
 	cout << "대충 티켓 출력" << endl;
 }
+
+Ticket* UserData::getTicket(int ticket_number) {
+	cout << "대충 티켓 포인터 반환" << endl;
+	return NULL;
+}

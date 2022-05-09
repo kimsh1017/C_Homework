@@ -14,5 +14,6 @@ public:
 	void set_seat_number(int);
 	void appointment(UserData* );
 	string get_appointed(int);
+	void cancel();
 };
 #endif

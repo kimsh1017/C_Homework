@@ -4,12 +4,14 @@
 
 #include <iostream>
 #include <string>
+#include "Ticket.h"
 using namespace std;
 
 int Console_restaurant::menu = 0;
 int Console_restaurant::date = 0;
 int Console_restaurant::people = 0;
 int Console_restaurant::table = 0;
+int Console_restaurant::ticket_number = 0;
 
 void Restaurant::set_date() {
 	schedules[0].setDate("5월 1일 일요일");
@@ -36,7 +38,35 @@ void Restaurant::appointment() {
 }
 
 void Restaurant::walk_in() {
-	cout << "대충 walk-in" << endl;
+	int walk_in_menu = 0;
+	if (walk_in_queue.empty()) {
+		cout << "테이블이 남아있습니다. 바로 식사하시겠습니까?" << endl;
+		cout << "예 : 1 / 아니오 : 2" << endl;
+		cin >> walk_in_menu;
+		if (walk_in_menu == 1) {
+			add_queue();
+		}
+	}
+	else if (User->get_id() == walk_in_queue.front()) {
+		// 앞 식사 종료되서 식사 시작 가능할 때?
+		int walk_in_menu = 0;
+		cout << "식사를 종료하시겠습니까?" << endl;
+		cout << "예 : 1 / 아니오 : 2" << endl;
+		cin >> walk_in_menu;
+		if (walk_in_menu == 1) {
+			walk_in_queue.pop();
+		}
+	}
+	else {
+		int walk_in_menu = 0;
+		cout << "현재" << walk_in_queue.size() << "명이 대기중입니다" << endl;
+		cout << "대기하시겠습니까?" << endl;
+		cout << "예 : 1 / 아니오 : 2" << endl;
+		cin >> walk_in_menu;
+		if (walk_in_menu == 1) {
+			add_queue();
+		}
+	}
 }
 
 void Restaurant::open() {
@@ -55,6 +85,8 @@ void Restaurant::open() {
 			cancel();
 			break;
 		case 3:
+			walk_in();
+			break;
 		case 4:
 			break;
 		case 5:
@@ -66,8 +98,20 @@ void Restaurant::open() {
 }
 
 void Restaurant::cancel() {
+	// User 에서 테이블 정보 받아오기
+	// 받은 정보로 테이블 객체 접근해 취소하기
+	Ticket* ticket = NULL;
+
 	User->showTickets();
 	Console_restaurant::set_ticket_number();
-	User->cancel(Console_restaurant::get_ticket_number())
+
+	ticket = User->getTicket(Console_restaurant::get_ticket_number());
+	if (ticket != NULL) {
+		schedules[ticket->get_date() - 1].cancel(ticket->get_table_number());
+	}
+	User->cancel(Console_restaurant::get_ticket_number());
 }
 
+void Restaurant::add_queue() {
+	walk_in_queue.push(User->get_id());
+}
