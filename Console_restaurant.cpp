@@ -85,18 +85,3 @@ void Console_restaurant::set_ticket_number() {
 int Console_restaurant::get_ticket_number() {
 	return ticket_number;
 }
-
-int Console_restaurant::set_walk_in_menu() {
-	int walk_in_menu = 0;
-	while (walk_in_menu == 0) {
-		cout << "1 : 예약 없이 방문" << endl;
-		cout << "2: 식사 종료" << endl;
-		cin >> walk_in_menu;
-
-		if (walk_in_menu != 1 && walk_in_menu != 2) {
-			cout << "잘못된 입력입니다" << endl;
-			walk_in_menu = 0;
-		}
-	}
-	return walk_in_menu;
-}

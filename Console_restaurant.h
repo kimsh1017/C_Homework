@@ -25,7 +25,5 @@ public:
 
 	void static set_ticket_number();
 	int static get_ticket_number();
-
-	int static set_walk_in_menu();
 };
 #endif

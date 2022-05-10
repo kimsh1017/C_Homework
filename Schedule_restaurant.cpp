@@ -80,3 +80,23 @@ void Schedule_restaurant::cancel(int table_number) {
 		reservation_4[table_number-1].cancel();
 	}
 }
+
+bool Schedule_restaurant::checkTable(int table_number) {
+	if (table_number > 4) {
+		if (reservation_6[table_number - 5].get_appointed(1) == "가능") {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	else {
+		if (reservation_4[table_number - 1].get_appointed(1) == "가능") {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+
+}

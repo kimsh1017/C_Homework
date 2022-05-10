@@ -18,5 +18,7 @@ public:
 	void appointment(UserData*);
 	void show_table(int);
 	void cancel(int);
+
+	bool checkTable(int);
 };
 #endif

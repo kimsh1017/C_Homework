@@ -4,14 +4,15 @@
 #include "UserData.h"
 #include "UserData_restaurant.h"
 #include "Schedule_restaurant.h"
-#include <queue>
+#include <deque>
 #include <string>
 using namespace std;
 
 class Restaurant {
 	UserData* User;
 	Schedule_restaurant* schedules;
-	queue <string> walk_in_queue;
+	deque <string> walk_in_queue; // list? deque?
+	string walk_in_table;
 public:
 	Restaurant();
 	void sign_in(UserData*);
@@ -20,6 +21,7 @@ public:
 	void cancel();
 	void walk_in();
 	void open();
+	void showStat();
 
 	void add_queue();
 };
