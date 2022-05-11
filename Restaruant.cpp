@@ -7,8 +7,6 @@
 #include "Ticket.h"
 using namespace std;
 
-int Console_restaurant::ticket_number = 0;
-
 Restaurant::Restaurant() {
 	this->User = NULL;
 	schedules = new Schedule_restaurant[7];
