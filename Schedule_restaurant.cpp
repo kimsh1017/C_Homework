@@ -6,7 +6,23 @@
 #include <string>
 using namespace std;
 
-void Schedule_restaurant::setTableSeat() {
+Schedule_restaurant::Schedule_restaurant() {
+	date = "";
+	reservation_4 = new Table[4]; // 이거 객체로 분리하기?
+	reservation_6 = new Table[2];
+
+	setTableSeat();
+}
+Schedule_restaurant::~Schedule_restaurant() {
+	delete[]reservation_4;
+	delete[]reservation_6;
+}
+
+void Schedule_restaurant::setDate(string date) { //요일 날짜 정하기
+	this->date = date;
+}
+
+void Schedule_restaurant::setTableSeat() { // 테이블당 좌석 수 정하기
 	for (int i = 0; i < 4; i++) {
 		reservation_4[i].set_seat_number(4);
 	}
@@ -15,40 +31,32 @@ void Schedule_restaurant::setTableSeat() {
 	}
 }
 
-Schedule_restaurant::Schedule_restaurant() {
-	date = "";
-	reservation_4 = new Table[4]; // 이거 객체로 분리하기?
-	reservation_6 = new Table[2];
 
-	setTableSeat();
-}
-void Schedule_restaurant::setDate(string date) {
-	this->date = date;
-}
 
-void Schedule_restaurant::appointment(UserData* User) {
+void Schedule_restaurant::appointment(UserData* User , int int_date) { // 예약
+	int people, table;
 	this->User = User;
 	cout << date << endl;
 
 	//인원수 입력 받고 좌석 보여주기
-	Console_restaurant::set_people();
-	show_table(Console_restaurant::get_people());
+	people = Console_restaurant::set_people();
+	show_table(people);
 	
 	//예약 받기
-	Console_restaurant::set_table();
-	if (Console_restaurant::get_table() / 5 == 0) {
-		if (reservation_4[Console_restaurant::get_table() - 1].get_appointed(Console_restaurant::get_people()) == "가능") {
-			reservation_4[Console_restaurant::get_table() - 1].appointment(User);
-			User->appointment(Console_restaurant::get_date(), Console_restaurant::get_table() , Console_restaurant::get_people());
+	table = Console_restaurant::set_table();
+	if (table / 5 == 0) {
+		if (reservation_4[table - 1].get_appointed(people) == "가능") {
+			reservation_4[table - 1].appointment(User);
+			User->appointment(int_date, table, people); // 요일 날짜 어떻게?
 		}
 		else {
 			cout << "예약이 불가능한 좌석입니다" << endl;
 		}
 	}
-	else if(Console_restaurant::get_table() != 7) {
-		if (reservation_6[Console_restaurant::get_table() - 5].get_appointed(Console_restaurant::get_people()) == "가능") {
-			reservation_6[Console_restaurant::get_table() - 5].appointment(User);
-			User->appointment(Console_restaurant::get_date(), Console_restaurant::get_table(), Console_restaurant::get_people());
+	else if(table != 7) {
+		if (reservation_6[table - 5].get_appointed(people) == "가능") {
+			reservation_6[table - 5].appointment(User);
+			User->appointment(int_date, table, people); // 여기도 요일 날짜 수정
 		}
 		else {
 			cout << "예약이 불가능한 좌석입니다" << endl;

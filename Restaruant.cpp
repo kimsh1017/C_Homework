@@ -7,13 +7,20 @@
 #include "Ticket.h"
 using namespace std;
 
-int Console_restaurant::menu = 0;
-int Console_restaurant::date = 0;
-int Console_restaurant::people = 0;
-int Console_restaurant::table = 0;
 int Console_restaurant::ticket_number = 0;
 
-void Restaurant::set_date() {
+Restaurant::Restaurant() {
+	this->User = NULL;
+	schedules = new Schedule_restaurant[7];
+	walk_in_table = "";
+
+	set_date(); // 스케줄에 요일 날짜 설정
+}
+Restaurant::~Restaurant() {
+	delete[]schedules;
+}
+
+void Restaurant::set_date() { // 요일 날짜 설정
 	schedules[0].setDate("5월 1일 일요일");
 	schedules[1].setDate("5월 2일 월요일");
 	schedules[2].setDate("5월 3일 화요일");
@@ -23,19 +30,14 @@ void Restaurant::set_date() {
 	schedules[6].setDate("5월 7일 토요일");
 }
 
-Restaurant::Restaurant() {
-	this->User = NULL;
-	schedules = new Schedule_restaurant[7];
-	set_date();
-	walk_in_table = "";
-}
-void Restaurant::sign_in(UserData* User) {
+
+void Restaurant::sign_in(UserData* User) { //로그인된 유저 정보 받아오기
 	this->User = User;
 }
 
 void Restaurant::appointment() {
-	Console_restaurant::set_date(); // 예외처리
-	schedules[Console_restaurant::get_date() - 1].appointment(User);
+	int date = Console_restaurant::set_date();
+	schedules[date - 1].appointment(User,date);
 }
 
 void Restaurant::walk_in() { // walk-in 구현
@@ -108,9 +110,10 @@ void Restaurant::walk_in() { // walk-in 구현
 }
 
 void Restaurant::open() {
-	Console_restaurant::set_menu();
-	while (Console_restaurant::get_menu() != 5) {
-		switch (Console_restaurant::get_menu()) {
+	int menu;
+	menu = Console_restaurant::set_menu();
+	while (menu!= 5) {
+		switch (menu) {
 		case 1:
 			if (User->get_age() <= 7) {
 				cout << "7세 이하 미취학 아동은 예약이 불가능합니다." << endl;
@@ -132,7 +135,7 @@ void Restaurant::open() {
 			cout << "로그아웃 합니다" << endl;
 			break;
 		}
-		Console_restaurant::set_menu();
+		menu = Console_restaurant::set_menu();
 	}
 }
 

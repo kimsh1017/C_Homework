@@ -15,6 +15,7 @@ class Restaurant {
 	string walk_in_table;
 public:
 	Restaurant();
+	~Restaurant();
 	void sign_in(UserData*);
 	void set_date();
 	void appointment();

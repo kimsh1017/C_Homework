@@ -3,8 +3,8 @@
 #include <string>
 using namespace std;
 
-void Console_restaurant::set_menu() {
-	menu = 0;
+int Console_restaurant::set_menu() {
+	int menu = 0;
 
 	while (menu == 0) {
 		cout << endl;
@@ -18,14 +18,11 @@ void Console_restaurant::set_menu() {
 			cout << "잘못된 입력입니다" << endl;
 		}
 	}
-}
-
-int Console_restaurant::get_menu() {
 	return menu;
 }
 
-void Console_restaurant::set_date() {
-	date = 0;
+int  Console_restaurant::set_date() {
+	int date = 0;
 
 	while (date == 0) {
 		cout << "날짜를 선택해주세요" << endl;
@@ -43,24 +40,20 @@ void Console_restaurant::set_date() {
 			cout << "잘못된 입력입니다" << endl;
 		}
 	}
-}
-
-int Console_restaurant::get_date() {
 	return date;
 }
 
 
-void Console_restaurant::set_people() {
+int Console_restaurant::set_people() {
+	int people;
 	cout << "방문 인원 >>";
 	cin >> people;
-}
 
-int Console_restaurant::get_people() {
 	return people;
 }
 
-void Console_restaurant::set_table() {
-	table = 0;
+int Console_restaurant::set_table() {
+	int table = 0;
 
 	while (table == 0) {
 		cout << "\'불가\'라고 쓰인 좌석은 예약할 수 없습니다" << endl;
@@ -72,9 +65,6 @@ void Console_restaurant::set_table() {
 			cout << "잘못된 입력입니다" << endl;
 		}
 	}
-}
-
-int Console_restaurant::get_table() {
 	return table;
 }
 

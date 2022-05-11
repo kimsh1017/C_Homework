@@ -9,10 +9,6 @@
 using namespace std;
 #include<string>
 
-string Console::id = "";
-string Console::password = "";
-int Console::place_menu = 0;
-int Console::login_menu = 0;
 
 System::System() {
 	login = new Login;
@@ -51,4 +47,5 @@ void System::running() {
 	}
 	cout << "프로그램을 종료합니다" << endl;
 	delete login;
+	delete restaurant;
 }

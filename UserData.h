@@ -17,9 +17,10 @@ public:
 	UserData* next;
 
 	virtual void createUser(string);
-	virtual void showData();
+	virtual void showData(); // 나중에는 지우자 이거
+
 	virtual void cancel(int);
-	virtual void appointment(int,int, int );
+	virtual void appointment(int ,int, int );
 
 	virtual void showTickets();
 	virtual Ticket* getTicket(int);

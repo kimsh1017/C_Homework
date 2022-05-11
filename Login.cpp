@@ -14,7 +14,7 @@ using namespace std;
 
 
 Login::Login() {
-	LoginDataBase = new DataBase[3];
+	LoginDataBase = new DataBase[3]; // 유저 데이터베이스 1.비행기 2.식당 3.독서실
 	User = NULL;
 }
 Login::~Login() {
@@ -25,8 +25,8 @@ void Login::sign_up(int place) {
 	cout << "회원가입 " << endl;
 	cout << "회원 정보를 입력해주세요" << endl;
 
-	Console::set_id(); // 아이디 중복 체크
-	if (LoginDataBase[place-1].check_id()) {
+	Console::set_id(); 
+	if (LoginDataBase[place-1].check_id()) { // 아이디 중복 체크
 		cout << "사용이 불가능한 아이디 입니다" << endl;
 		User = NULL;
 	}

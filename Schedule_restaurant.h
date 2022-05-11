@@ -13,9 +13,12 @@ class Schedule_restaurant {
 	Table* reservation_6;
 public:
 	Schedule_restaurant();
+	~Schedule_restaurant();
+
 	void setTableSeat();
 	void setDate(string);
-	void appointment(UserData*);
+
+	void appointment(UserData*, int);
 	void show_table(int);
 	void cancel(int);
 
