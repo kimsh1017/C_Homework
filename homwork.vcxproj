@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Apart.cpp" />
     <ClCompile Include="Console_restaurant.cpp" />
     <ClCompile Include="Restaruant.cpp" />
     <ClCompile Include="Console.cpp" />
@@ -37,6 +38,7 @@
     <ClCompile Include="UserData_restaurant.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Apart.h" />
     <ClInclude Include="Console_restaurant.h" />
     <ClInclude Include="Restaurant.h" />
     <ClInclude Include="DataBase.h" />
