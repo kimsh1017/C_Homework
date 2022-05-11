@@ -14,7 +14,7 @@ using namespace std;
 
 
 Login::Login() {
-	LoginDataBase = new DataBase[3]; // 유저 데이터베이스 1.비행기 2.식당 3.독서실
+	LoginDataBase = new DataBase[3]; // 유저 정보 데이터베이스 1.비행기 2.식당 3.독서실
 	User = NULL;
 }
 Login::~Login() {
@@ -59,10 +59,10 @@ UserData* Login::sign_in_or_up(int place) {
 	int login_menu;
 	login_menu = Console::set_login_menu();
 
-	if (login_menu == 1) { // 로그인
+	if (login_menu == 1) { // 1. 로그인
 		sign_in(place);
 	}
-	else { // 회원가입
+	else { // 2. 회원가입
 		sign_up(place);
 	}
 	return User;

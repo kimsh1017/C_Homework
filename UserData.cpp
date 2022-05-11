@@ -59,3 +59,8 @@ Ticket* UserData::getTicket(int ticket_number) {
 	cout << "대충 티켓 포인터 반환" << endl;
 	return NULL;
 }
+
+int UserData::get_tickets_size() {
+	cout << "대충 티켓 사이즈 구하기" << endl;
+	return 0;
+}

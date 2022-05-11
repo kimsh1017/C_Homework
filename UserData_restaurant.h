@@ -23,6 +23,7 @@ public:
 	int get_age();
 	void showTickets();
 	Ticket* getTicket(int);
+	int get_tickets_size();
 };
 
 #endif

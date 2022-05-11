@@ -29,6 +29,8 @@ public:
 	bool checkData(string, string);
 	string get_id();
 	string get_name();
+
+	virtual int get_tickets_size();
 };
 
 #endif

@@ -10,7 +10,6 @@ class Schedule_restaurant {
 	UserData* User;
 	string date;
 	Table* reservation_4;
-	Table* reservation_6;
 public:
 	Schedule_restaurant();
 	~Schedule_restaurant();

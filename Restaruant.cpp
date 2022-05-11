@@ -38,10 +38,10 @@ void Restaurant::appointment() {
 	schedules[date - 1].appointment(User,date);
 }
 
-void Restaurant::walk_in() { // walk-in 구현
+void Restaurant::walk_in() { // walk-in 구현 
 	int walk_in_menu = 0;
 
-	if (User->get_id() == walk_in_table) { // 테이블 구현이 맞을까?
+	if (User->get_id() == walk_in_table) { // 테이블 구현이 맞을까? or walk_in 객체 구현?
 		cout << "현재 식사중입니다" << endl;
 		cout << "식사를 종료하시겠습니까?" << endl;
 		cout << "예 : 1 / 아니오 : 2" << endl;
@@ -110,7 +110,7 @@ void Restaurant::walk_in() { // walk-in 구현
 void Restaurant::open() {
 	int menu;
 	menu = Console_restaurant::set_menu();
-	while (menu!= 5) {
+	while (menu!= 5) {  //menu 5 = 로그아웃
 		switch (menu) {
 		case 1:
 			if (User->get_age() <= 7) {
@@ -123,14 +123,11 @@ void Restaurant::open() {
 		case 2:
 			cancel();
 			break;
-		case 3:
+		case 3: 
 			walk_in();
 			break;
 		case 4:
 			showStat();
-			break;
-		case 5:
-			cout << "로그아웃 합니다" << endl;
 			break;
 		}
 		menu = Console_restaurant::set_menu();
@@ -138,19 +135,19 @@ void Restaurant::open() {
 }
 
 void Restaurant::cancel() {
-	// User 에서 테이블 정보 받아오기
-	// 받은 정보로 테이블 객체 접근해 취소하기
 	Ticket* ticket = NULL;
 	int ticket_number;
 
+	// User 에서 테이블 정보 받아오기
 	User->showTickets();
-	ticket_number = Console_restaurant::set_ticket_number();
+	ticket_number = Console_restaurant::set_ticket_number(User->get_tickets_size());
 	ticket = User->getTicket(ticket_number);
 
+	// 받은 정보로 테이블 객체 접근해 취소하기
 	if (ticket != NULL) {
 		schedules[ticket->get_date() - 1].cancel(ticket->get_table_number());
+		User->cancel(ticket_number);
 	}
-	User->cancel(ticket_number);
 }
 
 void Restaurant::add_queue() {

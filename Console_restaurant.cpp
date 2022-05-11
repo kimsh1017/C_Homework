@@ -68,11 +68,17 @@ int Console_restaurant::set_table() {
 	return table;
 }
 
-int Console_restaurant::set_ticket_number() {
-	int ticket_number;
-	cout << "취소하고 싶은 예약 번호를 입력하세요 (돌아가기 : 0 )>>";
-	cin >> ticket_number;
+int Console_restaurant::set_ticket_number(int max) {
+	int ticket_number = -1;
+	while (ticket_number == -1) {
+		cout << "취소하고 싶은 예약 번호를 입력하세요 (돌아가기 : 0 )>>";
+		cin >> ticket_number;
 
+		if (ticket_number < 0 || ticket_number > max) {
+			cout << "잘못된 입력입니다" << endl;
+			ticket_number = -1;
+		}
+	}
 	return ticket_number;
 }
 

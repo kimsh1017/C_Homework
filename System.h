@@ -6,11 +6,13 @@ using namespace std;
 #include "Login.h"
 #include "UserData.h"
 #include "Restaurant.h"
+#include "Apart.h"
 
 class System {
 	Login* login;
 	UserData* UserNow;
 	Restaurant* restaurant;
+	Apart* apart;
 public:
 	System();
 	void running();

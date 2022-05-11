@@ -4,6 +4,7 @@
 #include "Console.h"
 
 #include "Restaurant.h"
+#include "Apart.h"
 
 #include <iostream>
 using namespace std;
@@ -14,6 +15,7 @@ System::System() {
 	login = new Login;
 	UserNow = NULL;
 	restaurant = new Restaurant;
+	apart = new Apart;
 }
 void System::running() {
 	int place_menu;
@@ -24,7 +26,7 @@ void System::running() {
 		UserNow = login->sign_in_or_up(place_menu);
 
 		// 로그인 성공시
-		while (UserNow != NULL) {
+		if (UserNow != NULL) {
 			switch (place_menu) {
 			case 1:
 				cout << "비행기 예약 로그인 성공" << endl;
