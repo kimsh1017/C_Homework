@@ -3,30 +3,24 @@
 #include <string>
 using namespace std;
 
-string Console::id = "";
-string Console::password = "";
-int Console::place_menu = 0;
-int Console::login_menu = 0;
-
-void Console::set_id() {
+string Console::set_id() {
+	string id;
 	cout << "ID >>";
 	cin >> id;
-}
-string Console::get_id() {
 	return id;
 }
 
-void Console::set_password() {
+string Console::set_password() {
+	string password;
+
 	cout << "비밀번호 >>";
 	cin >> password;
-}
-string Console::get_password() {
 	return password;
 }
 
 
-void Console::set_place_menu() {
-	place_menu = 0;
+int Console::set_place_menu() {
+	int place_menu = 0;
 	while (place_menu == 0) {
 		cout << "예약 프로그램을 선택하세요" << endl;
 		cout << "1: 비행기 예약 / 2: 식당 예약 / 3: 독서실 예약 / 4: 종료>>";
@@ -37,10 +31,11 @@ void Console::set_place_menu() {
 			place_menu = 0;
 		}
 	}
+	return place_menu;
 }
 
-void Console::set_login_menu() {
-	login_menu = 0;
+int Console::set_login_menu() {
+	int login_menu = 0;
 	cout << "환영합니다" << endl;
 	while (login_menu == 0) {
 		cout << "1: 로그인 / 2: 회원 가입>>";
@@ -51,11 +46,6 @@ void Console::set_login_menu() {
 			login_menu = 0;
 		}
 	}
-}
-
-int Console::get_login_menu() {
 	return login_menu;
 }
-int Console::get_place_menu() {
-	return place_menu;
-}
+

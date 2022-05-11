@@ -14,8 +14,8 @@ class DataBase {
 public:
 	DataBase();
 	~DataBase();
-	void sign_up(UserData*);
+	void sign_up(UserData*, string);
 	UserData* sign_in(string,string);
-	bool check_id();
+	bool check_id(string);
 };
 #endif

@@ -143,15 +143,16 @@ void Restaurant::cancel() {
 	// User 에서 테이블 정보 받아오기
 	// 받은 정보로 테이블 객체 접근해 취소하기
 	Ticket* ticket = NULL;
+	int ticket_number;
 
 	User->showTickets();
-	Console_restaurant::set_ticket_number();
+	ticket_number = Console_restaurant::set_ticket_number();
+	ticket = User->getTicket(ticket_number);
 
-	ticket = User->getTicket(Console_restaurant::get_ticket_number());
 	if (ticket != NULL) {
 		schedules[ticket->get_date() - 1].cancel(ticket->get_table_number());
 	}
-	User->cancel(Console_restaurant::get_ticket_number());
+	User->cancel(ticket_number);
 }
 
 void Restaurant::add_queue() {

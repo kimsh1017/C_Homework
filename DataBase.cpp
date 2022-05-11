@@ -34,7 +34,7 @@ UserData* DataBase::sign_in(string id,string password) {
 	return NULL;
 }
 
-void DataBase::sign_up(UserData* newUser) {
+void DataBase::sign_up(UserData* newUser, string id) {
 	if (start == NULL) {
 		start = newUser;
 		last = start;
@@ -43,13 +43,13 @@ void DataBase::sign_up(UserData* newUser) {
 		last->next = newUser;
 		last = last->next;
 	}
-	last->createUser(Console::get_id());
+	last->createUser(id);
 }
 
-bool DataBase::check_id() {
+bool DataBase::check_id(string id) {
 	UserData* p = start;
 	while(p!= NULL) {
-		if (p->get_id() == Console::get_id()) {
+		if (p->get_id() == id) {
 			return true;
 		}
 		p = p->next;
