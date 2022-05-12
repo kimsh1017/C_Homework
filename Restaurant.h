@@ -21,7 +21,7 @@ public:
 	void appointment();
 	void cancel();
 	void walk_in();
-	void open();
+	void runServer();
 	void showStat();
 
 	void add_queue();

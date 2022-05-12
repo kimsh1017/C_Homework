@@ -14,8 +14,10 @@ using namespace std;
 System::System() {
 	login = new Login;
 	UserNow = NULL;
+
 	restaurant = new Restaurant;
 	apart = new Apart;
+	airport = new Airport;
 }
 void System::running() {
 	int place_menu;
@@ -29,12 +31,13 @@ void System::running() {
 		if (UserNow != NULL) {
 			switch (place_menu) {
 			case 1:
-				cout << "비행기 예약 로그인 성공" << endl;
+				airport->sign_in(UserNow);
+				airport->runServer();
 				UserNow = NULL;
 				break;
 			case 2:
 				restaurant->sign_in(UserNow);
-				restaurant->open();
+				restaurant->runServer();
 				UserNow = NULL;
 				break;
 			case 3:
@@ -51,4 +54,5 @@ void System::running() {
 	cout << "프로그램을 종료합니다" << endl;
 	delete login;
 	delete restaurant;
+	delete airport;
 }

@@ -19,7 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Airplane.cpp" />
+    <ClCompile Include="Airport.cpp" />
     <ClCompile Include="Apart.cpp" />
+    <ClCompile Include="Console_airport.cpp" />
     <ClCompile Include="Console_restaurant.cpp" />
     <ClCompile Include="Restaruant.cpp" />
     <ClCompile Include="Console.cpp" />
@@ -27,10 +30,12 @@
     <ClCompile Include="DataBase.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Schedule_airplane.cpp" />
     <ClCompile Include="Schedule_restaurant.cpp" />
     <ClCompile Include="System.cpp" />
     <ClCompile Include="table.cpp" />
     <ClCompile Include="Ticket.cpp" />
+    <ClCompile Include="Ticket_airport.cpp" />
     <ClCompile Include="Ticket_restaurant.cpp" />
     <ClCompile Include="UserData.cpp" />
     <ClCompile Include="UserData_airport.cpp" />
@@ -38,15 +43,20 @@
     <ClCompile Include="UserData_restaurant.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Airplane.h" />
+    <ClInclude Include="Airport.h" />
     <ClInclude Include="Apart.h" />
+    <ClInclude Include="Console_airport.h" />
     <ClInclude Include="Console_restaurant.h" />
     <ClInclude Include="Restaurant.h" />
     <ClInclude Include="DataBase.h" />
     <ClInclude Include="Login.h" />
+    <ClInclude Include="Schedule_airplane.h" />
     <ClInclude Include="Schedule_restaurant.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="Table.h" />
     <ClInclude Include="Ticket.h" />
+    <ClInclude Include="Ticket_airport.h" />
     <ClInclude Include="Ticket_restaurant.h" />
     <ClInclude Include="UserData.h" />
     <ClInclude Include="UserData_airport.h" />

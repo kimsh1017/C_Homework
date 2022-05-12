@@ -1,8 +1,6 @@
 #include "Console.h"
 
-#include <iostream>
-#include <string>
-using namespace std;
+
 
 string Console::set_id() {
 	string id;

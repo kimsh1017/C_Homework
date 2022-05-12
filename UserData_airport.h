@@ -5,11 +5,15 @@ using namespace std;
 #include<string>
 
 #include "UserData.h"
+#include <vector>
+#include "Ticket_airport.h"
 
 class UserData_airport : public UserData {
 	int mileage;
+	vector <Ticket_airport> tickets;
 public:
 	UserData_airport();
+	void appointment(int, int, int);
 };
 
 

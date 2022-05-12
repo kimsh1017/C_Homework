@@ -19,7 +19,6 @@ void UserData::createUser(string id) {
 	cin >> password;
 	cout << "ÀÌ¸§ >>";
 	cin >> name;
-
 }
 void UserData::showData() {
 	cout << "name: " << name << endl;

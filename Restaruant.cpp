@@ -107,7 +107,7 @@ void Restaurant::walk_in() { // walk-in 구현
 	}
 }
 
-void Restaurant::open() {
+void Restaurant::runServer() {
 	int menu;
 	menu = Console_restaurant::set_menu();
 	while (menu!= 5) {  //menu 5 = 로그아웃
