@@ -1,5 +1,6 @@
 #include "Ticket_airport.h"
 #include "Ticket.h"
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -28,8 +29,28 @@ void Ticket_airport::set_seat(int seat_type, int seat_number) {
 	this->seat_number = seat_number;
 }
 void Ticket_airport::showTicket() {
-	cout << "5월 " << this->date << "일" << endl;
-	cout << departure << "->" << arrival << endl;
-	cout << "시간대" << time << endl;
-	cout << seat_type << "-" << seat_number << "번 좌석" << endl;
+	string airport_list[5] = { "인천","김포","제주","김해","대구" };
+	string string_time;
+
+	switch (time) {
+	case 1:
+		string_time = "07시";
+		break;
+	case 2:
+		string_time = "12시";
+		break;
+	case 3:
+		string_time = "17시";
+		break;
+	}
+
+	cout << "5월 " << this->date << "일 " << string_time << endl;
+	cout << airport_list[departure - 1] << "->" << airport_list[arrival - 1] << endl;
+
+	if (seat_type == 1) {
+		cout << "이코노미 클래스" << seat_number << "번 좌석" << endl;
+	}
+	else {
+		cout << "비즈니스 클래스" << seat_number << "번 좌석" << endl;
+	}
 }

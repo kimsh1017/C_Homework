@@ -20,7 +20,12 @@ public:
 	virtual void createUser(string);
 	virtual void showData(); // 나중에는 지우자 이거
 
+	bool checkData(string, string);
+	string get_id();
+	string get_name();
+
 	virtual void cancel(int);
+
 	virtual void appointment(int ,int, int );
 	virtual void appointment(Ticket_airport*);
 
@@ -28,10 +33,6 @@ public:
 	virtual Ticket* getTicket(int);
 
 	virtual int get_age();
-	bool checkData(string, string);
-	string get_id();
-	string get_name();
-
 	virtual int get_tickets_size();
 };
 

@@ -13,5 +13,6 @@ public:
 	static int set_time();
 	static int set_seat_number();
 	static int set_seat_type();
+	static bool check_round_trip();
 };
 #endif

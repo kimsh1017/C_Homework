@@ -24,6 +24,7 @@ Login::~Login() {
 void Login::sign_up(int place) {
 	string id;
 
+	cout << "====================================" << endl;
 	cout << "회원가입 " << endl;
 	cout << "회원 정보를 입력해주세요" << endl;
 	id = Console::set_id(); 
@@ -50,6 +51,8 @@ void Login::sign_up(int place) {
 	}
 }
 void Login::sign_in(int place) {
+	cout << "====================================" << endl;
+	cout << "로그인 " << endl;
 	string id = Console::set_id();
 	string password = Console::set_password();
 	User = LoginDataBase[place - 1].sign_in(id,password);

@@ -12,6 +12,7 @@ UserData_airport::UserData_airport() {
 void UserData_airport::showTickets() {
 	cout << "============================" << endl;
 	cout << "현재 보유중인 티켓" << endl;
+	cout << "------------------------------" << endl;
 	for (int i = 0; i < tickets.size(); i++) {
 		cout << i + 1 << "번 티켓" << endl;
 		tickets[i].showTicket();
@@ -21,4 +22,5 @@ void UserData_airport::showTickets() {
 
 void UserData_airport::appointment(Ticket_airport* appointment_data) {
 	tickets.push_back(Ticket_airport(*appointment_data));
+	mileage += 100;
 }

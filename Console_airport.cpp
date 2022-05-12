@@ -47,13 +47,12 @@ int Console_airport::set_departure() {
 	int place = 0;
 	
 	while (place == 0) {
+		string airport_list[5] = { "인천","김포","제주","김해","대구" };
 		cout << "======================" << endl;
 		cout << "출발지를 선택해주세요" << endl;
-		cout << "1: 1번 공항" << endl;
-		cout << "2: 2번공항" << endl;
-		cout << "3: 3번공항" << endl;
-		cout << "4: 4번공항" << endl;
-		cout << "5: 5번공항" << endl;
+		for (int i = 0; i < 5; i++) {
+			cout << i + 1 << " : " << airport_list[i] << "공항" << endl;
+		}
 		cout << "출발지>>";
 		cin >> place;
 
@@ -67,15 +66,14 @@ int Console_airport::set_departure() {
 
 int Console_airport::set_arrival() {
 	int place = 0;
+	string airport_list[5] = { "인천","김포","제주","김해","대구" };
 
 	while (place == 0) {
 		cout << "======================" << endl;
 		cout << "도착지를 선택해주세요" << endl;
-		cout << "1: 1번 공항" << endl;
-		cout << "2: 2번공항" << endl;
-		cout << "3: 3번공항" << endl;
-		cout << "4: 4번공항" << endl;
-		cout << "5: 5번공항" << endl;
+		for (int i = 0; i < 5; i++) {
+			cout << i+1 << " : " << airport_list[i] << "공항" << endl;
+		}
 		cout << "도착지>>";
 		cin >> place;
 
@@ -105,7 +103,7 @@ int Console_airport::set_time() {
 int Console_airport::set_seat_number() {
 	int seat_number = 0;
 	while (seat_number == 0) {
-		cout << "예약을 원하는 자리를 입력해주세요 >>" << endl;
+		cout << "예약을 원하는 자리를 입력해주세요 >>";
 		cin >> seat_number;
 
 		if (seat_number > 8 || seat_number < 0) {
@@ -119,7 +117,7 @@ int Console_airport::set_seat_number() {
 int Console_airport::set_seat_type() {
 	int seat_type = 0;
 	while (seat_type == 0) {
-		cout << "좌석 등급을 선택해주세요 1: 이코노미 / 2: 비즈니스>>" << endl;
+		cout << "좌석 등급을 선택해주세요 1: 이코노미 / 2: 비즈니스>>";
 		cin >> seat_type;
 
 		if (seat_type > 2 || seat_type < 0) {
@@ -128,4 +126,18 @@ int Console_airport::set_seat_type() {
 		}
 	}
 	return seat_type;
+}
+
+bool Console_airport::check_round_trip() {
+	int temp = 0;
+
+	while (temp == 0) {
+		cout << "1: 왕복 / 2: 편도 >>";
+		cin >> temp;
+
+		if (temp > 2 || temp < 0) {
+			temp = 0;
+		}
+	}
+	return temp==1 ? true : false;
 }

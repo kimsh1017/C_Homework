@@ -30,7 +30,7 @@ void Airport::sign_in(UserData* User) {
 }
 
 void Airport::setAirplaneDeparture() {
-	string airport_list[5] = { "1번공항","2번공항","3번공항","4번공항","5번공항" };
+	string airport_list[5] = { "인천","김포","제주","김해","대구" };
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 4; j++) {
 			airplane_list[i][j].setDeparture(airport_list[i]);
@@ -39,8 +39,9 @@ void Airport::setAirplaneDeparture() {
 }
 
 void Airport::setAirplaneArrival() {
-	string airport_list[5] = { "1번공항","2번공항","3번공항","4번공항","5번공항" };
+	string airport_list[5] = { "인천","김포","제주","김해","대구" };
 	int temp;
+
 	for (int i = 0; i < 5; i++) {
 		temp = 0;
 		for (int j = 0; j < 4; j++) {
@@ -82,6 +83,8 @@ void Airport::runServer() {
 
 void Airport::appointment() {
 	int departure, arrival;
+	bool round_trip = Console_airport::check_round_trip();
+
 	departure = Console_airport::set_departure();
 	arrival = Console_airport::set_arrival();
 
@@ -90,13 +93,28 @@ void Airport::appointment() {
 		cout << "출발지와 도착지는 달라야합니다" << endl;
 	}
 	else {
-		if (arrival > departure) {
-			arrival--;
+		if (round_trip) {
+			set_route(departure, arrival);
+			set_route(arrival, departure);
 		}
-		appointment_data = new Ticket_airport();
-		appointment_data->set_route(departure, arrival);
-		airplane_list[departure - 1][arrival - 1].appointment(User, appointment_data);
+		else {
+			set_route(departure, arrival);
+		}
 	}
+}
+
+void Airport::set_route(int departure, int arrival) {
+	string airport_list[5] = { "인천","김포","제주","김해","대구" };
+	appointment_data = new Ticket_airport();
+	appointment_data->set_route(departure, arrival);
+
+	cout << airport_list[departure - 1] << "->" << airport_list[arrival - 1] << "행 비행기 " << endl;
+
+	if (arrival > departure) {
+		arrival--;
+	}
+	airplane_list[departure - 1][arrival - 1].appointment(User, appointment_data);
+	delete appointment_data;
 }
 
 void Airport::showStat() {

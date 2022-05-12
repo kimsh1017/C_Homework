@@ -28,18 +28,17 @@ void Schedule_airplane::appointment(UserData* User,Ticket_airport* appointment_d
 	seat_number = Console_airport::set_seat_number();
 
 	if (seat_type == 1) {
-		if (economy[seat_number].get_name() == "---") {
+		if (economy[seat_number-1].get_name() == "---") {
 			appointment_data->set_seat(seat_type, seat_number);
 			economy[seat_number - 1].appointment(User);
 			User->appointment(appointment_data);
 		}
 		else {
 			cout << "이미 예약된 좌석입니다" << endl;
-			// 여기 Ticket 예외처리는 ?
 		}
 	}
 	else {
-		if (bussiness[seat_number].get_name() == "---") {
+		if (bussiness[seat_number-1].get_name() == "---") {
 			appointment_data->set_seat(seat_type, seat_number);
 			bussiness[seat_number - 1].appointment(User);
 			User->appointment(appointment_data);

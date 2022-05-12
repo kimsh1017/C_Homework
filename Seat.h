@@ -9,9 +9,12 @@ using namespace std;
 
 class Seat {
 	string name;
+	int cost;
 public:
 	Seat();
 	void appointment(UserData*);
+	void set_cost(int);
+	int get_cost();
 	string get_name();
 	void cancel();
 };
