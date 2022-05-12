@@ -27,7 +27,6 @@
     <ClCompile Include="Console_restaurant.cpp" />
     <ClCompile Include="Restaruant.cpp" />
     <ClCompile Include="Console.cpp" />
-    <ClCompile Include="Console.h" />
     <ClCompile Include="DataBase.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
@@ -49,6 +48,7 @@
     <ClInclude Include="Airplane_date.h" />
     <ClInclude Include="Airport.h" />
     <ClInclude Include="Apart.h" />
+    <ClInclude Include="Console.h" />
     <ClInclude Include="Console_airport.h" />
     <ClInclude Include="Console_restaurant.h" />
     <ClInclude Include="Restaurant.h" />
