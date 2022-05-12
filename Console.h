@@ -2,8 +2,8 @@
 #define CONSOLE_H
 
 #include <iostream>
-using namespace std;
 #include<string>
+using namespace std;
 
 class Console {
 public:

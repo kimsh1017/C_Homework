@@ -20,10 +20,8 @@ void Schedule_airplane::setTime(string time) {
 	this->time = time;
 }
 
-void Schedule_airplane::appointment(UserData* User) {
+void Schedule_airplane::appointment(UserData* User,Ticket_airport* appointment_data) {
 	int seat_number, seat_type;
-	Ticket* ticket;
-	ticket = User->getTicketBack();
 
 	showSeats();
 	seat_type = Console_airport::set_seat_type();
@@ -31,8 +29,9 @@ void Schedule_airplane::appointment(UserData* User) {
 
 	if (seat_type == 1) {
 		if (economy[seat_number].get_name() == "---") {
-			ticket->set_seat(seat_type, seat_number);
+			appointment_data->set_seat(seat_type, seat_number);
 			economy[seat_number - 1].appointment(User);
+			User->appointment(appointment_data);
 		}
 		else {
 			cout << "이미 예약된 좌석입니다" << endl;
@@ -41,8 +40,9 @@ void Schedule_airplane::appointment(UserData* User) {
 	}
 	else {
 		if (bussiness[seat_number].get_name() == "---") {
-			ticket->set_seat(seat_type, seat_number);
+			appointment_data->set_seat(seat_type, seat_number);
 			bussiness[seat_number - 1].appointment(User);
+			User->appointment(appointment_data);
 		}
 		else {
 			cout << "이미 예약된 좌석입니다" << endl;

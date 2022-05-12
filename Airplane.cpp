@@ -38,13 +38,10 @@ void Airplane::setDate() {
 	airplane_date[6].setDate("5월 7일 토요일");
 }
 
-void Airplane::appointment(UserData* User) {
+void Airplane::appointment(UserData* User, Ticket_airport* appointment_data) {
 	int date;
-	Ticket* ticket;
 
 	date = Console_airport::set_date();
-	
-	ticket = User->getTicketBack();
-	ticket->set_date(date);
-	airplane_date[date - 1].appointment(User);
+	appointment_data->set_date(date);
+	airplane_date[date - 1].appointment(User,appointment_data);
 }

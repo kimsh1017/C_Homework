@@ -9,15 +9,6 @@ UserData_airport::UserData_airport() {
 	mileage = 0;
 }
 
-void UserData_airport::appointment(int departure , int arrival) {
-	//대충 티켓 만들기
-	tickets.push_back(Ticket_airport(departure, arrival));
-}
-
-Ticket* UserData_airport::getTicket(int ticket_number) {
-	return &tickets[ticket_number];
-}
-
 void UserData_airport::showTickets() {
 	cout << "============================" << endl;
 	cout << "현재 보유중인 티켓" << endl;
@@ -28,6 +19,6 @@ void UserData_airport::showTickets() {
 	}
 }
 
-Ticket* UserData_airport::getTicketBack() {
-	return &tickets.back();
+void UserData_airport::appointment(Ticket_airport* appointment_data) {
+	tickets.push_back(Ticket_airport(*appointment_data));
 }

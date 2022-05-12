@@ -4,15 +4,19 @@
 #include <string>
 using namespace std;
 
-Ticket_airport::Ticket_airport(int departure, int arrival) {
-	this->departure = departure;
-	this->arrival = arrival;
+Ticket_airport::Ticket_airport() {
+	departure = 0;
+	arrival = 0;
 	time = 0;
 	date = 0;
 	seat_type = 0;
 	seat_number = 0;
 }
 
+void Ticket_airport::set_route(int departure, int arrival) {
+	this->departure = departure;
+	this->arrival = arrival;
+}
 void Ticket_airport::set_date(int date) {
 	this->date = date;
 }

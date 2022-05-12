@@ -47,7 +47,9 @@ void UserData::cancel(int n){
 
 void UserData::appointment(int a, int b, int c) {
 	cout << "대충 예약" << endl;
-
+}
+void UserData::appointment(Ticket_airport* temp) {
+	cout << "예약" << endl;
 }
 
 void UserData::showTickets() {
@@ -62,11 +64,4 @@ Ticket* UserData::getTicket(int ticket_number) {
 int UserData::get_tickets_size() {
 	cout << "대충 티켓 사이즈 구하기" << endl;
 	return 0;
-}
-
-void UserData::appointment(int a, int b) {
-	cout << "티켓 만들기" << endl;
-}
-Ticket* UserData::getTicketBack() {
-	return NULL;
 }

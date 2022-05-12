@@ -15,7 +15,8 @@ class Ticket_airport:public Ticket {
 	int seat_number;
 
 public:
-	Ticket_airport(int, int);
+	Ticket_airport();
+	void set_route(int, int);
 	void set_date(int);
 	void set_time(int);
 	void set_seat(int, int);

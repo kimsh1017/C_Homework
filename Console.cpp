@@ -1,7 +1,5 @@
 #include "Console.h"
 
-
-
 string Console::set_id() {
 	string id;
 	cout << "ID >>";

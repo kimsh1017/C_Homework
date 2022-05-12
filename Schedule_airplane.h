@@ -5,6 +5,7 @@
 #include <string>
 using namespace std;
 #include "Seat.h"
+#include "Ticket_airport.h"
 
 class Schedule_airplane {
 	string time;
@@ -14,7 +15,7 @@ public:
 	Schedule_airplane();
 	~Schedule_airplane();
 	void setTime(string);
-	void appointment(UserData*);
+	void appointment(UserData*, Ticket_airport*);
 	void showSeats();
 };
 

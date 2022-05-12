@@ -23,12 +23,10 @@ void Airplane_date::setDate(string date) {
 	this->date = date;
 }
 
-void Airplane_date::appointment(UserData* User) {
+void Airplane_date::appointment(UserData* User,Ticket_airport* appointment_data) {
 	int time;
-	Ticket* ticket;
 
 	time = Console_airport::set_time();
-	ticket = User->getTicketBack();
-	ticket->set_time(time);
-	schedules[time - 1].appointment(User);
+	appointment_data->set_time(time);
+	schedules[time - 1].appointment(User,appointment_data);
 }

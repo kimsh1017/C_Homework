@@ -10,6 +10,7 @@ using namespace std;
 Airport::Airport() {
 	User = NULL;
 	airplane_list = new Airplane * [5];
+	appointment_data = NULL;
 	
 	for (int i = 0; i < 5; i++) { // 비행기 목록 만들기
 		airplane_list[i] = new Airplane[4];
@@ -50,7 +51,7 @@ void Airport::setAirplaneArrival() {
 	}
 }
 
-void Airport::show_airplane_list() {
+void Airport::show_airplane_list() { // 디버깅용 출발 도착 출력
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 4; j++) {
 			cout << airplane_list[i][j].getDeparture() << "->" << airplane_list[i][j].getArrival() << endl;
@@ -92,8 +93,9 @@ void Airport::appointment() {
 		if (arrival > departure) {
 			arrival--;
 		}
-		User->appointment(departure,arrival);
-		airplane_list[departure - 1][arrival - 1].appointment(User);
+		appointment_data = new Ticket_airport();
+		appointment_data->set_route(departure, arrival);
+		airplane_list[departure - 1][arrival - 1].appointment(User, appointment_data);
 	}
 }
 

@@ -18,12 +18,3 @@ int Ticket::get_table_number() {
 	return 0;
 }
 
-void Ticket::set_date(int a) {
-	// setDate
-}
-void Ticket::set_time(int a) {
-	// setTime
-}
-void Ticket::set_seat(int a,int b) {
-	// setSeat
-}
