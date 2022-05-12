@@ -13,7 +13,10 @@ class UserData_airport : public UserData {
 	vector <Ticket_airport> tickets;
 public:
 	UserData_airport();
-	void appointment(int, int, int);
+	void appointment(int, int);
+	Ticket* getTicket(int);
+	Ticket* getTicketBack();
+	void showTickets();
 };
 
 

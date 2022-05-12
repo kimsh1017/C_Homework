@@ -16,7 +16,8 @@ public:
 	void show_airplane_list();
 
 	void runServer();
-
+	void appointment();
+	void showStat();
 };
 
 #endif

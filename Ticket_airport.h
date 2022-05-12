@@ -8,7 +8,17 @@
 using namespace std;
 
 class Ticket_airport:public Ticket {
+	int departure;
+	int arrival;
+	int time;
+	int seat_type;
+	int seat_number;
+
 public:
-	Ticket_airport();
+	Ticket_airport(int, int);
+	void set_date(int);
+	void set_time(int);
+	void set_seat(int, int);
+	void showTicket();
 };
 #endif

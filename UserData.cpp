@@ -63,3 +63,10 @@ int UserData::get_tickets_size() {
 	cout << "대충 티켓 사이즈 구하기" << endl;
 	return 0;
 }
+
+void UserData::appointment(int a, int b) {
+	cout << "티켓 만들기" << endl;
+}
+Ticket* UserData::getTicketBack() {
+	return NULL;
+}

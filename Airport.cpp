@@ -1,6 +1,12 @@
 #include "Airport.h"
 #include "Console_airport.h"
 
+#include "Ticket.h"
+#include "Ticket_airport.h"
+#include <iostream>
+#include <string>
+using namespace std;
+
 Airport::Airport() {
 	User = NULL;
 	airplane_list = new Airplane * [5];
@@ -59,16 +65,38 @@ void Airport::runServer() {
 	while (menu != 4) {
 		switch (menu) {
 		case 1:
-			cout << "대충 예약" << endl;
+			appointment();
 			break;
 		case 2:
 			cout << "대충 취소" << endl;
 			break;
 		case 3:
-			cout << "대충 통계" << endl;
+			showStat();
 			break;
 		}
 		menu = Console_airport::set_menu();
 	}
 	cout << "비행기 예약 시스템을 종료합니다" << endl;
+}
+
+void Airport::appointment() {
+	int departure, arrival;
+	departure = Console_airport::set_departure();
+	arrival = Console_airport::set_arrival();
+
+	if (departure == arrival) {
+		cout << "잘못된 입력입니다" << endl;
+		cout << "출발지와 도착지는 달라야합니다" << endl;
+	}
+	else {
+		if (arrival > departure) {
+			arrival--;
+		}
+		User->appointment(departure,arrival);
+		airplane_list[departure - 1][arrival - 1].appointment(User);
+	}
+}
+
+void Airport::showStat() {
+	User->showTickets();
 }

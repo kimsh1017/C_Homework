@@ -4,12 +4,12 @@
 #include <iostream>
 #include <string>
 using namespace std;
-#include "Schedule_airplane.h"
+#include "Airplane_date.h"
 
 class Airplane {
 	string departure;
 	string arrival;
-	Schedule_airplane* schedules;
+	Airplane_date* airplane_date;
 public:
 	Airplane();
 	~Airplane();
@@ -19,6 +19,7 @@ public:
 
 	string getDeparture();
 	string getArrival();
+	void appointment(UserData*);
 };
 
 #endif

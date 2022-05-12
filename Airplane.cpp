@@ -1,12 +1,19 @@
 #include "Airplane.h"
+#include "Console_airport.h"
+
+#include "Ticket.h"
+#include "Ticket_airport.h"
+#include <iostream>
+#include <string>
+using namespace std;
 
 Airplane::Airplane() {
 	departure = "";
 	arrival = "";
-	schedules = new Schedule_airplane[7];
+	airplane_date = new Airplane_date[7];
 }
 Airplane::~Airplane() {
-	delete []schedules;
+	delete []airplane_date;
 }
 
 void Airplane::setDeparture(string departure) {
@@ -22,11 +29,22 @@ string Airplane::getArrival() {
 	return arrival;
 }
 void Airplane::setDate() {
-	schedules[0].setDate("5월 1일 일요일");
-	schedules[1].setDate("5월 2일 월요일");
-	schedules[2].setDate("5월 3일 화요일");
-	schedules[3].setDate("5월 4일 수요일");
-	schedules[4].setDate("5월 5일 목요일");
-	schedules[5].setDate("5월 6일 금요일");
-	schedules[6].setDate("5월 7일 토요일");
+	airplane_date[0].setDate("5월 1일 일요일");
+	airplane_date[1].setDate("5월 2일 월요일");
+	airplane_date[2].setDate("5월 3일 화요일");
+	airplane_date[3].setDate("5월 4일 수요일");
+	airplane_date[4].setDate("5월 5일 목요일");
+	airplane_date[5].setDate("5월 6일 금요일");
+	airplane_date[6].setDate("5월 7일 토요일");
+}
+
+void Airplane::appointment(UserData* User) {
+	int date;
+	Ticket* ticket;
+
+	date = Console_airport::set_date();
+	
+	ticket = User->getTicketBack();
+	ticket->set_date(date);
+	airplane_date[date - 1].appointment(User);
 }

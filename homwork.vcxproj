@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Airplane.cpp" />
+    <ClCompile Include="Airplane_date.cpp" />
     <ClCompile Include="Airport.cpp" />
     <ClCompile Include="Apart.cpp" />
     <ClCompile Include="Console_airport.cpp" />
@@ -32,6 +33,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Schedule_airplane.cpp" />
     <ClCompile Include="Schedule_restaurant.cpp" />
+    <ClCompile Include="Seat.cpp" />
     <ClCompile Include="System.cpp" />
     <ClCompile Include="table.cpp" />
     <ClCompile Include="Ticket.cpp" />
@@ -44,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Airplane.h" />
+    <ClInclude Include="Airplane_date.h" />
     <ClInclude Include="Airport.h" />
     <ClInclude Include="Apart.h" />
     <ClInclude Include="Console_airport.h" />
@@ -53,6 +56,7 @@
     <ClInclude Include="Login.h" />
     <ClInclude Include="Schedule_airplane.h" />
     <ClInclude Include="Schedule_restaurant.h" />
+    <ClInclude Include="Seat.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="Table.h" />
     <ClInclude Include="Ticket.h" />

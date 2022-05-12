@@ -43,9 +43,6 @@
     <Filter Include="소스 파일\Ticket">
       <UniqueIdentifier>{36ee3c7c-04a5-4440-ab5a-c9bea4eeba67}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Apart">
-      <UniqueIdentifier>{892c18fd-2a2a-4787-9ed1-fc53600a4337}</UniqueIdentifier>
-    </Filter>
     <Filter Include="헤더 파일\Apart">
       <UniqueIdentifier>{bc48f4ac-ca7e-42ad-a30a-9c674fc371b6}</UniqueIdentifier>
     </Filter>
@@ -54,6 +51,9 @@
     </Filter>
     <Filter Include="헤더 파일\Airport">
       <UniqueIdentifier>{3f8eb272-9d64-4099-8102-3dd5ef75d5a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Apart">
+      <UniqueIdentifier>{892c18fd-2a2a-4787-9ed1-fc53600a4337}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +123,12 @@
     <ClCompile Include="Console_airport.cpp">
       <Filter>소스 파일\Console</Filter>
     </ClCompile>
+    <ClCompile Include="Seat.cpp">
+      <Filter>소스 파일\Airport</Filter>
+    </ClCompile>
+    <ClCompile Include="Airplane_date.cpp">
+      <Filter>소스 파일\Airport</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -181,6 +187,12 @@
     </ClInclude>
     <ClInclude Include="Console_airport.h">
       <Filter>헤더 파일\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Seat.h">
+      <Filter>헤더 파일\Airport</Filter>
+    </ClInclude>
+    <ClInclude Include="Airplane_date.h">
+      <Filter>헤더 파일\Airport</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

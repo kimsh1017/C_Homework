@@ -8,5 +8,10 @@ class Console_airport {
 public:
 	static int set_menu();
 	static int set_date();
+	static int set_departure();
+	static int set_arrival();
+	static int set_time();
+	static int set_seat_number();
+	static int set_seat_type();
 };
 #endif
