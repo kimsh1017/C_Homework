@@ -14,5 +14,6 @@ public:
 	static int set_seat_number();
 	static int set_seat_type();
 	static bool check_round_trip();
+	static int set_ticket_number(int);
 };
 #endif

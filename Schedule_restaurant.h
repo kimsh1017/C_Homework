@@ -4,6 +4,7 @@
 #include "Table.h"
 #include <iostream>
 #include <string>
+#include "Ticket_restaurant.h"
 using namespace std;
 
 class Schedule_restaurant {
@@ -17,7 +18,7 @@ public:
 	void setTableSeat();
 	void setDate(string);
 
-	void appointment(UserData*, int);
+	void appointment(UserData*,Ticket_restaurant* );
 	void show_table(int);
 	void cancel(int);
 

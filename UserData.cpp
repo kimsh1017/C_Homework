@@ -40,16 +40,20 @@ string UserData::get_name() {
 int UserData::get_age() {
 	return 0;
 }
+int UserData::get_mileage() {
+	return 0;
+}
 
 void UserData::cancel(int n){
 	cout << "대충 취소" << endl;
 }
 
-void UserData::appointment(int a, int b, int c) {
-	cout << "대충 예약" << endl;
-}
+
 void UserData::appointment(Ticket_airport* temp) {
 	cout << "예약" << endl;
+}
+void UserData::appointment(Ticket_restaurant* temp) {
+	cout << "대충 예약" << endl;
 }
 
 void UserData::showTickets() {

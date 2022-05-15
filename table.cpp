@@ -1,5 +1,4 @@
 #include "Table.h"
-#include "UserData.h"
 
 Table::Table() {
 	name = "---";

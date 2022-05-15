@@ -2,7 +2,6 @@
 #define TICKET_RESTAURANT_H
 
 #include "Ticket.h"
-#include "Table.h"
 
 #include <iostream>
 #include <string>
@@ -11,10 +10,13 @@ using namespace std;
 class Ticket_restaurant :public Ticket{
 	int table_number;
 	int people;
-	Table* table;
 public:
-	Ticket_restaurant(int, int, int );
+	Ticket_restaurant();
 	void showTicket();
+	void set_date(int);
+	void set_table_number(int);
+	void set_people(int);
+
 	int get_date();
 	int get_table_number();
 };

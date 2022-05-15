@@ -30,3 +30,7 @@ void Airplane_date::appointment(UserData* User,Ticket_airport* appointment_data)
 	appointment_data->set_time(time);
 	schedules[time - 1].appointment(User,appointment_data);
 }
+void Airplane_date::cancel(Ticket* cancel_data) {
+	int time = cancel_data->get_time();
+	schedules[time - 1].cancel(cancel_data);
+}

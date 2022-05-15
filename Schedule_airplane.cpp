@@ -61,3 +61,16 @@ void Schedule_airplane::showSeats() {
 	}
 	cout << endl;
 }
+
+void Schedule_airplane::cancel(Ticket* cancel_data) {
+	int seat_number,seat_type;
+	seat_type = cancel_data->get_seat_type();
+	seat_number = cancel_data->get_seat_number();
+
+	if (seat_type == 1) {
+		economy[seat_number - 1].cancel();
+	}
+	else {
+		bussiness[seat_number - 1].cancel();
+	}
+}

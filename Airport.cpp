@@ -70,7 +70,7 @@ void Airport::runServer() {
 			appointment();
 			break;
 		case 2:
-			cout << "대충 취소" << endl;
+			cancel();
 			break;
 		case 3:
 			showStat();
@@ -105,9 +105,11 @@ void Airport::appointment() {
 
 void Airport::set_route(int departure, int arrival) {
 	string airport_list[5] = { "인천","김포","제주","김해","대구" };
-	appointment_data = new Ticket_airport();
+
+	appointment_data = new Ticket_airport;
 	appointment_data->set_route(departure, arrival);
 
+	cout << endl;
 	cout << airport_list[departure - 1] << "->" << airport_list[arrival - 1] << "행 비행기 " << endl;
 
 	if (arrival > departure) {
@@ -117,6 +119,26 @@ void Airport::set_route(int departure, int arrival) {
 	delete appointment_data;
 }
 
+void Airport::cancel() {
+	int ticket_number, departure , arrival;
+	Ticket* cancel_data = NULL;
+
+	User->showTickets();
+	ticket_number = Console_airport::set_ticket_number(User->get_tickets_size());
+
+	if (ticket_number != 0) {
+		cancel_data = User->getTicket(ticket_number);
+		departure = cancel_data->get_departure();
+		arrival = cancel_data->get_arrival();
+
+		if (arrival > departure) arrival--;
+		airplane_list[departure-1][arrival-1].cancel(cancel_data);
+		User->cancel(ticket_number);
+	}
+}
+
 void Airport::showStat() {
 	User->showTickets();
+	cout << endl;
+	cout << "마일리지 : "<< User->get_mileage() << "km" << endl;
 }

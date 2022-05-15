@@ -35,8 +35,8 @@ void UserData_restaurant::cancel(int ticket_number) {
 	tickets.erase(tickets.begin() + ticket_number - 1);
 }
 
-void UserData_restaurant::appointment(int date, int table_number ,int people) {
-	tickets.push_back(Ticket_restaurant(date, table_number, people));
+void UserData_restaurant::appointment(Ticket_restaurant* appointment_data) {
+	tickets.push_back(*appointment_data);
 }
 
 void UserData_restaurant::showTickets() {

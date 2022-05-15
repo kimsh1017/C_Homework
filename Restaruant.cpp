@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <string>
-#include "Ticket.h"
+#include "Ticket_restaurant.h"
 using namespace std;
 
 Restaurant::Restaurant() {
@@ -35,7 +35,10 @@ void Restaurant::sign_in(UserData* User) { //로그인된 유저 정보 받아오기
 
 void Restaurant::appointment() {
 	int date = Console_restaurant::set_date();
-	schedules[date - 1].appointment(User,date);
+
+	appointment_data = new Ticket_restaurant;
+	appointment_data->set_date(date);
+	schedules[date - 1].appointment(User,appointment_data);
 }
 
 void Restaurant::walk_in() { // walk-in 구현 

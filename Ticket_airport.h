@@ -21,5 +21,12 @@ public:
 	void set_time(int);
 	void set_seat(int, int);
 	void showTicket();
+
+	int get_date();
+	int get_departure();
+	int get_arrival();
+	int get_time();
+	int get_seat_type();
+	int get_seat_number();
 };
 #endif

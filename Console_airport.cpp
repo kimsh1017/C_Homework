@@ -66,14 +66,9 @@ int Console_airport::set_departure() {
 
 int Console_airport::set_arrival() {
 	int place = 0;
-	string airport_list[5] = { "인천","김포","제주","김해","대구" };
 
 	while (place == 0) {
-		cout << "======================" << endl;
 		cout << "도착지를 선택해주세요" << endl;
-		for (int i = 0; i < 5; i++) {
-			cout << i+1 << " : " << airport_list[i] << "공항" << endl;
-		}
 		cout << "도착지>>";
 		cin >> place;
 
@@ -130,6 +125,7 @@ int Console_airport::set_seat_type() {
 
 bool Console_airport::check_round_trip() {
 	int temp = 0;
+	cout << endl;
 
 	while (temp == 0) {
 		cout << "1: 왕복 / 2: 편도 >>";
@@ -140,4 +136,18 @@ bool Console_airport::check_round_trip() {
 		}
 	}
 	return temp==1 ? true : false;
+}
+
+int Console_airport::set_ticket_number(int max) {
+	int ticket_number = -1;
+	while (ticket_number == -1) {
+		cout << "취소하고 싶은 예약 번호를 입력하세요 (돌아가기 : 0 )>>";
+		cin >> ticket_number;
+
+		if (ticket_number < 0 || ticket_number > max) {
+			cout << "잘못된 입력입니다" << endl;
+			ticket_number = -1;
+		}
+	}
+	return ticket_number;
 }

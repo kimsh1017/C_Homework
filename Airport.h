@@ -20,6 +20,7 @@ public:
 	void runServer();
 	void appointment();
 	void set_route(int, int);
+	void cancel();
 	void showStat();
 };
 

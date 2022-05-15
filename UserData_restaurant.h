@@ -6,7 +6,6 @@ using namespace std;
 
 #include "UserData.h"
 #include "Ticket_restaurant.h"
-#include "Table.h"
 #include <vector>
 
 class UserData_restaurant : public UserData {
@@ -16,7 +15,7 @@ public:
 	UserData_restaurant();
 	void createUser(string);
 	void cancel(int);
-	void appointment(int,int, int);
+	void appointment(Ticket_restaurant*);
 	void showData();
 
 

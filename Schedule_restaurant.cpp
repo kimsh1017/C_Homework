@@ -31,7 +31,7 @@ void Schedule_restaurant::setTableSeat() { // 테이블당 좌석 수 정하기
 
 
 
-void Schedule_restaurant::appointment(UserData* User , int int_date) { // 예약
+void Schedule_restaurant::appointment(UserData* User , Ticket_restaurant* appointment_data) { // 예약
 	int people, table;
 	this->User = User;
 	cout << date << endl;
@@ -44,8 +44,10 @@ void Schedule_restaurant::appointment(UserData* User , int int_date) { // 예약
 	table = Console_restaurant::set_table();
 	if (table != 7) {
 		if (reservation_4[table - 1].get_appointed(people) == "가능") {
+			appointment_data->set_table_number(table);
+			appointment_data->set_people(people);
 			reservation_4[table - 1].appointment(User);
-			User->appointment(int_date, table, people);
+			User->appointment(appointment_data);
 		}
 		else {
 			cout << "예약이 불가능한 좌석입니다" << endl;

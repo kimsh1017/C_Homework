@@ -54,3 +54,22 @@ void Ticket_airport::showTicket() {
 		cout << "비즈니스 클래스" << seat_number << "번 좌석" << endl;
 	}
 }
+
+int Ticket_airport::get_date() {
+	return date;
+}
+int Ticket_airport::get_departure() {
+	return departure;
+}
+int Ticket_airport::get_arrival() {
+	return arrival;
+}
+int Ticket_airport::get_time() {
+	return time;
+}
+int Ticket_airport::get_seat_type() {
+	return seat_type;
+}
+int Ticket_airport::get_seat_number() {
+	return seat_number;
+}

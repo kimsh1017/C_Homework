@@ -12,7 +12,7 @@ class Table {
 public:
 	Table();
 	void set_seat_number(int);
-	void appointment(UserData* );
+	void appointment(UserData*);
 	string get_appointed(int);
 	void cancel();
 };

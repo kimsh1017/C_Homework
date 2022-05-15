@@ -15,6 +15,10 @@ public:
 	UserData_airport();
 	void showTickets();
 	void appointment(Ticket_airport*);
+	void cancel(int);
+	int get_mileage();
+	Ticket* getTicket(int);
+	int get_tickets_size();
 };
 
 
