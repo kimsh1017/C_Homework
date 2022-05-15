@@ -15,5 +15,6 @@ public:
 	static float set_cost();
 	static bool check_round_trip();
 	static int set_ticket_number(int);
+	static int set_stat_menu();
 };
 #endif

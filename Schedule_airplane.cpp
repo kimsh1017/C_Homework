@@ -36,7 +36,7 @@ void Schedule_airplane::appointment(UserData* User,Ticket_airport* appointment_d
 	showSeats(cost);
 	seat_number = Console_airport::set_seat_number();
 
-	if (seats[seat_number - 1].get_cost() > cost) {
+	if (seats[seat_number - 1].get_cost() <= cost) {
 		if (seats[seat_number - 1].get_name() != "---") {
 			cout << "이미 예약된 좌석입니다" << endl;
 		}
@@ -73,7 +73,7 @@ void Schedule_airplane::showSeats(float cost) {
 	cout << endl;
 
 	for (int i = 0; i < 8; i++) {
-		if (seats[i].get_name() == "---" && seats[i].get_cost() < cost) {
+		if (seats[i].get_name() == "---" && seats[i].get_cost() <= cost) {
 			cout << "   가능   |";
 		}
 		else {

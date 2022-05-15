@@ -138,7 +138,35 @@ void Airport::cancel() {
 }
 
 void Airport::showStat() {
-	User->showTickets();
-	cout << endl;
-	cout << "마일리지 : "<< User->get_mileage() << "km" << endl;
+	int menu;
+	int economy = 0;
+	int bussiness = 0;
+	int seat_stat[8] = {0,};
+	Ticket* ticket;
+
+	menu = Console_airport::set_stat_menu();
+	if (menu == 1) {
+		User->showTickets();
+		cout << endl;
+		cout << "마일리지 : " << User->get_mileage() << "km" << endl;
+	}
+	else {
+		for (int i = 0; i < User->get_tickets_size(); i++) {
+			ticket = User->getTicket(i+1);
+			seat_stat[ticket->get_seat_number() - 1]++;
+		}
+		for (int i = 0; i < 8; i++) {
+			if (i < 3) bussiness += seat_stat[i];
+			else economy += seat_stat[i];
+		}
+
+		cout << "============================" << endl;
+		cout << "예약된 좌석 수" << endl;
+		for (int i = 0; i < 8; i++) {
+			cout << i + 1 << "번 좌석 : " << seat_stat[i] << "회" << endl;
+		}
+		cout << endl;
+		cout << "총 예약된 이코노미 좌석 수 : " << economy << endl;
+		cout << "총 예약된 비즈니스 좌석 수 : " << bussiness << endl;
+	}
 }
