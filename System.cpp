@@ -10,7 +10,6 @@
 #include<string>
 using namespace std;
 
-
 System::System() {
 	login = new Login;
 	UserNow = NULL;
