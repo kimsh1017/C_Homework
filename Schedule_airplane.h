@@ -10,14 +10,14 @@ using namespace std;
 
 class Schedule_airplane {
 	string time;
-	Seat* economy;
-	Seat* bussiness;
+	Seat* seats;
 public:
 	Schedule_airplane();
 	~Schedule_airplane();
+	void set_seat_cost();
 	void setTime(string);
 	void appointment(UserData*, Ticket_airport*);
-	void showSeats();
+	void showSeats(float);
 	void cancel(Ticket*);
 };
 

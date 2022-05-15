@@ -11,7 +11,6 @@ class Ticket_airport:public Ticket {
 	int departure;
 	int arrival;
 	int time;
-	int seat_type;
 	int seat_number;
 
 public:
@@ -19,14 +18,13 @@ public:
 	void set_route(int, int);
 	void set_date(int);
 	void set_time(int);
-	void set_seat(int, int);
+	void set_seat_number(int);
 	void showTicket();
 
 	int get_date();
 	int get_departure();
 	int get_arrival();
 	int get_time();
-	int get_seat_type();
 	int get_seat_number();
 };
 #endif

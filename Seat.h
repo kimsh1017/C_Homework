@@ -13,7 +13,8 @@ class Seat {
 public:
 	Seat();
 	void appointment(UserData*);
-	void set_cost(int);
+	void set_cost_bussiness();
+	void set_cost_economy();
 	int get_cost();
 	string get_name();
 	void cancel();

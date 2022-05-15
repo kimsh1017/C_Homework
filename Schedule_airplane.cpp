@@ -9,68 +9,83 @@ using namespace std;
 
 Schedule_airplane::Schedule_airplane() {
 	time = "";
-	economy = new Seat[8];
-	bussiness = new Seat[8];
+
+	seats = new Seat[8]; // 3개 비즈니스 5개 이코노미
+	set_seat_cost();
 }
 Schedule_airplane::~Schedule_airplane() {
-	delete[]economy;
-	delete[]bussiness;
+
+	delete[]seats;
 }
+void Schedule_airplane::set_seat_cost() { //이거 걍 합칠까
+	for (int i = 0; i < 8; i++) {
+		i < 3 ? seats[i].set_cost_bussiness() : seats[i].set_cost_economy();
+	}
+}
+
 void Schedule_airplane::setTime(string time) {
 	this->time = time;
 }
 
 void Schedule_airplane::appointment(UserData* User,Ticket_airport* appointment_data) {
-	int seat_number, seat_type;
+	int seat_number;
+	float cost;
 
-	showSeats();
-	seat_type = Console_airport::set_seat_type();
+	cost = Console_airport::set_cost();
+
+	showSeats(cost);
 	seat_number = Console_airport::set_seat_number();
 
-	if (seat_type == 1) {
-		if (economy[seat_number-1].get_name() == "---") {
-			appointment_data->set_seat(seat_type, seat_number);
-			economy[seat_number - 1].appointment(User);
-			User->appointment(appointment_data);
+	if (seats[seat_number - 1].get_cost() > cost) {
+		if (seats[seat_number - 1].get_name() != "---") {
+			cout << "이미 예약된 좌석입니다" << endl;
 		}
 		else {
-			cout << "이미 예약된 좌석입니다" << endl;
+			appointment_data->set_seat_number(seat_number);
+			seats[seat_number - 1].appointment(User);
+			User->appointment(appointment_data);
 		}
 	}
 	else {
-		if (bussiness[seat_number-1].get_name() == "---") {
-			appointment_data->set_seat(seat_type, seat_number);
-			bussiness[seat_number - 1].appointment(User);
-			User->appointment(appointment_data);
-		}
-		else {
-			cout << "이미 예약된 좌석입니다" << endl;
-		}
+		cout << "입력한 예산을 초과하는 좌석입니다" << endl;
 	}
 }
 
-void Schedule_airplane::showSeats() {
-	cout << "이코노미석" << endl;
+void Schedule_airplane::showSeats(float cost) {
+
+	cout << "===========================" << endl;
+	
 	for (int i = 0; i < 8; i++) {
-		cout << i+1 << ":" << economy[i].get_name() << " ";
+		cout << " "<< i + 1 << "번 좌석 " << "|";
 	}
 	cout << endl;
-	cout << "비즈니스석" << endl;
+
 	for (int i = 0; i < 8; i++) {
-		cout << i+1 << ":" << bussiness[i].get_name() << " ";
+		if (i<3) cout <<" 비즈니스 " << "|";
+		else cout << " 이코노미 " << "|";
+	}
+	cout << endl;
+
+	for (int i = 0; i < 8; i++) {
+		if(i<3)cout << "  "<< seats[i].get_cost() << "만원  |";
+		else cout << "  " << seats[i].get_cost() << " 만원  |";
+	}
+	cout << endl;
+
+	for (int i = 0; i < 8; i++) {
+		if (seats[i].get_name() == "---" && seats[i].get_cost() < cost) {
+			cout << "   가능   |";
+		}
+		else {
+			cout << "   불가   |";
+		}
 	}
 	cout << endl;
 }
 
 void Schedule_airplane::cancel(Ticket* cancel_data) {
-	int seat_number,seat_type;
-	seat_type = cancel_data->get_seat_type();
+	int seat_number;
 	seat_number = cancel_data->get_seat_number();
 
-	if (seat_type == 1) {
-		economy[seat_number - 1].cancel();
-	}
-	else {
-		bussiness[seat_number - 1].cancel();
-	}
+	seats[seat_number - 1].cancel();
 }

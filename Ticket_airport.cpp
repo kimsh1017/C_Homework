@@ -10,7 +10,6 @@ Ticket_airport::Ticket_airport() {
 	arrival = 0;
 	time = 0;
 	date = 0;
-	seat_type = 0;
 	seat_number = 0;
 }
 
@@ -24,8 +23,7 @@ void Ticket_airport::set_date(int date) {
 void Ticket_airport::set_time(int time) {
 	this->time = time;
 }
-void Ticket_airport::set_seat(int seat_type, int seat_number) {
-	this->seat_type = seat_type;
+void Ticket_airport::set_seat_number(int seat_number) {
 	this->seat_number = seat_number;
 }
 void Ticket_airport::showTicket() {
@@ -47,11 +45,11 @@ void Ticket_airport::showTicket() {
 	cout << "5월 " << this->date << "일 " << string_time << endl;
 	cout << airport_list[departure - 1] << "->" << airport_list[arrival - 1] << endl;
 
-	if (seat_type == 1) {
-		cout << "이코노미 클래스" << seat_number << "번 좌석" << endl;
+	if (seat_number < 3) {
+		cout << "비즈니스 클래스" << seat_number << "번 좌석" << endl;
 	}
 	else {
-		cout << "비즈니스 클래스" << seat_number << "번 좌석" << endl;
+		cout << "이코노미 클래스" << seat_number << "번 좌석" << endl;
 	}
 }
 
@@ -66,9 +64,6 @@ int Ticket_airport::get_arrival() {
 }
 int Ticket_airport::get_time() {
 	return time;
-}
-int Ticket_airport::get_seat_type() {
-	return seat_type;
 }
 int Ticket_airport::get_seat_number() {
 	return seat_number;

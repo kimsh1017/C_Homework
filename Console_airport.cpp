@@ -109,20 +109,6 @@ int Console_airport::set_seat_number() {
 	return seat_number;
 }
 
-int Console_airport::set_seat_type() {
-	int seat_type = 0;
-	while (seat_type == 0) {
-		cout << "좌석 등급을 선택해주세요 1: 이코노미 / 2: 비즈니스>>";
-		cin >> seat_type;
-
-		if (seat_type > 2 || seat_type < 0) {
-			cout << "잘못된 입력입니다" << endl;
-			seat_type = 0;
-		}
-	}
-	return seat_type;
-}
-
 bool Console_airport::check_round_trip() {
 	int temp = 0;
 	cout << endl;
@@ -150,4 +136,30 @@ int Console_airport::set_ticket_number(int max) {
 		}
 	}
 	return ticket_number;
+}
+
+float Console_airport::set_cost() {
+	int menu = 0;
+	float cost = 0;
+	while (menu == 0) {
+		cout << "1. 가격 상한선 설정하기 / 2. 모든 좌석 보기 >>";
+		cin >> menu;
+		if (menu > 2 || menu < 0) {
+			menu = 0;
+			cout << "잘못된 입력입니다" << endl;
+		}
+	}
+	
+	if (menu == 2) {
+		cost = 11;
+	}
+	while (cost == 0) {
+		cout << " 가격 : __만 원 이하 >>";
+		cin >> cost;
+
+		if (cost < 0) {
+			cout << "잘못된 입력입니다" << endl;
+		}
+	}
+	return cost;
 }

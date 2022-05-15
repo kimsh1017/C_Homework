@@ -12,7 +12,7 @@ public:
 	static int set_arrival();
 	static int set_time();
 	static int set_seat_number();
-	static int set_seat_type();
+	static float set_cost();
 	static bool check_round_trip();
 	static int set_ticket_number(int);
 };
