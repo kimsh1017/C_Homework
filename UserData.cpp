@@ -55,6 +55,9 @@ void UserData::appointment(Ticket_airport* temp) {
 void UserData::appointment(Ticket_restaurant* temp) {
 	cout << "대충 예약" << endl;
 }
+void UserData::appointment(Ticket_apart* temp) {
+	cout << "예약" << endl;
+}
 
 void UserData::showTickets() {
 	cout << "대충 티켓 출력" << endl;

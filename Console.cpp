@@ -46,3 +46,9 @@ int Console::set_login_menu() {
 	return login_menu;
 }
 
+string Console::set_apartment_number() {
+	string apartment_number = "";
+	cout << "세대를 입력해주세요 : 101동 ___호 >>";
+	cin >> apartment_number; // 숫자 외에 다른거 입력시 예외?
+	return apartment_number;
+}

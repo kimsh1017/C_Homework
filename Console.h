@@ -11,5 +11,6 @@ public:
 	static string set_password();
 	static int set_place_menu();
 	static int set_login_menu();
+	static string set_apartment_number();
 };
 #endif

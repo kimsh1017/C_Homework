@@ -16,4 +16,6 @@ int main() {
 * 
 * (4) 비행기 왕복 예약시 하나 취소하면 나머지도 취소?
 * (5) 비행기 왕복 예약시 출발 도착 시간 설정 예외처리
+* 
+* 4. console 지우기? include "windows.h" system("cls") -> system 객체 변경
 */

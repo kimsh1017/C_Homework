@@ -10,9 +10,12 @@ Ticket::Ticket() {
 void Ticket::showTicket() {
 	cout << "티켓 출력" << endl;
 }
+void Ticket::set_date(int date) {
+	this->date = date;
+}
 
 int Ticket::get_date() {
-	return 0;
+	return date;
 }
 int Ticket::get_table_number() {
 	return 0;

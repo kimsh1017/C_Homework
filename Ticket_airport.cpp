@@ -17,9 +17,6 @@ void Ticket_airport::set_route(int departure, int arrival) {
 	this->departure = departure;
 	this->arrival = arrival;
 }
-void Ticket_airport::set_date(int date) {
-	this->date = date;
-}
 void Ticket_airport::set_time(int time) {
 	this->time = time;
 }
@@ -53,9 +50,6 @@ void Ticket_airport::showTicket() {
 	}
 }
 
-int Ticket_airport::get_date() {
-	return date;
-}
 int Ticket_airport::get_departure() {
 	return departure;
 }

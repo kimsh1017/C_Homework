@@ -11,10 +11,12 @@ protected:
 	int date;
 public:
 	Ticket();
+	void set_date(int);
+	int get_date();
+
 	virtual void showTicket();
 
 	// Ticket_restaurant
-	virtual int get_date();
 	virtual int get_table_number();
 
 	//Ticket_airport

@@ -126,6 +126,21 @@
     <ClCompile Include="Airplane_date.cpp">
       <Filter>소스 파일\Airport</Filter>
     </ClCompile>
+    <ClCompile Include="Console_apart.cpp">
+      <Filter>소스 파일\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Schedule_StudyRoom.cpp">
+      <Filter>소스 파일\Apart</Filter>
+    </ClCompile>
+    <ClCompile Include="StudyRoom_Date.cpp">
+      <Filter>소스 파일\Apart</Filter>
+    </ClCompile>
+    <ClCompile Include="Seat_StudyRoom.cpp">
+      <Filter>소스 파일\Apart</Filter>
+    </ClCompile>
+    <ClCompile Include="Ticket_apart.cpp">
+      <Filter>소스 파일\Ticket</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -193,6 +208,21 @@
     </ClInclude>
     <ClInclude Include="Console.h">
       <Filter>헤더 파일\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Console_apart.h">
+      <Filter>헤더 파일\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="StudyRoom_Date.h">
+      <Filter>헤더 파일\Apart</Filter>
+    </ClInclude>
+    <ClInclude Include="Schedule_StudyRoom.h">
+      <Filter>헤더 파일\Apart</Filter>
+    </ClInclude>
+    <ClInclude Include="Seat_StudyRoom.h">
+      <Filter>헤더 파일\Apart</Filter>
+    </ClInclude>
+    <ClInclude Include="Ticket_apart.h">
+      <Filter>헤더 파일\TIcket</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

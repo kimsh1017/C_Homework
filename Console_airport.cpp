@@ -24,6 +24,7 @@ int Console_airport::set_menu() {
 int  Console_airport::set_date() {
 	int date = 0;
 
+	cout << "====================================" << endl;
 	while (date == 0) {
 		cout << "날짜를 선택해주세요" << endl;
 		cout << "*****5월****************************" << endl;
@@ -48,8 +49,8 @@ int Console_airport::set_departure() {
 	
 	while (place == 0) {
 		string airport_list[5] = { "인천","김포","제주","김해","대구" };
-		cout << "======================" << endl;
-		cout << "출발지를 선택해주세요" << endl;
+		cout << "==============================" << endl;
+		cout << "출발지와 도착지를 선택해주세요" << endl;
 		for (int i = 0; i < 5; i++) {
 			cout << i + 1 << " : " << airport_list[i] << "공항" << endl;
 		}
@@ -68,7 +69,6 @@ int Console_airport::set_arrival() {
 	int place = 0;
 
 	while (place == 0) {
-		cout << "도착지를 선택해주세요" << endl;
 		cout << "도착지>>";
 		cin >> place;
 
@@ -82,6 +82,8 @@ int Console_airport::set_arrival() {
 
 int Console_airport::set_time() {
 	int time = 0;
+
+	cout << "==============================" << endl;
 	while (time == 0) {
 		cout << "시간대를 입력해주세요" << endl;
 		cout << "1: 07시 / 2: 12시 / 3: 17시 >>";

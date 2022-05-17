@@ -7,6 +7,7 @@ using namespace std;
 #include "Ticket.h"
 #include "Ticket_airport.h"
 #include "Ticket_restaurant.h"
+#include "Ticket_apart.h"
 
 class UserData {
 protected:
@@ -22,7 +23,7 @@ public:
 	virtual void showData(); // 나중에는 지우자 이거
 
 	bool checkData(string, string);
-	string get_id();
+	virtual string get_id();
 	string get_name();
 
 	virtual void cancel(int);
@@ -30,12 +31,16 @@ public:
 
 	virtual void appointment(Ticket_airport*);
 	virtual void appointment(Ticket_restaurant*);
+	virtual void appointment(Ticket_apart*);
 
 	virtual void showTickets(); //꼬인거 풀기 필요
 	virtual Ticket* getTicket(int);
 
 	virtual int get_age();
 	virtual int get_mileage();
+
+	//apart
+	virtual int getTotalTime(int) { return 0; }
 };
 
 #endif

@@ -14,9 +14,6 @@ void Ticket_restaurant::showTicket() { // 이름도 출력해줘
 	cout << this->table_number << "번 테이블 예약" << endl;
 	cout << "동반인 : " << people << endl;
 }
-void Ticket_restaurant::set_date(int date) {
-	this->date = date;
-}
 void Ticket_restaurant::set_table_number(int table_number) {
 	this->table_number = table_number;
 }
@@ -26,9 +23,6 @@ void Ticket_restaurant::set_people(int people) {
 
 
 
-int Ticket_restaurant::get_date() {
-	return date;
-}
 int Ticket_restaurant::get_table_number() {
 	return table_number;
 }

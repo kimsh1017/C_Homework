@@ -17,7 +17,7 @@ public:
 	void setAirplaneArrival();
 	void show_airplane_list();
 
-	void runServer();
+	void runServer(UserData*);
 	void appointment();
 	void set_route(int, int);
 	void cancel();

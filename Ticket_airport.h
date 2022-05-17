@@ -16,12 +16,10 @@ class Ticket_airport:public Ticket {
 public:
 	Ticket_airport();
 	void set_route(int, int);
-	void set_date(int);
 	void set_time(int);
 	void set_seat_number(int);
 	void showTicket();
 
-	int get_date();
 	int get_departure();
 	int get_arrival();
 	int get_time();

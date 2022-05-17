@@ -61,7 +61,8 @@ void Airport::show_airplane_list() { // µð¹ö±ë¿ë Ãâ¹ß µµÂø Ãâ·Â
 	}
 }
 
-void Airport::runServer() {
+void Airport::runServer(UserData* User) {
+	this->User = User;
 	int menu = 0;
 	menu = Console_airport::set_menu();
 	while (menu != 4) {

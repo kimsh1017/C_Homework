@@ -30,17 +30,17 @@ void System::running() {
 		if (UserNow != NULL) {
 			switch (place_menu) {
 			case 1:
-				airport->sign_in(UserNow);
-				airport->runServer();
+				//airport->sign_in(UserNow);
+				airport->runServer(UserNow);
 				UserNow = NULL;
 				break;
 			case 2:
-				restaurant->sign_in(UserNow);
-				restaurant->runServer();
+				//restaurant->sign_in(UserNow);
+				restaurant->runServer(UserNow);
 				UserNow = NULL;
 				break;
 			case 3:
-				cout << "독서실 로그인 성공" << endl;
+				apart->runserver(UserNow);
 				UserNow = NULL;
 				break;
 			}
