@@ -12,5 +12,9 @@ public:
 	static string set_gender();
 	static string set_name();
 	static int set_seat_number();
+	static int set_age();
+	static int set_ticket_number(int);
+	static int set_stat_menu();
+	static int set_stat_detail();
 };
 #endif

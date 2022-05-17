@@ -23,6 +23,7 @@ public:
 	string getArrival();
 	void appointment(UserData*, Ticket_airport*);
 	void cancel(Ticket*);
+	int checkAppointed(int seat_number);
 };
 
 #endif

@@ -5,6 +5,7 @@ using namespace std;
 #include<string>
 #include <vector>
 
+#include "Ticket.h"
 #include "Ticket_apart.h"
 #include "UserData.h"
 
@@ -24,6 +25,11 @@ public:
 	string get_id();
 	void appointment(Ticket_apart*);
 	int getTotalTime(int);
+
+	void showTickets();
+	int get_tickets_size();
+	Ticket* getTicket(int);
+	void cancel(int);
 };
 
 #endif

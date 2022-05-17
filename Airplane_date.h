@@ -17,6 +17,7 @@ public:
 	void setDate(string);
 	void appointment(UserData*, Ticket_airport*);
 	void cancel(Ticket*);
+	int checkAppointed(int);
 };
 
 #endif

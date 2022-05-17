@@ -34,3 +34,10 @@ void Airplane_date::cancel(Ticket* cancel_data) {
 	int time = cancel_data->get_time();
 	schedules[time - 1].cancel(cancel_data);
 }
+int Airplane_date::checkAppointed(int seat_number) {
+	int result = 0;
+	for (int i = 0; i < 3; i++) {
+		if (schedules[i].checkAppointed(seat_number)) result++;
+	}
+	return result;
+}

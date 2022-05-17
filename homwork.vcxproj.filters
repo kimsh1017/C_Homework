@@ -132,14 +132,14 @@
     <ClCompile Include="Schedule_StudyRoom.cpp">
       <Filter>소스 파일\Apart</Filter>
     </ClCompile>
-    <ClCompile Include="StudyRoom_Date.cpp">
-      <Filter>소스 파일\Apart</Filter>
-    </ClCompile>
     <ClCompile Include="Seat_StudyRoom.cpp">
       <Filter>소스 파일\Apart</Filter>
     </ClCompile>
     <ClCompile Include="Ticket_apart.cpp">
       <Filter>소스 파일\Ticket</Filter>
+    </ClCompile>
+    <ClCompile Include="StudyRoom_Date.cpp">
+      <Filter>소스 파일\Apart</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

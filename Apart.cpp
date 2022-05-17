@@ -44,10 +44,55 @@ void Apart::appointment() {
 	}
 }
 void Apart::cancel() {
-	cout << "대충 취소" << endl;
+	int ticket_number = 0;
+	Ticket* cancel_data;
+	int date;
+
+	User->showTickets();
+	ticket_number = Console_apart::set_ticket_number(User->get_tickets_size());
+	if (ticket_number != 0) {
+		cancel_data = User->getTicket(ticket_number);
+		date = cancel_data->get_date();
+		studyRoom_Date[date - 1].cancel(cancel_data);
+		User->cancel(ticket_number);
+	}
 }
 
 void Apart::showStat() {
-	cout << "대충 통계" << endl;
+	int menu, seat_number;
+	int result = 0;
+
+	menu = Console_apart::set_stat_menu();
+
+	if (menu == 1) {
+		User->showTickets();
+	}
+	else if (menu == 2) {
+		cout << endl;
+		menu = Console_apart::set_stat_detail();
+
+		if (menu == 1) {
+			seat_number = Console_apart::set_seat_number();
+			if (seat_number != 0) {
+				for (int i = 0; i < 7; i++) {
+					result += studyRoom_Date[i].check_seat(seat_number);
+				}
+				cout << seat_number << "번 좌석은 총" << result << "번 예약됐습니다" << endl;
+			}
+		}
+		else if (menu == 2) {
+			for (int i = 0; i < 7; i++) {
+				result += studyRoom_Date[i].check_gender("남");
+			}
+			cout << "총 예약수 " << endl;
+			cout << "남 : " << result << "   ";
+
+			result = 0;
+			for (int i = 0; i < 7; i++) {
+				result += studyRoom_Date[i].check_gender("여");
+			}
+			cout << "여 : " << result << endl;
+		}
+	}
 }
 

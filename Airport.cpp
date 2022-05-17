@@ -143,7 +143,6 @@ void Airport::showStat() {
 	int economy = 0;
 	int bussiness = 0;
 	int seat_stat[8] = {0,};
-	Ticket* ticket;
 
 	menu = Console_airport::set_stat_menu();
 	if (menu == 1) {
@@ -151,10 +150,13 @@ void Airport::showStat() {
 		cout << endl;
 		cout << "마일리지 : " << User->get_mileage() << "km" << endl;
 	}
-	else {
-		for (int i = 0; i < User->get_tickets_size(); i++) {
-			ticket = User->getTicket(i+1);
-			seat_stat[ticket->get_seat_number() - 1]++;
+	else { // 총 예약 현황은?
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 5; j++) {
+				for (int k = 0; k < 4; k++) {
+					seat_stat[i] += airplane_list[j][k].checkAppointed(i);
+				}	
+			}
 		}
 		for (int i = 0; i < 8; i++) {
 			if (i < 3) bussiness += seat_stat[i];

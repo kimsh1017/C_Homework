@@ -20,6 +20,10 @@ public:
 
 	string get_gender();
 	string get_name();
+
+	void showTicket();
+	int get_time();
+	int get_seat_number();
 };
 #endif
 

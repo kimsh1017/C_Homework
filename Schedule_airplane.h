@@ -19,6 +19,7 @@ public:
 	void appointment(UserData*, Ticket_airport*);
 	void showSeats(float);
 	void cancel(Ticket*);
+	bool checkAppointed(int);
 };
 
 #endif

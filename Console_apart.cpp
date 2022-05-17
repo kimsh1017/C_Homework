@@ -84,8 +84,68 @@ string Console_apart::set_gender() {
 	return gender;
 }
 int Console_apart::set_seat_number() {
-	int n;
-	cout << "예약하실 좌석 번호를 입력해주세요 (돌아가기 0)" << endl;
-	cin >> n;
+	int n = -1;
+	while (n == -1) {
+		cout << "예약하실 좌석 번호를 입력해주세요 (돌아가기 0) >>";
+		cin >> n;
+
+		if (n > 225 || n < 0) {
+			cout << "잘못된 입력입니다" << endl;
+			n = -1;
+		}
+	}
 	return n;
+}
+
+int Console_apart::set_age() {
+	int age = 0;
+	while (age == 0) {
+		cout << "나이 >>";
+		cin >> age;
+		if (age < 0) {
+			cout << "잘못된 입력입니다" << endl;
+			age = 0;
+		}
+	}
+	return age;
+}
+
+int Console_apart::set_ticket_number(int tickets_size) {
+	int ticket_number = -1;
+	while (ticket_number == -1) {
+		cout << "취소하고 싶은 예약의 번호를 입력하세요 (돌아가기 : 0)>>";
+		cin >> ticket_number;
+		if (ticket_number > tickets_size || ticket_number < 0) {
+			ticket_number = -1;
+			cout << "잘못된 입력입니다" << endl;
+		}
+	}
+	return ticket_number;
+}
+
+int Console_apart::set_stat_menu() {
+	int menu = -1;
+	while (menu == -1) {
+		cout << "1: 내 예약 현황 보기 / 2: 전체 예약 통계 보기 (돌아가기 : 0)>>";
+		cin >> menu;
+		if (menu > 2 || menu < 0) {
+			cout << "잘못된 입력입니다" << endl;
+			menu = -1;
+		}
+	}
+	return menu;
+}
+
+int Console_apart::set_stat_detail() {
+	int menu = -1;
+
+	while (menu == -1) {
+		cout << "1 : 좌석별 예매 현황 보기 / 2 : 성별 예약 횟수 보기 (돌아가기 : 0)>>";
+		cin >> menu;
+		if (menu > 2 || menu < 0) {
+			cout << "잘못된 입력입니다" << endl;
+			menu = -1;
+		}	
+	}
+	return menu;
 }

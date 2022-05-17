@@ -89,3 +89,12 @@ void Schedule_airplane::cancel(Ticket* cancel_data) {
 
 	seats[seat_number - 1].cancel();
 }
+
+bool Schedule_airplane::checkAppointed(int seat_number) {
+	if (seats[seat_number].get_name() != "---") {
+		return true;
+	}
+	else {
+		return false;
+	}
+}

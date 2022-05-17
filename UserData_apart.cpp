@@ -9,7 +9,9 @@ UserData_apart::UserData_apart() { //id, study_room id 로직 변경 필요
 	age = 0;
 	gender = "";
 	apartment_number = "";
-	total_time[7] = { 0, };
+	for (int i = 0; i < 7; i++) {
+		total_time[i] = 0;
+	}
 }
 
 void UserData_apart::createUser(string apartment_number) {
@@ -20,12 +22,6 @@ void UserData_apart::createUser(string apartment_number) {
 	cout << "독서실 아이디는 :" << this->id << "입니다" << endl;
 	cout << "비밀번호 >>";
 	cin >> password;
-	cout << "이름 >>";
-	cin >> name;
-	cout << "나이 >>";
-	cin >> age;
-	cout << "성별 (남/여) >>";
-	cin >> gender;
 
 	study_room_id_total++;
 }
@@ -45,7 +41,31 @@ string UserData_apart::get_id() { //이름 변경 ? get_id -> checkSignedUp;
 
 void UserData_apart::appointment(Ticket_apart* appointment_data) {
 	tickets.push_back(*appointment_data);
+	total_time[appointment_data->get_date() - 1]++;
 }
 int UserData_apart::getTotalTime(int date) {
 	return total_time[date - 1];
+}
+
+void UserData_apart::showTickets() {
+	cout << "============================" << endl;
+	cout << "현재 예약 목록" << endl;
+	cout << "------------------------------" << endl;
+	for (int i = 0; i < tickets.size(); i++) {
+		cout << i + 1 << "번" << endl;
+		tickets[i].showTicket();
+		cout << "------------------------------" << endl;
+	}
+}
+
+int UserData_apart::get_tickets_size() {
+	int temp = tickets.size();
+	return temp;
+}
+
+Ticket* UserData_apart::getTicket(int ticket_number) {
+	return &tickets[ticket_number - 1];
+}
+void UserData_apart::cancel(int ticket_number) {
+	tickets.erase(tickets.begin() + ticket_number - 1);
 }

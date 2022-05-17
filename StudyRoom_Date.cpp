@@ -17,10 +17,30 @@ void StudyRoom_Date::appointment(UserData* User, Ticket_apart* appointment_data)
 		cout << "하루 최대 예약 시간은 4시간 입니다" << endl;
 	}
 	else {
-		time = Console_apart::set_time(total_time);
+		time = Console_apart::set_time(total_time); // 시간 중복 예외처리
 		if (time != 0) {
 			appointment_data->set_time(time);
 			schedules[time - 9].appointment(User, appointment_data);
 		}
 	}
+}
+void StudyRoom_Date::cancel(Ticket* cancel_data) {
+	int time;
+	time = cancel_data->get_time();
+	schedules[time - 9].cancel(cancel_data);
+}
+int StudyRoom_Date::check_seat(int seat_number) {
+	int result = 0;
+	for (int i = 0; i < 14; i++) {
+		if (schedules[i].checkAppointed(seat_number) == false) result++;
+	}
+	return result;
+}
+
+int StudyRoom_Date::check_gender(string gender) {
+	int result = 0;
+	for (int i = 0; i < 14; i++) {
+		result += schedules[i].checkGender(gender);
+	}
+	return result;
 }

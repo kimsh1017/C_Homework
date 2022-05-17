@@ -17,6 +17,7 @@ public:
 	bool checkSeat();
 	string get_gender();
 	string get_name();
+	void cancel();
 };
 
 #endif

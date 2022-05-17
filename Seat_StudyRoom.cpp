@@ -12,7 +12,7 @@ void Seat_StudyRoom::appointment(UserData* User, Ticket_apart* appointment_data)
 
 	User->appointment(appointment_data);
 }
-bool Seat_StudyRoom::checkSeat() { // 여기 예외처리 고민
+bool Seat_StudyRoom::checkSeat() { 
 	if (name == "" && gender == "") {
 		return true;
 	}
@@ -25,4 +25,8 @@ string Seat_StudyRoom::get_gender() {
 }
 string Seat_StudyRoom::get_name() {
 	return name;
+}
+void Seat_StudyRoom::cancel() {
+	name = "";
+	gender = "";
 }
