@@ -1,8 +1,4 @@
-#include "UserData.h"
 #include "UserData_apart.h"
-#include <iostream>
-using namespace std;
-#include<string>
 
 
 UserData_apart::UserData_apart() { //id, study_room id 로직 변경 필요

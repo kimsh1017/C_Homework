@@ -1,11 +1,4 @@
 #include "Airport.h"
-#include "Console_airport.h"
-
-#include "Ticket.h"
-#include "Ticket_airport.h"
-#include <iostream>
-#include <string>
-using namespace std;
 
 Airport::Airport() {
 	User = NULL;

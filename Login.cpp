@@ -1,16 +1,4 @@
 #include "Login.h"
-#include "Console.h"
-
-#include "DataBase.h"
-
-#include "UserData.h"
-#include "UserData_airport.h"
-#include "UserData_apart.h"
-#include "UserData_restaurant.h"
-
-#include <iostream>
-using namespace std;
-#include <string>
 
 int UserData_apart::study_room_id_total = 1;
 

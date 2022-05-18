@@ -1,9 +1,4 @@
 #include "UserData.h"
-#include "Console.h"
-
-#include <iostream>
-using namespace std;
-#include<string>
 
 
 UserData::UserData() {
@@ -19,11 +14,6 @@ void UserData::createUser(string id) {
 	cin >> password;
 	cout << "ÀÌ¸§ >>";
 	cin >> name;
-}
-void UserData::showData() {
-	cout << "name: " << name << endl;
-	cout << "id : " << id << endl;
-	cout << "password" << password << endl;
 }
 
 bool UserData::checkData(string id, string password) {

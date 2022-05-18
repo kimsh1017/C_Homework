@@ -1,11 +1,4 @@
 #include "Restaurant.h"
-#include "Console_restaurant.h"
-#include "UserData_restaurant.h"
-
-#include <iostream>
-#include <string>
-#include "Ticket_restaurant.h"
-using namespace std;
 
 Restaurant::Restaurant() {
 	this->User = NULL;

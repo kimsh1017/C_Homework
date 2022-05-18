@@ -3,7 +3,13 @@
 
 #include "UserData.h"
 #include "Airplane.h"
+#include "Ticket.h"
 #include "Ticket_airport.h"
+
+#include <iostream>
+#include <string>
+using namespace std;
+#include "Console_airport.h"
 
 class Airport {
 	UserData* User;

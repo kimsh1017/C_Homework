@@ -1,10 +1,4 @@
-#include "UserData.h"
 #include "UserData_restaurant.h"
-#include <iostream>
-using namespace std;
-#include <string>
-#include <vector>
-#include "Table.h"
 
 UserData_restaurant::UserData_restaurant() {
 	age = 0;

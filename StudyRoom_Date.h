@@ -6,6 +6,8 @@
 #include "Ticket.h"
 #include "Ticket_apart.h"
 #include "Console_apart.h"
+#include <iostream>
+using namespace std;
 
 class StudyRoom_Date {
 	Schedule_StudyRoom* schedules;

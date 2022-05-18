@@ -1,6 +1,5 @@
 #include "Apart.h"
-#include <iostream>
-using namespace std;
+
 
 Apart::Apart() {
 	studyRoom_Date = new StudyRoom_Date[7];

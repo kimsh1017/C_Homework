@@ -1,9 +1,5 @@
 #include "Ticket_airport.h"
-#include "Ticket.h"
 
-#include <iostream>
-#include <string>
-using namespace std;
 
 Ticket_airport::Ticket_airport() {
 	departure = 0;

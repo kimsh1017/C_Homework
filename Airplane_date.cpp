@@ -1,11 +1,4 @@
 #include "Airplane_date.h"
-#include "Console_airport.h"
-
-#include "Ticket.h"
-#include "Ticket_airport.h"
-#include <iostream>
-#include <string>
-using namespace std;
 
 Airplane_date::Airplane_date() {
 	date = "";

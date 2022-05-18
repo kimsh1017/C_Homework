@@ -1,9 +1,4 @@
 #include "Seat.h"
-#include "Ticket.h"
-#include "Ticket_airport.h"
-#include <iostream>
-#include <string>
-using namespace std;
 
 Seat::Seat() {
 	name = "---";

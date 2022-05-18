@@ -4,13 +4,13 @@
 #include "UserData.h"
 #include "UserData_restaurant.h"
 #include "Schedule_restaurant.h"
-#include "Table.h"
 #include "Walk_in.h"
 #include "Ticket.h"
 #include "Ticket_restaurant.h"
 #include <deque>
 #include <string>
 using namespace std;
+#include "Console_restaurant.h"
 
 class Restaurant {
 	UserData* User;

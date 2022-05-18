@@ -6,6 +6,7 @@ using namespace std;
 
 #include "UserData.h"
 #include <vector>
+#include "Ticket.h"
 #include "Ticket_airport.h"
 
 class UserData_airport : public UserData {

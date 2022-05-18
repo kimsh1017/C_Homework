@@ -7,6 +7,7 @@
 using namespace std;
 #include<string>
 #include<vector>
+#include "Console.h"
 
 class DataBase {
 	UserData* start;

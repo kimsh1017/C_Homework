@@ -1,7 +1,4 @@
 #include "Ticket.h"
-#include <iostream>
-#include <string>
-using namespace std;
 
 Ticket::Ticket() {
 	name = "";

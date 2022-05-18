@@ -1,11 +1,4 @@
 #include "DataBase.h"
-#include "UserData.h"
-#include "Console.h"
-#include <iostream>
-using namespace std;
-#include<string>
-#include<vector>
-
 
 DataBase::DataBase() {
 	start = NULL;

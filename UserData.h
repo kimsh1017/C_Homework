@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 #include<string>
+
 #include "Ticket.h"
 #include "Ticket_airport.h"
 #include "Ticket_restaurant.h"
@@ -20,7 +21,6 @@ public:
 	UserData* next;
 
 	virtual void createUser(string);
-	virtual void showData(); // 나중에는 지우자 이거
 
 	bool checkData(string, string);
 	virtual string get_id();

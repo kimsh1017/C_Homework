@@ -1,7 +1,4 @@
 #include "Ticket_restaurant.h"
-#include <iostream>
-#include <string>
-using namespace std;
 
 Ticket_restaurant::Ticket_restaurant() {
 	name = "";

@@ -1,7 +1,4 @@
 #include "Console_airport.h"
-#include <iostream>
-#include <string>
-using namespace std;
 
 int Console_airport::set_menu() {
 	int menu = 0;

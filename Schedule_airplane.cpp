@@ -1,11 +1,4 @@
 #include "Schedule_airplane.h"
-#include "Console_airport.h"
-
-#include "Ticket.h"
-#include "Ticket_airport.h"
-#include <iostream>
-#include <string>
-using namespace std;
 
 Schedule_airplane::Schedule_airplane() {
 	time = "";

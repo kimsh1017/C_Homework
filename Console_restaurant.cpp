@@ -1,7 +1,4 @@
 #include "Console_restaurant.h"
-#include <iostream>
-#include <string>
-using namespace std;
 
 int Console_restaurant::set_menu() {
 	int menu = 0;

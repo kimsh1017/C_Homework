@@ -2,10 +2,11 @@
 #define SCHEDULE_RESTAURNAT_H
 
 #include "Table.h"
+#include "Ticket_restaurant.h"
 #include <iostream>
 #include <string>
-#include "Ticket_restaurant.h"
 using namespace std;
+#include "Console_restaurant.h"
 
 class Schedule_restaurant {
 	UserData* User;

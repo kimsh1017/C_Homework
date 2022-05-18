@@ -1,10 +1,4 @@
 #include "Schedule_restaurant.h"
-#include "Table.h"
-#include "Console_restaurant.h"
-
-#include <iostream>
-#include <string>
-using namespace std;
 
 Schedule_restaurant::Schedule_restaurant() {
 	date = "";

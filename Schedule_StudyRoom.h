@@ -7,6 +7,9 @@
 #include "Ticket_apart.h"
 #include "Console_apart.h"
 #include "iomanip"
+#include <iostream>
+#include <string>
+using namespace std;
 
 class Schedule_StudyRoom {
 	Seat_StudyRoom** seats;

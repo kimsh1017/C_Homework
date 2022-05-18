@@ -1,8 +1,4 @@
 #include "Schedule_StudyRoom.h"
-#include <iostream>
-using namespace std;
-
-#include "Seat_StudyRoom.h"
 
 Schedule_StudyRoom::Schedule_StudyRoom() {
 	seats = new Seat_StudyRoom * [15];

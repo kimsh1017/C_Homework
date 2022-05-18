@@ -5,6 +5,7 @@
 #include <string>
 using namespace std;
 #include "UserData.h"
+#include "Ticket.h"
 #include "Ticket_airport.h"
 
 class Seat {

@@ -1,6 +1,4 @@
 #include "Seat_StudyRoom.h"
-#include <iostream>
-using namespace std;
 
 Seat_StudyRoom::Seat_StudyRoom() {
 	name = "";

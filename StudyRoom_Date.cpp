@@ -1,6 +1,4 @@
 #include "StudyRoom_Date.h"
-#include <iostream>
-using namespace std;
 
 StudyRoom_Date::StudyRoom_Date() {
 	schedules = new Schedule_StudyRoom[14];

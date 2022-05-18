@@ -1,14 +1,4 @@
 #include "System.h"
-#include "UserData.h"
-#include "Login.h"
-#include "Console.h"
-
-#include "Restaurant.h"
-#include "Apart.h"
-
-#include <iostream>
-#include<string>
-using namespace std;
 
 System::System() {
 	login = new Login;
