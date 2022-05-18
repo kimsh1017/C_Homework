@@ -9,11 +9,14 @@ using namespace std;
 class Table {
 	int seat_number;
 	string name;
+	string id;
 public:
 	Table();
 	void set_seat_number(int);
 	void appointment(UserData*);
 	string get_appointed(int);
 	void cancel();
+	string get_name();
+	string get_id();
 };
 #endif

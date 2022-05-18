@@ -45,10 +45,19 @@ int  Console_restaurant::set_date() {
 
 
 int Console_restaurant::set_people() {
-	int people;
-	cout << "방문 인원 >>";
-	cin >> people;
-
+	int people = -1;
+	while (people == -1) {
+		cout << "방문 인원 >>";
+		cin >> people;
+		if (people < 0) {
+			cout << "잘못된 입력입니다" << endl;
+			people = -1;
+		}
+		else if (people > 6) {
+			cout << "죄송합니다. 저희 가게는 6인 이상 테이블이 존재하지 않습니다" << endl;
+			people = 0;
+		}
+	}
 	return people;
 }
 
@@ -94,4 +103,21 @@ int Console_restaurant::set_stat_menu() {
 		}
 	}
 	return menu;
+}
+
+int Console_restaurant::set_walk_in_people() {
+	int people = -1;
+	while (people == -1) {
+		cout << "방문 인원 (돌아가기 : 0)>>";
+		cin >> people;
+		if (people < 0) {
+			cout << "잘못된 입력입니다" << endl;
+			people = -1;
+		}
+		else if (people > 4) {
+			cout << "죄송합니다. 5인 이상은 예약 손님만 가능합니다." << endl;
+			people = 0;
+		}
+	}
+	return people;
 }

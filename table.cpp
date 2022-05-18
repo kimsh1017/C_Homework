@@ -2,6 +2,7 @@
 
 Table::Table() {
 	name = "---";
+	id = "";
 	seat_number = 0;
 }
 
@@ -11,6 +12,7 @@ void Table::set_seat_number(int number) {
 
 void Table::appointment(UserData* User) {
 	this->name = User->get_name();
+	this->id = User->get_id();
 	cout << name << "님 예약되었습니다" << endl;	
 }
 
@@ -25,5 +27,12 @@ string Table::get_appointed(int people) {
 
 void Table::cancel() {
 	name = "---";
+	id = "";
+}
+string Table::get_name() {
+	return name;
+}
+string Table::get_id() {
+	return id;
 }
 

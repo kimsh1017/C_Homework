@@ -4,6 +4,8 @@
 #include "UserData.h"
 #include "UserData_restaurant.h"
 #include "Schedule_restaurant.h"
+#include "Table.h"
+#include "Walk_in.h"
 #include "Ticket.h"
 #include "Ticket_restaurant.h"
 #include <deque>
@@ -15,7 +17,7 @@ class Restaurant {
 	Ticket_restaurant* appointment_data;
 	Schedule_restaurant* schedules;
 	deque <string> walk_in_queue; // list? deque?
-	string walk_in_table;
+	Walk_in* walkInServer;
 public:
 	Restaurant();
 	~Restaurant();
@@ -27,6 +29,6 @@ public:
 	void runServer(UserData*);
 	void showStat();
 
-	void add_queue();
 };
 #endif
+

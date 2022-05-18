@@ -13,5 +13,6 @@ public:
 
 	static int set_ticket_number(int);
 	static int set_stat_menu();
+	static int set_walk_in_people();
 };
 #endif

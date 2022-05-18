@@ -141,6 +141,9 @@
     <ClCompile Include="StudyRoom_Date.cpp">
       <Filter>소스 파일\Apart</Filter>
     </ClCompile>
+    <ClCompile Include="Walk_in.cpp">
+      <Filter>소스 파일\Restaurant</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -220,6 +223,12 @@
     </ClInclude>
     <ClInclude Include="Ticket_apart.h">
       <Filter>헤더 파일\TIcket</Filter>
+    </ClInclude>
+    <ClInclude Include="Restaurant.h">
+      <Filter>헤더 파일\Restaurant</Filter>
+    </ClInclude>
+    <ClInclude Include="Walk_in.h">
+      <Filter>헤더 파일\Restaurant</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
