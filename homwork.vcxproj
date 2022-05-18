@@ -57,7 +57,6 @@
     <ClInclude Include="Console_airport.h" />
     <ClInclude Include="Console_apart.h" />
     <ClInclude Include="Console_restaurant.h" />
-    <ClInclude Include="Restaurant.h" />
     <ClInclude Include="DataBase.h" />
     <ClInclude Include="Login.h" />
     <ClInclude Include="Schedule_airplane.h" />

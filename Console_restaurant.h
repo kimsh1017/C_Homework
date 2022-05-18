@@ -11,6 +11,7 @@ public:
 	static int set_people();
 	static int set_table();
 
-	int static set_ticket_number(int);
+	static int set_ticket_number(int);
+	static int set_stat_menu();
 };
 #endif

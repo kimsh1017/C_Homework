@@ -82,3 +82,16 @@ int Console_restaurant::set_ticket_number(int max) {
 	return ticket_number;
 }
 
+int Console_restaurant::set_stat_menu() {
+	int menu = -1;
+	while (menu == -1) {
+		cout << "1 : 내 예약 현황 보기 / 2 : 테이블별 예약 횟수 보기 (돌아가기 : 0)>>";
+		cin >> menu;
+
+		if (menu > 2 || menu < 1) {
+			menu = -1;
+			cout << "잘못된 입력입니다" << endl;
+		}
+	}
+	return menu;
+}

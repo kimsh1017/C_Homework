@@ -164,9 +164,6 @@
     <ClInclude Include="DataBase.h">
       <Filter>헤더 파일\DataBase</Filter>
     </ClInclude>
-    <ClInclude Include="Restaurant.h">
-      <Filter>헤더 파일\Restaurant</Filter>
-    </ClInclude>
     <ClInclude Include="Schedule_restaurant.h">
       <Filter>헤더 파일\Restaurant</Filter>
     </ClInclude>

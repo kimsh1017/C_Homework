@@ -12,12 +12,23 @@ StudyRoom_Date::~StudyRoom_Date() {
 void StudyRoom_Date::appointment(UserData* User, Ticket_apart* appointment_data) {
 	int time;
 	int total_time = User->getTotalTime(appointment_data->get_date());
+	Ticket* data;
 
 	if ( total_time >= 4) {
 		cout << "하루 최대 예약 시간은 4시간 입니다" << endl;
 	}
 	else {
-		time = Console_apart::set_time(total_time); // 시간 중복 예외처리
+		time = Console_apart::set_time(total_time); 
+
+		for (int i = 0; i < User->get_tickets_size(); i++) {// 시간 중복 예외처리
+			data = User->getTicket(i + 1);
+			if (appointment_data->get_date() == data->get_date() &&
+				time == data->get_time()) {
+				cout << "이 시간에 이미 예약한 좌석이 있습니다" << endl;
+				time = 0;
+				break;
+			}
+		}
 		if (time != 0) {
 			appointment_data->set_time(time);
 			schedules[time - 9].appointment(User, appointment_data);
