@@ -25,7 +25,7 @@ string Airplane::getArrival() {
 void Airplane::setDate() {
 	airplane_date[0].setDate("5월 1일 일요일");
 	airplane_date[1].setDate("5월 2일 월요일");
-	airplane_date[2].setDate("5월 3일 화요일");
+	airplane_date[2].setDate("5월 3일 화요일");			
 	airplane_date[3].setDate("5월 4일 수요일");
 	airplane_date[4].setDate("5월 5일 목요일");
 	airplane_date[5].setDate("5월 6일 금요일");
@@ -33,11 +33,15 @@ void Airplane::setDate() {
 }
 
 void Airplane::appointment(UserData* User, Ticket_airport* appointment_data) {
-	int date;
+	int date, departure, arrival;
+	departure = appointment_data->get_departure();
+	arrival = appointment_data->get_arrival();
 
-	date = Console_airport::set_date();
-	appointment_data->set_date(date);
-	airplane_date[date - 1].appointment(User,appointment_data);
+	date = Console_airport::set_date(appointment_data);
+	if (date != 0) {
+		appointment_data->set_date(date);
+		airplane_date[date - 1].appointment(User, appointment_data);
+	}
 }
 
 void Airplane::cancel(Ticket* cancel_data) {

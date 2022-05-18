@@ -13,12 +13,14 @@ Login::~Login() {
 void Login::sign_up(int place) { //나중에 로직 수정 필요
 	string id;
 
-	cout << "====================================" << endl;
-	cout << "회원가입 " << endl;
-	cout << "회원 정보를 입력해주세요" << endl;
+	system("cls");
+	cout << endl;
+	cout << " [회원가입] " << endl;
+	cout << " 회원 정보를 입력해주세요" << endl;
+	cout << endl;
 
 	if (place == 3) { //아파트일 경우 세대수 입력 받기
-		id = Console::set_apartment_number(); //여기 로직 구현
+		id = Console::set_apartment_number();
 		
 		if (LoginDataBase[place - 1].check_id(id)) {
 			cout << "이미 가입된 호수 입니다" << endl;
@@ -51,8 +53,11 @@ void Login::sign_up(int place) { //나중에 로직 수정 필요
 	}
 }
 void Login::sign_in(int place) {
-	cout << "====================================" << endl;
-	cout << "로그인 " << endl;
+	system("cls");
+	cout << endl;
+	cout << " [로그인] " << endl;
+	cout << endl;
+
 	string id = Console::set_id();
 	string password = Console::set_password();
 	User = LoginDataBase[place - 1].sign_in(id,password);
@@ -60,14 +65,32 @@ void Login::sign_in(int place) {
 
 UserData* Login::sign_in_or_up(int place) {
 	int login_menu;
+	printGreetMessage(place);
+
 	login_menu = Console::set_login_menu();
 
 	if (login_menu == 1) { // 1. 로그인
 		sign_in(place);
 	}
-	else { // 2. 회원가입
+	else if(login_menu == 2) { // 2. 회원가입
 		sign_up(place);
 	}
 	return User;
 }
 
+void Login::printGreetMessage(int place) {
+	system("cls");
+	cout << endl;
+	switch (place) {
+	case 1:
+		cout << "비행기 예매 프로그램에 오신걸 환영합니다" << endl;
+		break;
+	case 2:
+		cout << "식당 예약 프로그램에 오신걸 환영합니다" << endl;
+		break;
+	case 3:
+		cout << "독서실 예약 프로그램에 오신걸 환영합니다" << endl;
+		break;
+	}
+
+}

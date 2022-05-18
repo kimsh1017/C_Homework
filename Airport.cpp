@@ -18,10 +18,6 @@ Airport::~Airport() {
 	delete []airplane_list;
 }
 
-void Airport::sign_in(UserData* User) {
-	this->User = User;
-}
-
 void Airport::setAirplaneDeparture() {
 	string airport_list[5] = { "인천","김포","제주","김해","대구" };
 	for (int i = 0; i < 5; i++) {
@@ -57,7 +53,10 @@ void Airport::show_airplane_list() { // 디버깅용 출발 도착 출력
 void Airport::runServer(UserData* User) {
 	this->User = User;
 	int menu = 0;
-	menu = Console_airport::set_menu();
+
+	Sleep(500);
+	menu = Console_airport::set_menu(User->get_name());
+
 	while (menu != 4) {
 		switch (menu) {
 		case 1:
@@ -70,26 +69,36 @@ void Airport::runServer(UserData* User) {
 			showStat();
 			break;
 		}
-		menu = Console_airport::set_menu();
+		menu = Console_airport::set_menu(User->get_name());
 	}
 	cout << "비행기 예약 시스템을 종료합니다" << endl;
 }
 
 void Airport::appointment() {
-	int departure, arrival;
+	int departure = 0;
+	int arrival = 0;
+	int cancelCheck = 0;
 	bool round_trip = Console_airport::check_round_trip();
 
 	departure = Console_airport::set_departure();
-	arrival = Console_airport::set_arrival();
-
-	if (departure == arrival) {
-		cout << "잘못된 입력입니다" << endl;
-		cout << "출발지와 도착지는 달라야합니다" << endl;
+	if (departure != 0) {
+		arrival = Console_airport::set_arrival();
 	}
-	else {
-		if (round_trip) {
+	if (arrival != 0) {
+		if (departure == arrival) {
+			cout << endl;
+			cout << "잘못된 입력입니다" << endl;
+			cout << "출발지와 도착지는 달라야합니다" << endl;
+			Sleep(500);
+			system("cls");
+		}
+		else if (round_trip) {
+			cancelCheck = User->get_tickets_size();
+
 			set_route(departure, arrival);
-			set_route(arrival, departure);
+			if (cancelCheck != User->get_tickets_size()) { //첫번째 예약 실행시에만
+				set_route(arrival, departure);
+			}
 		}
 		else {
 			set_route(departure, arrival);
@@ -102,9 +111,6 @@ void Airport::set_route(int departure, int arrival) {
 
 	appointment_data = new Ticket_airport;
 	appointment_data->set_route(departure, arrival);
-
-	cout << endl;
-	cout << airport_list[departure - 1] << "->" << airport_list[arrival - 1] << "행 비행기 " << endl;
 
 	if (arrival > departure) {
 		arrival--;
@@ -128,6 +134,8 @@ void Airport::cancel() {
 		if (arrival > departure) arrival--;
 		airplane_list[departure-1][arrival-1].cancel(cancel_data);
 		User->cancel(ticket_number);
+		cout << "취소되었습니다" << endl;
+		Sleep(500);
 	}
 }
 
@@ -156,7 +164,8 @@ void Airport::showStat() {
 			else economy += seat_stat[i];
 		}
 
-		cout << "============================" << endl;
+		system("cls");
+		cout << endl;
 		cout << "예약된 좌석 수" << endl;
 		for (int i = 0; i < 8; i++) {
 			cout << i + 1 << "번 좌석 : " << seat_stat[i] << "회" << endl;
@@ -164,5 +173,13 @@ void Airport::showStat() {
 		cout << endl;
 		cout << "총 예약된 이코노미 좌석 수 : " << economy << endl;
 		cout << "총 예약된 비즈니스 좌석 수 : " << bussiness << endl;
+	}
+
+	while (menu != 0) {
+		cout << "돌아가기 : 0 >>";
+		cin >> menu;
+		if (menu != 0) {
+			menu = 1;
+		}
 	}
 }

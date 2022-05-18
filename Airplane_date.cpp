@@ -19,9 +19,12 @@ void Airplane_date::setDate(string date) {
 void Airplane_date::appointment(UserData* User,Ticket_airport* appointment_data) {
 	int time;
 
-	time = Console_airport::set_time();
-	appointment_data->set_time(time);
-	schedules[time - 1].appointment(User,appointment_data);
+	time = Console_airport::set_time(appointment_data);
+
+	if (time != 0) {
+		appointment_data->set_time(time);
+		schedules[time - 1].appointment(User, appointment_data);
+	}
 }
 void Airplane_date::cancel(Ticket* cancel_data) {
 	int time = cancel_data->get_time();

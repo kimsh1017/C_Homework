@@ -33,17 +33,23 @@ void Ticket_airport::showTicket() {
 	case 3:
 		string_time = "17시";
 		break;
+	case 0:
+		string_time = "";
+		break;
 	}
 
-	cout << "5월 " << this->date << "일 " << string_time << endl;
-	cout << airport_list[departure - 1] << "->" << airport_list[arrival - 1] << endl;
-
+	cout << " --------------------------------" << endl;
+	cout << "| 5월 " << this->date << "일 " << string_time << "    ";
+	cout << "[" << airport_list[departure - 1] << "->" << airport_list[arrival - 1] << "]   |" << endl;
+	cout << "|                                |" << endl;
 	if (seat_number < 3) {
-		cout << "비즈니스 클래스" << seat_number << "번 좌석" << endl;
+		cout << "| 비즈니스 클래스  " << seat_number << "번 좌석      |" << endl;
 	}
 	else {
-		cout << "이코노미 클래스" << seat_number << "번 좌석" << endl;
+		cout <<"| 이코노미 클래스  " << seat_number << "번 좌석      |" << endl;
 	}
+	cout << " --------------------------------" << endl;
+	
 }
 
 int Ticket_airport::get_departure() {

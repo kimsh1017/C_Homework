@@ -5,13 +5,14 @@ UserData_airport::UserData_airport() {
 }
 
 void UserData_airport::showTickets() {
-	cout << "============================" << endl;
-	cout << "현재 보유중인 티켓" << endl;
-	cout << "------------------------------" << endl;
+	system("cls");
+	cout << endl;
+	cout << " 현재 보유중인 티켓" << endl;
+	cout << endl;
 	for (int i = 0; i < tickets.size(); i++) {
-		cout << i + 1 << "번 티켓" << endl;
+		cout << " "<< i + 1 << "번 티켓" << endl;
 		tickets[i].showTicket();
-		cout << "------------------------------" << endl;
+		cout << endl;
 	}
 }
 

@@ -19,7 +19,7 @@ public:
 	void set_seat_cost();
 	void setTime(string);
 	void appointment(UserData*, Ticket_airport*);
-	void showSeats(float);
+	void showSeats(float, Ticket_airport*);
 	void cancel(Ticket*);
 	bool checkAppointed(int);
 };

@@ -22,5 +22,6 @@ public:
 	void sign_in(int);
 
 	UserData* sign_in_or_up(int);
+	void printGreetMessage(int);
 };
 #endif

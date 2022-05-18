@@ -21,32 +21,44 @@ void Schedule_airplane::setTime(string time) {
 }
 
 void Schedule_airplane::appointment(UserData* User,Ticket_airport* appointment_data) {
-	int seat_number;
+	int seat_number = -1;
 	float cost;
+
+	system("cls");
+	Console_airport::printDataNow(appointment_data);
 
 	cost = Console_airport::set_cost();
 
-	showSeats(cost);
-	seat_number = Console_airport::set_seat_number();
+	while (seat_number == -1) {
+		showSeats(cost, appointment_data);
+		seat_number = Console_airport::set_seat_number();
 
-	if (seats[seat_number - 1].get_cost() <= cost) {
-		if (seats[seat_number - 1].get_name() != "---") {
-			cout << "이미 예약된 좌석입니다" << endl;
+		if (seat_number != 0) {
+			if (seats[seat_number - 1].get_cost() > cost) {
+				cout << "입력한 예산을 초과하는 좌석입니다" << endl;
+				Sleep(500);
+				seat_number = -1;
+			}
+			else {
+				if (seats[seat_number - 1].get_name() != "---") {
+					cout << "이미 예약된 좌석입니다" << endl;
+					Sleep(500);
+					seat_number = -1;
+				}
+				else {
+					appointment_data->set_seat_number(seat_number);
+					seats[seat_number - 1].appointment(User);
+					User->appointment(appointment_data);
+				}
+			}
 		}
-		else {
-			appointment_data->set_seat_number(seat_number);
-			seats[seat_number - 1].appointment(User);
-			User->appointment(appointment_data);
-		}
-	}
-	else {
-		cout << "입력한 예산을 초과하는 좌석입니다" << endl;
 	}
 }
 
-void Schedule_airplane::showSeats(float cost) {
+void Schedule_airplane::showSeats(float cost, Ticket_airport* appointment_data) {
 
-	cout << "===========================" << endl;
+	system("cls");
+	Console_airport::printDataNow(appointment_data);
 	
 	for (int i = 0; i < 8; i++) {
 		cout << " "<< i + 1 << "번 좌석 " << "|";

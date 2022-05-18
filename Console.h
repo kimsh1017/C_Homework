@@ -4,6 +4,7 @@
 #include <iostream>
 #include<string>
 using namespace std;
+#include <Windows.h>
 
 class Console {
 public:

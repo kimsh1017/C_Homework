@@ -2,7 +2,9 @@
 #define CONSOLE_RESTAURANT_H
 #include <iostream>
 using namespace std;
-#include<string>
+#include <string>
+#include <Windows.h>
+
 
 class Console_restaurant {
 public:

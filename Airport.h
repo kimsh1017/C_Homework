@@ -18,7 +18,6 @@ class Airport {
 public:
 	Airport();
 	~Airport();
-	void sign_in(UserData*);
 	void setAirplaneDeparture();
 	void setAirplaneArrival();
 	void show_airplane_list();

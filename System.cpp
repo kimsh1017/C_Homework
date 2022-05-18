@@ -20,12 +20,10 @@ void System::running() {
 		if (UserNow != NULL) {
 			switch (place_menu) {
 			case 1:
-				//airport->sign_in(UserNow);
 				airport->runServer(UserNow);
 				UserNow = NULL;
 				break;
 			case 2:
-				//restaurant->sign_in(UserNow);
 				restaurant->runServer(UserNow);
 				UserNow = NULL;
 				break;
@@ -37,7 +35,6 @@ void System::running() {
 		}
 
 		cout << endl;
-		cout << "====================================" << endl;
 		place_menu = Console::set_place_menu();
 	}
 	cout << "프로그램을 종료합니다" << endl;

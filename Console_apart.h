@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 #include<string>
+#include <Windows.h>
 
 class Console_apart {
 public:
