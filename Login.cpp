@@ -10,7 +10,7 @@ Login::~Login() {
 	delete []LoginDataBase;
 }
 
-void Login::sign_up(int place) { //나중에 로직 수정 필요
+void Login::sign_up(int place) { 
 	string id;
 
 	Console::clean(0);
@@ -30,6 +30,10 @@ void Login::sign_up(int place) { //나중에 로직 수정 필요
 		else {
 			User = new UserData_apart; //생성자에서 static 증가
 			LoginDataBase[place - 1].sign_up(User, id); // id는 UserData에서 구현
+			
+			Console::clean(0);
+			cout << "회원가입에 성공했습니다" << endl;
+			Sleep(1000);
 		}
 	}
 	else {
@@ -45,10 +49,18 @@ void Login::sign_up(int place) { //나중에 로직 수정 필요
 			case 1: // 항공사 회원가입
 				User = new UserData_airport;
 				LoginDataBase[place - 1].sign_up(User, id);
+
+				Console::clean(0);
+				cout << "회원가입에 성공했습니다" << endl;
+				Sleep(1000);
 				break;
 			case 2: // 식당 회원가입
 				User = new UserData_restaurant;
 				LoginDataBase[place - 1].sign_up(User, id);
+
+				Console::clean(0);
+				cout << "회원가입에 성공했습니다" << endl;
+				Sleep(1000);
 				break;
 			}
 		}
@@ -76,6 +88,7 @@ UserData* Login::sign_in_or_up(int place) {
 	}
 	else if(login_menu == 2) { // 2. 회원가입
 		sign_up(place);
+		User = NULL; //이 줄  지울 시 회원가입 이후 바로 자동 로그인
 	}
 	return User;
 }

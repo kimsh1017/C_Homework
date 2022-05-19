@@ -7,6 +7,7 @@ using namespace std;
 #include "UserData.h"
 #include "Ticket.h"
 #include "Ticket_airport.h"
+#include "Console_airport.h"
 
 class Seat {
 	string name;

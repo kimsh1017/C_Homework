@@ -36,19 +36,23 @@ void Restaurant::walk_in() {
 }
 
 void Restaurant::runServer(UserData* User) {
-	int menu;
+	int menu = 0;
 	this->User = User;
+	int check_appointed = User->get_tickets_size(); // 현재까지 예약 수
 
-	menu = Console_restaurant::set_menu(User->get_name());
-	while (menu!= 5) {  //menu 5 = 로그아웃
+	while (menu != 5) {  //menu 5 = 로그아웃
+		menu = Console_restaurant::set_menu(User->get_name());
 		switch (menu) {
 		case 1:
 			if (User->get_age() <= 7) {
 				cout << "7세 이하 미취학 아동은 예약이 불가능합니다." << endl;
-				Sleep(500);
+				Sleep(1000);
 			}
 			else {
 				appointment();
+				if (User->get_tickets_size() != check_appointed) {
+					menu = 5;
+				}
 			}
 			break;
 		case 2:
@@ -61,7 +65,6 @@ void Restaurant::runServer(UserData* User) {
 			showStat();
 			break;
 		}
-		menu = Console_restaurant::set_menu(User->get_name());
 	}
 }
 

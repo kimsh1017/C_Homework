@@ -6,6 +6,8 @@ Seat::Seat() {
 }
 void Seat::appointment(UserData* User) {
 	this->name = User->get_name();
+	cout << User->get_name() << "님 예약되었습니다" << endl;
+	Sleep(1000);
 }
 string Seat::get_name() {
 	return name;

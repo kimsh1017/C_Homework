@@ -12,13 +12,17 @@ Apart::~Apart() {
 void Apart::runserver(UserData* User) {
 	this->User = User;
 	int menu = 0;
+	int check_appointed = User->get_tickets_size(); // 현재까지 예약 수
 
-	while (menu != 4) {
+	while (menu != 4) { // menu 5 = 로그아웃
 		menu = Console_apart::set_menu();
 
 		switch (menu) {
 		case 1:
 			appointment();
+			if (User->get_tickets_size() != check_appointed) {
+				menu = 4;
+			}
 			break;
 		case 2:
 			cancel();

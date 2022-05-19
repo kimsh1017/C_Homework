@@ -53,14 +53,18 @@ void Airport::show_airplane_list() { // 디버깅용 출발 도착 출력
 void Airport::runServer(UserData* User) {
 	this->User = User;
 	int menu = 0;
-
-	Sleep(500);
-	menu = Console_airport::set_menu(User->get_name());
+	int check_appointed = User->get_tickets_size(); // 현재까지 예약 수
 
 	while (menu != 4) {
+		// 1. 예약 2. 취소 3. 통계 4. 로그아웃
+		menu = Console_airport::set_menu(User->get_name());
+
 		switch (menu) {
 		case 1:
 			appointment();
+			if (User->get_tickets_size() != check_appointed) { // 예약 성공시
+				menu = 4; // 로그아웃
+			}
 			break;
 		case 2:
 			cancel();
@@ -69,9 +73,7 @@ void Airport::runServer(UserData* User) {
 			showStat();
 			break;
 		}
-		menu = Console_airport::set_menu(User->get_name());
 	}
-	cout << "비행기 예약 시스템을 종료합니다" << endl;
 }
 
 void Airport::appointment() {
