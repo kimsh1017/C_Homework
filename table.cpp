@@ -13,7 +13,9 @@ void Table::set_seat_number(int number) {
 void Table::appointment(UserData* User) {
 	this->name = User->get_name();
 	this->id = User->get_id();
-	cout << name << "님 예약되었습니다" << endl;	
+	cout << endl;
+	cout << name << "님 예약되었습니다" << endl;
+	Console_restaurant::clean(500);
 }
 
 string Table::get_appointed(int people) {

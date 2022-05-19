@@ -19,5 +19,6 @@ public:
 	static int set_ticket_number(int);
 	static int set_stat_menu();
 	static void printDataNow(Ticket_airport*);
+	static void clean(int);
 };
 #endif

@@ -34,14 +34,13 @@ void UserData_restaurant::appointment(Ticket_restaurant* appointment_data) {
 }
 
 void UserData_restaurant::showTickets() {
-	cout << "============================" << endl;
-	cout << "현재 보유중인 티켓" << endl;
-	cout << "------------------------------" << endl;
+	cout << endl;
+	cout << "[" << this->name << "님의 예약 현황]" << endl;
+	cout << endl;
 	for (int i = 0; i < tickets.size(); i++) {
 		cout << endl;
-		cout << i+1 << "번 티켓" << endl;
+		cout << i+1 << "번 예약" << endl;
 		tickets[i].showTicket();
-		cout << "------------------------------" << endl;
 	}
 }
 

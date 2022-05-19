@@ -149,3 +149,8 @@ int Console_apart::set_stat_detail() {
 	}
 	return menu;
 }
+
+void Console_apart::clean(int delay) {
+	Sleep(delay);
+	system("cls");
+}

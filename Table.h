@@ -5,6 +5,7 @@
 #include <string>
 using namespace std;
 #include "UserData.h"
+#include "Console_restaurant.h"
 
 class Table {
 	int seat_number;

@@ -19,11 +19,10 @@ string Console::set_password() {
 int Console::set_place_menu() {
 	int place_menu = 0;
 
-	Sleep(500);
-	system("cls");
+	clean(0);
+	cout << endl;
 
 	while (place_menu == 0) {
-		cout << endl;
 		cout << "예약 프로그램을 선택하세요" << endl;
 		cout << "1: 비행기 예약 / 2: 식당 예약 / 3: 독서실 예약 / 4: 종료>>";
 		cin >> place_menu;
@@ -31,8 +30,8 @@ int Console::set_place_menu() {
 		if (place_menu > 4 || place_menu < 1) {
 			cout << "잘못된 입력입니다" << endl;
 			place_menu = 0;
-			Sleep(500);
-			system("cls");
+			clean(500);
+			cout << endl;
 		}
 	}
 	return place_menu;
@@ -57,4 +56,9 @@ string Console::set_apartment_number() {
 	cout << "세대를 입력해주세요 : 101동 ___호 >>";
 	cin >> apartment_number;
 	return apartment_number;
+}
+
+void Console::clean(int delay) {
+	Sleep(delay);
+	system("cls");
 }

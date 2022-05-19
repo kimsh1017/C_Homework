@@ -14,6 +14,8 @@ void Walk_in::running(UserData* User) {
 	this->User = User;
 	int people = 0;
 	int menu = 0;
+	Console_restaurant::clean(0);
+	cout << endl;
 
 	if (checkTableUser()) { // 이미 식사중
 		cout << "지금 식사중입니다" << endl;
@@ -29,9 +31,11 @@ void Walk_in::running(UserData* User) {
 			}
 		}
 	}
-	else if (checkListUser()) { 
+	else if (checkListUser()) { //waitingList에 있을 때
 		if (waitingList[0] == User->get_id() && checkTableEmpty()) {
 			cout << "자리가 생겼습니다" << endl;
+			cout << "테이블 청소중.." << endl;
+			Sleep(1000);
 			showTable();
 			seatTable();
 			waitingList.pop_front();
@@ -39,16 +43,19 @@ void Walk_in::running(UserData* User) {
 		else {
 			for (int i = 0; i < waitingList.size(); i++) {
 				if (waitingList[i] == User->get_id()) {
-					cout << User->get_name() << "님 현재 대기 순번은" << i + 1 << "입니다" << endl;
+					cout << User->get_name() << "님 현재 대기 순번은 " << i + 1 << "번 입니다" << endl;
+					Sleep(1000);
 				}
 			}
 		}
 	}
 	else { // waiting_list에도 없을 때
 		people = Console_restaurant::set_walk_in_people();
+		cout << endl;
+
 		if (people != 0) {
 			if (waitingList.size() != 0) { // 줄 있을때
-				cout << "현재 " << waitingList.size() << "명이 대기중입니다" << endl;
+				cout << "현재 " << waitingList.size() << "팀이 대기중입니다" << endl;
 				cout << "대기하시겠습니까? (1:예 / 2: 아니오)>>";
 				cin >> menu;
 
@@ -95,6 +102,7 @@ bool Walk_in::checkListUser() {
 }
 
 void Walk_in::showTable() {
+	Console_restaurant::clean(0);
 	cout << endl;
 	cout << "   o  o " << "   " << "   o  o" << endl;
 	cout << "┌──────┐" << "   " << "┌───────┐" << endl;
@@ -112,8 +120,9 @@ bool Walk_in::checkTableEmpty() {
 
 void Walk_in::seatTable() {
 	int table_number = 0;
+	cout << "앉으실 테이블 번호를 입력해주세요 >>";
+
 	while (table_number == 0) {
-		cout << "테이블 번호를 선택해주세요 >>";
 		cin >> table_number;
 
 		if (table_number > 2 || table_number < 1) {

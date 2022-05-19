@@ -13,7 +13,7 @@ Login::~Login() {
 void Login::sign_up(int place) { //나중에 로직 수정 필요
 	string id;
 
-	system("cls");
+	Console::clean(0);
 	cout << endl;
 	cout << " [회원가입] " << endl;
 	cout << " 회원 정보를 입력해주세요" << endl;
@@ -25,6 +25,7 @@ void Login::sign_up(int place) { //나중에 로직 수정 필요
 		if (LoginDataBase[place - 1].check_id(id)) {
 			cout << "이미 가입된 호수 입니다" << endl;
 			User = NULL;
+			Sleep(500);
 		}
 		else {
 			User = new UserData_apart; //생성자에서 static 증가
@@ -36,6 +37,7 @@ void Login::sign_up(int place) { //나중에 로직 수정 필요
 
 		if (LoginDataBase[place - 1].check_id(id)) { // 아이디 중복 체크
 			cout << "사용이 불가능한 아이디 입니다" << endl;
+			Sleep(500);
 			User = NULL;
 		}
 		else {
@@ -53,7 +55,7 @@ void Login::sign_up(int place) { //나중에 로직 수정 필요
 	}
 }
 void Login::sign_in(int place) {
-	system("cls");
+	Console::clean(0);
 	cout << endl;
 	cout << " [로그인] " << endl;
 	cout << endl;
@@ -79,8 +81,9 @@ UserData* Login::sign_in_or_up(int place) {
 }
 
 void Login::printGreetMessage(int place) {
-	system("cls");
+	Console::clean(300);
 	cout << endl;
+
 	switch (place) {
 	case 1:
 		cout << "비행기 예매 프로그램에 오신걸 환영합니다" << endl;

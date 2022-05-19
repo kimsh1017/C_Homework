@@ -21,17 +21,14 @@ void Restaurant::set_date() { // 요일 날짜 설정
 	schedules[6].setDate("5월 7일 토요일");
 }
 
-
-void Restaurant::sign_in(UserData* User) { //로그인된 유저 정보 받아오기
-	this->User = User;
-}
-
 void Restaurant::appointment() {
 	int date = Console_restaurant::set_date();
 
-	appointment_data = new Ticket_restaurant;
-	appointment_data->set_date(date);
-	schedules[date - 1].appointment(User,appointment_data);
+	if (date != 0) {
+		appointment_data = new Ticket_restaurant;
+		appointment_data->set_date(date);
+		schedules[date - 1].appointment(User, appointment_data);
+	}
 }
 
 void Restaurant::walk_in() {
@@ -42,12 +39,13 @@ void Restaurant::runServer(UserData* User) {
 	int menu;
 	this->User = User;
 
-	menu = Console_restaurant::set_menu();
+	menu = Console_restaurant::set_menu(User->get_name());
 	while (menu!= 5) {  //menu 5 = 로그아웃
 		switch (menu) {
 		case 1:
 			if (User->get_age() <= 7) {
 				cout << "7세 이하 미취학 아동은 예약이 불가능합니다." << endl;
+				Sleep(500);
 			}
 			else {
 				appointment();
@@ -63,7 +61,7 @@ void Restaurant::runServer(UserData* User) {
 			showStat();
 			break;
 		}
-		menu = Console_restaurant::set_menu();
+		menu = Console_restaurant::set_menu(User->get_name());
 	}
 }
 
@@ -90,10 +88,19 @@ void Restaurant::showStat() {
 	stat_menu = Console_restaurant::set_stat_menu();
 
 	if (stat_menu == 1) { // 고객의 지금까지의 예약 횟수 보여주기
+		Console_restaurant::clean(0);
 		User->showTickets();
+		while (stat_menu != 0) {
+			cout << "돌아가기 : 0 >>";
+			cin >> stat_menu;
+		}
+
 	}
 	else if (stat_menu == 2) { // 테이블별 예약된 횟수 보여주기
-
+		Console_restaurant::clean(0);
+		cout << endl;
+		cout << "[ 5월 1일 ~ 7일 식당 예약 현황 ]" << endl;
+		cout << endl;
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 6; j++) {
 				if (schedules[i].checkTable(j+1)) {
@@ -104,6 +111,11 @@ void Restaurant::showStat() {
 
 		for (int i = 0; i < 6; i++) {
 			cout << i+1 << "번 테이블 예약 횟수 : " << table_stat[i] << endl;
+		}
+		cout << endl;
+		while (stat_menu != 0) {
+			cout << "돌아가기 : 0 >>";
+			cin >> stat_menu;
 		}
 	}
 }

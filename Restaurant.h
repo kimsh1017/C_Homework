@@ -21,7 +21,6 @@ class Restaurant {
 public:
 	Restaurant();
 	~Restaurant();
-	void sign_in(UserData*);
 	void set_date();
 	void appointment();
 	void cancel();

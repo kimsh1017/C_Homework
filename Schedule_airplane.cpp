@@ -24,7 +24,6 @@ void Schedule_airplane::appointment(UserData* User,Ticket_airport* appointment_d
 	int seat_number = -1;
 	float cost;
 
-	system("cls");
 	Console_airport::printDataNow(appointment_data);
 
 	cost = Console_airport::set_cost();
@@ -57,7 +56,6 @@ void Schedule_airplane::appointment(UserData* User,Ticket_airport* appointment_d
 
 void Schedule_airplane::showSeats(float cost, Ticket_airport* appointment_data) {
 
-	system("cls");
 	Console_airport::printDataNow(appointment_data);
 	
 	for (int i = 0; i < 8; i++) {

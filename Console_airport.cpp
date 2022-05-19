@@ -4,7 +4,7 @@ int Console_airport::set_menu(string name) {
 	int menu = 0;
 
 	while (menu == 0) {
-		system("cls");
+		clean(0);
 		cout << endl;
 		cout << "비행기 예매 시스템에 오신걸 환영합니다" << endl;
 		cout << name<< "님 환영합니다" << endl;
@@ -25,7 +25,7 @@ int  Console_airport::set_date(Ticket_airport* appointment_data) {
 	int date = -1;
 
 	while (date == -1) {
-		system("cls");
+		clean(0);
 		cout << endl;
 		printDataNow(appointment_data);
 		cout << "날짜를 선택해주세요" << endl;
@@ -53,7 +53,6 @@ int Console_airport::set_departure() {
 	
 	while (place == -1) {
 		string airport_list[5] = { "인천","김포","제주","김해","대구" };
-		system("cls");
 		cout << endl;
 		cout << "출발지와 도착지를 선택해주세요" << endl;
 		for (int i = 0; i < 5; i++) {
@@ -90,7 +89,7 @@ int Console_airport::set_time(Ticket_airport* appointment_data) {
 	int time = -1;
 
 	while (time == -1) {
-		system("cls");
+		clean(0);
 		printDataNow(appointment_data);
 		cout << "시간대를 입력해주세요" << endl;
 		cout << "1: 07시 / 2: 12시 / 3: 17시 /(0: 돌아가기)>>";
@@ -132,7 +131,7 @@ bool Console_airport::check_round_trip() {
 			temp = 0;
 		}
 	}
-	system("cls");
+	clean(0);
 	temp == 1 ? cout << "왕복 예약" << endl : cout << "편도 예약" << endl;
 	return temp==1 ? true : false;
 }
@@ -216,6 +215,8 @@ void Console_airport::printDataNow(Ticket_airport* appointment_data) {
 		break;
 	}
 
+	clean(0);
+
 	if (date == 0) {
 		cout << endl;
 		cout << "[" << airport_list[departure - 1] << "->" << airport_list[arrival - 1] << "행 비행기 ]" << endl;
@@ -231,4 +232,9 @@ void Console_airport::printDataNow(Ticket_airport* appointment_data) {
 		cout << "[" << airport_list[departure - 1] << "->" << airport_list[arrival - 1] << "행 비행기 ]" << endl;
 	}
 	cout <<  endl;
+}
+
+void Console_airport::clean(int delay) {
+	Sleep(delay);
+	system("cls");
 }
