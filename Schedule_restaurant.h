@@ -20,7 +20,7 @@ public:
 	void setDate(string);
 
 	void appointment(UserData*,Ticket_restaurant* );
-	void show_table(int);
+	void show_table(Ticket_restaurant*);
 	void cancel(int);
 
 	bool checkTable(int);

@@ -181,12 +181,15 @@ float Console_airport::set_cost() {
 int Console_airport::set_stat_menu() {
 	int stat_menu = 0;
 	while (stat_menu == 0) {
+		clean(0);
+		cout << endl;
 		cout << "1 : 내 예약 현황 보기 / 2 : 좌석별 예약 현황 보기 >>";
 		cin >> stat_menu;
 
 		if (stat_menu > 2 || stat_menu < 1) {
 			stat_menu = 0;
 			cout << "잘못된 입력입니다" << endl;
+			Sleep(500);
 		}
 	}
 	return stat_menu;

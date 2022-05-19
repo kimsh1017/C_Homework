@@ -15,7 +15,7 @@ void Table::appointment(UserData* User) {
 	this->id = User->get_id();
 	cout << endl;
 	cout << name << "님 예약되었습니다" << endl;
-	Console_restaurant::clean(500);
+	Console_restaurant::clean(1000);
 }
 
 string Table::get_appointed(int people) {
@@ -30,6 +30,8 @@ string Table::get_appointed(int people) {
 void Table::cancel() {
 	name = "---";
 	id = "";
+	cout << "취소되었습니다" << endl;
+	Sleep(1000);
 }
 string Table::get_name() {
 	return name;

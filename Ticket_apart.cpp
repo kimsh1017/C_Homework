@@ -32,12 +32,13 @@ string Ticket_apart::get_name() {
 }
 
 void Ticket_apart::showTicket() {
-	cout << " ------------------------- " << endl;
-	cout << "| 예약자 : " << name << "  성별 : " << gender << " |" << endl;
-	cout << "|                         |" << endl;
-	cout << "| 5월 " << date << "일  " << time << "시 ~ " << time+1 << "시     |" << endl;
-	cout << "| "<< seat_number << "번 자리 예약           |" << endl;
-	cout << " ------------------------- " << endl;
+	cout << " -------------------------- " << endl;
+	cout << "| 5월 " << date << "일     " << setw(2) << time << "시 ~ " << setw(2) << time + 1 << "시  |" << endl;
+	cout << "| 예약 자리 :" << right << setw(3) << seat_number << "번         |" << endl;
+	cout << "|                          |" << endl;
+	cout << "| 예약자 : " << left << setw(16) << name << "|" << endl;
+	cout << "|  성별  : " << gender << "              |" << endl;
+	cout << " -------------------------- " << endl;
 }
 
 int Ticket_apart::get_time() {

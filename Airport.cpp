@@ -132,10 +132,12 @@ void Airport::cancel() {
 		arrival = cancel_data->get_arrival();
 
 		if (arrival > departure) arrival--;
+
 		airplane_list[departure-1][arrival-1].cancel(cancel_data);
 		User->cancel(ticket_number);
+
 		cout << "취소되었습니다" << endl;
-		Sleep(500);
+		Sleep(1000);
 	}
 }
 

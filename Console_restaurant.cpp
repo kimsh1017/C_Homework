@@ -69,12 +69,11 @@ int Console_restaurant::set_people(Ticket* appointment_data) {
 	return people;
 }
 
-int Console_restaurant::set_table(Ticket* appointment_data) {
+int Console_restaurant::set_table() {
 	int table = -1;
 
 	while (table == -1) {
 		cout << endl;
-		cout << "[5월 " << appointment_data->get_date() << "일]" << endl;
 		cout << "\'불가\'라고 쓰인 좌석은 예약할 수 없습니다" << endl;
 		cout << "예약하실 좌석의 번호를 입력해주세요 >>";
 		cin >> table;

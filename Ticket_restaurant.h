@@ -17,5 +17,6 @@ public:
 	void set_people(int);
 
 	int get_table_number();
+	int get_people();
 };
 #endif

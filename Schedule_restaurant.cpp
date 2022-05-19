@@ -32,28 +32,37 @@ void Schedule_restaurant::appointment(UserData* User , Ticket_restaurant* appoin
 
 	//인원수 입력 받고 좌석 보여주기
 	people = Console_restaurant::set_people(appointment_data);
+	appointment_data->set_people(people);
+
 	if (people != 0) {
 		//테이블 예약 받기
-		show_table(people);
-		table = Console_restaurant::set_table(appointment_data);
+		show_table(appointment_data);
+		table = Console_restaurant::set_table();
 		if (table != 0) {
 			if (reservation_4[table - 1].get_appointed(people) == "가능") {
 				appointment_data->set_table_number(table);
-				appointment_data->set_people(people);
 
 				reservation_4[table - 1].appointment(User);
 				User->appointment(appointment_data);
 			}
 			else {
 				cout << "예약이 불가능한 좌석입니다" << endl;
+				Sleep(1000);
 			}
 		}
 	}
 	cout << endl;
 }
 
-void Schedule_restaurant::show_table(int people) {
-	cout << "==============================" << endl;
+void Schedule_restaurant::show_table(Ticket_restaurant* appointment_data) {
+	int people = appointment_data->get_people();
+	int date = appointment_data->get_date();
+
+	Console_restaurant::clean(0);
+	cout << endl;
+	cout << "[5월 " << date << "일] 방문인원 : " << people << "명" << endl;
+	cout << endl;
+	cout << "======================================================" << endl;
 	cout << "  ┌────┐     ┌────┐     ┌────┐     ┌────┐   " << endl;
 	cout << " o│ 1  │ o  o│ 2  │ o  o│ 3  │ o  o│ 4  │ o " << endl;
 	cout << " o│"<<reservation_4[0].get_appointed(people) << "│ o  o│" << reservation_4[1].get_appointed(people) << "│ o  o│" << reservation_4[2].get_appointed(people) << "│ o  o│" << reservation_4[3].get_appointed(people) << "│ o " << endl;
@@ -64,7 +73,7 @@ void Schedule_restaurant::show_table(int people) {
 	cout << "  │ 5" << reservation_4[4].get_appointed(people) << "│   │ 6" << reservation_4[5].get_appointed(people) << "│          (0 : 돌아가기)" <<endl;
 	cout << "  └──────┘   └──────┘" << endl;
 	cout << "    o o o      o o o  " << endl;
-	cout << "==============================" << endl;
+	cout << "======================================================" << endl;
 }
 
 void Schedule_restaurant::cancel(int table_number) {

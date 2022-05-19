@@ -24,6 +24,5 @@ public:
 	virtual int get_arrival();
 	virtual int get_time();
 	virtual int get_seat_number();
-
 };
 #endif

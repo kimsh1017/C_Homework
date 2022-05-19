@@ -12,7 +12,7 @@ public:
 	static int set_menu(string);
 	static int set_date();
 	static int set_people(Ticket*);
-	static int set_table(Ticket*);
+	static int set_table();
 
 	static int set_ticket_number(int);
 	static int set_stat_menu();

@@ -115,6 +115,8 @@ string Console_apart::set_gender() {
 int Console_apart::set_seat_number() {
 	int n = -1;
 	while (n == -1) {
+		cout << endl;
+		cout << "□: 예약 가능 / ■ : 예약 불가" << endl;
 		cout << "예약하실 좌석 번호를 입력해주세요 (돌아가기 0) >>";
 		cin >> n;
 

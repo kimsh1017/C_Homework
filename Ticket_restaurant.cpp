@@ -27,3 +27,7 @@ void Ticket_restaurant::set_people(int people) {
 int Ticket_restaurant::get_table_number() {
 	return table_number;
 }
+
+int Ticket_restaurant::get_people() {
+	return people;
+}

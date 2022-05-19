@@ -81,7 +81,7 @@ UserData* Login::sign_in_or_up(int place) {
 }
 
 void Login::printGreetMessage(int place) {
-	Console::clean(300);
+	Console::clean(0);
 	cout << endl;
 
 	switch (place) {

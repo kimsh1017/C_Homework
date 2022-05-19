@@ -24,7 +24,7 @@ UserData* DataBase::sign_in(string id,string password) {
 		p = p->next;
 	}
 	cout << "회원정보가 올바르지 않습니다" << endl;
-	Sleep(500);
+	Sleep(1000);
 	return NULL;
 }
 
