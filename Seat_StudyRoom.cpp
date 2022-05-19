@@ -9,6 +9,9 @@ void Seat_StudyRoom::appointment(UserData* User, Ticket_apart* appointment_data)
 	gender = appointment_data->get_gender();
 
 	User->appointment(appointment_data);
+
+	cout << appointment_data->get_name() << "님 예약되었습니다" << endl;
+	Sleep(1000);
 }
 bool Seat_StudyRoom::checkSeat() { 
 	if (name == "" && gender == "") {

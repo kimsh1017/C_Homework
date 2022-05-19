@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 #include "System.h"
+#include <Windows.h>
 
 int main() {
 	System* system = new System();
@@ -17,3 +18,4 @@ int main() {
 * 5. admin?
 * 6. 왕복 예약 중간에 돌아가기 -> 하나만 됨
 */
+

@@ -3,13 +3,15 @@
 #include <iostream>
 using namespace std;
 #include<string>
+#include "UserData.h"
+#include "UserData_apart.h"
 #include <Windows.h>
 
 class Console_apart {
 public:
 	static int set_menu();
 	static int set_date();
-	static int set_time(int);
+	static int set_time(UserData*,int);
 	static string set_gender();
 	static string set_name();
 	static int set_seat_number();
@@ -18,5 +20,6 @@ public:
 	static int set_stat_menu();
 	static int set_stat_detail();
 	static void clean(int);
+	static int set_seat_stat_number();
 };
 #endif

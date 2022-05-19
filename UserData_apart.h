@@ -8,6 +8,7 @@ using namespace std;
 #include "Ticket.h"
 #include "Ticket_apart.h"
 #include "UserData.h"
+#include "Console_apart.h"
 
 
 class UserData_apart : public UserData {

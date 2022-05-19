@@ -13,9 +13,10 @@ UserData_apart::UserData_apart() { //id, study_room id 로직 변경 필요
 void UserData_apart::createUser(string apartment_number) {
 	this->apartment_number = apartment_number;
 	this->id = to_string(study_room_id_total);
-
+	cout << endl;
 	cout << "101동 " << this->apartment_number << "호" << endl;
 	cout << "독서실 아이디는 :" << this->id << "입니다" << endl;
+	cout << endl;
 	cout << "비밀번호 >>";
 	cin >> password;
 
@@ -44,13 +45,15 @@ int UserData_apart::getTotalTime(int date) {
 }
 
 void UserData_apart::showTickets() {
-	cout << "============================" << endl;
-	cout << "현재 예약 목록" << endl;
-	cout << "------------------------------" << endl;
+	Console_apart::clean(0);
+	cout << endl;
+	cout << "[101동 " <<id  << "호] 현재 예약 목록" << endl;
+	cout << endl;
+
 	for (int i = 0; i < tickets.size(); i++) {
-		cout << i + 1 << "번" << endl;
+		cout << i + 1 << "번 예약" << endl;
 		tickets[i].showTicket();
-		cout << "------------------------------" << endl;
+		cout << endl;
 	}
 }
 
