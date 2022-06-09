@@ -10,7 +10,7 @@ Schedule_airplane::~Schedule_airplane() {
 
 	delete[]seats;
 }
-void Schedule_airplane::set_seat_cost() { //ÀÌ°Å °Á ÇÕÄ¥±î
+void Schedule_airplane::set_seat_cost() {
 	for (int i = 0; i < 8; i++) {
 		i < 3 ? seats[i].set_cost_bussiness() : seats[i].set_cost_economy();
 	}

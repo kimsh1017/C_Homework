@@ -11,6 +11,8 @@ UserData_apart::UserData_apart() { //id, study_room id 로직 변경 필요
 }
 
 void UserData_apart::createUser(string apartment_number) {
+	fstream fout("DataBase.txt", ios::app | ios::out);
+
 	this->apartment_number = apartment_number;
 	this->id = to_string(study_room_id_total);
 	cout << endl;
@@ -21,6 +23,9 @@ void UserData_apart::createUser(string apartment_number) {
 	cin >> password;
 
 	study_room_id_total++;
+
+	fout << "***\n";
+	fout << id << "/" << password << "/" << apartment_number << "\n";
 }
 
 void UserData_apart::showData() {

@@ -1,13 +1,13 @@
 #ifndef DATABASE_H
 #define DATABASE_H
 #include "UserData.h"
-#include "DataBase.h"
 
 #include <iostream>
 using namespace std;
 #include<string>
 #include<vector>
 #include "Console.h"
+#include <fstream>
 
 class DataBase {
 	UserData* start;

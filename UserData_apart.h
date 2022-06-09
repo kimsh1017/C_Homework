@@ -10,6 +10,8 @@ using namespace std;
 #include "UserData.h"
 #include "Console_apart.h"
 
+#include <fstream>
+
 
 class UserData_apart : public UserData {
 	int age;

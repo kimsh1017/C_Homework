@@ -17,6 +17,24 @@ DataBase::~DataBase() {
 UserData* DataBase::sign_in(string id,string password) {
 	UserData* p = start;
 
+	fstream fin("DataBase.txt", ios::in);
+	string temp;
+	string fileId, filePassword;
+
+	while (getline(fin,temp)) { //이 부분 로직 효율적으로 바꿀 생각
+		if (temp == "***") {
+			getline(fin, fileId, '/');
+			getline(fin, filePassword, '/');
+			cout <<"id: "<< fileId << " " <<"ps: " << filePassword << endl;
+			Sleep(1000);
+			getline(fin, temp);
+
+			if (id == fileId && password == filePassword) {
+				cout << "파일 로그인 성공" << endl;
+			}
+		}
+	}
+
 	while(p != NULL){
 		if (p->checkData(id, password)) {
 			return p;
