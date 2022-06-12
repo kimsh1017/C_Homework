@@ -1,71 +1,89 @@
 #include "DataBase.h"
 
 DataBase::DataBase() {
-	start = NULL;
-	last = NULL;
 }
-DataBase::~DataBase() {
-	UserData* p = start;
-	UserData* temp = p;
-	while (p != NULL) {
-		temp = p->next;
-		delete p;
-		p = temp;
+
+newUserData* DataBase::sign_in(string id,string password) {
+	string temp, fileId, filePassword,string_age;
+	fout.open(filename, ios::out | ios::app);
+	fin.open(filename, ios::in);
+
+	if (!fout || !fin) {
+		cout << "파일 열기 오류" << endl;
+		fin.close();
+		fout.close();
+		return NULL;
 	}
-}
 
-UserData* DataBase::sign_in(string id,string password) {
-	UserData* p = start;
-
-	fstream fin("DataBase.txt", ios::in);
-	string temp;
-	string fileId, filePassword;
-
-	while (getline(fin,temp)) { //이 부분 로직 효율적으로 바꿀 생각
+	while (getline(fin, temp)) {
 		if (temp == "***") {
 			getline(fin, fileId, '/');
 			getline(fin, filePassword, '/');
-			cout <<"id: "<< fileId << " " <<"ps: " << filePassword << endl;
-			Sleep(1000);
-			getline(fin, temp);
+			getline(fin, string_age, '/');
 
 			if (id == fileId && password == filePassword) {
 				cout << "파일 로그인 성공" << endl;
+				fin.close();
+				fout.close();
+				return new newUserData(id, password, stoi(string_age));
 			}
 		}
 	}
-
-	while(p != NULL){
-		if (p->checkData(id, password)) {
-			return p;
-		}
-		p = p->next;
-	}
-	cout << "회원정보가 올바르지 않습니다" << endl;
-	Sleep(1000);
+	cout << "로그인에 실패했습니다" << endl;
+	Sleep(500);
+	fin.close();
+	fout.close();
 	return NULL;
 }
 
-void DataBase::sign_up(UserData* newUser, string id) {
-	if (start == NULL) {
-		start = newUser;
-		last = start;
+void DataBase::sign_up(string id) {
+	string password;
+	int age;
+
+	fout.open(filename, ios::out | ios::app);
+	fin.open(filename, ios::in);
+
+	if (!fout || !fin) {
+		cout << "파일 열기 오류 sign_up" << endl;
+		fin.close();
+		fout.close();
 	}
 	else {
-		last->next = newUser;
-		last = last->next;
+		password = Console::set_password();
+		age = Console::set_age();
+		fout << "***\n";
+		fout << id << '/' << password << '/' << age << '\n';
+
+		fin.close();
+		fout.close();
 	}
-	last->createUser(id);
 }
 
 bool DataBase::check_id(string id) {
-	UserData* p = start;
-	while(p!= NULL) {
-		if (p->get_id() == id) {
-			return true;
-		}
-		p = p->next;
+	string temp, fileId;
+	fout.open(filename, ios::out | ios::app);
+	fin.open(filename, ios::in);
+
+	if (!fout || !fin) {
+		cout << "파일 열기 오류 check_id" << endl;
+		fin.close();
+		fout.close();
+		return NULL;
 	}
+	while (getline(fin, temp)) {
+		if (temp == "***") {
+			getline(fin, fileId, '/');
+
+			if (id == fileId) {
+				cout << "중복되는 아이디 존재" << endl;
+				fin.close();
+				fout.close();
+				return true;
+			}
+		}
+	}
+	fin.close();
+	fout.close();
 	return false;
 }
 

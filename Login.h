@@ -7,21 +7,21 @@ using namespace std;
 #include "Console.h"
 
 #include "DataBase.h"
-#include "UserData.h"
-#include "UserData_airport.h"
-#include "UserData_apart.h"
-#include "UserData_restaurant.h"
+#include "AirportUser.h"
+#include "RestaurantUser.h"
+#include "ApartUser.h"
+#include "newUserData.h"
 
 class Login {
-	DataBase* LoginDataBase;
-	UserData* User;
+	DataBase* LoginDataBase[3];
+	newUserData* User;
 public:
 	Login();
 	~Login();
 	void sign_up(int);
 	void sign_in(int);
 
-	UserData* sign_in_or_up(int);
+	newUserData* sign_in_or_up(int);
 	void printGreetMessage(int);
 };
 #endif

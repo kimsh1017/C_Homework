@@ -14,7 +14,7 @@ void UserData_apart::createUser(string apartment_number) {
 	fstream fout("DataBase.txt", ios::app | ios::out);
 
 	this->apartment_number = apartment_number;
-	this->id = to_string(study_room_id_total);
+	this->id = "";
 	cout << endl;
 	cout << "101동 " << this->apartment_number << "호" << endl;
 	cout << "독서실 아이디는 :" << this->id << "입니다" << endl;
@@ -22,7 +22,6 @@ void UserData_apart::createUser(string apartment_number) {
 	cout << "비밀번호 >>";
 	cin >> password;
 
-	study_room_id_total++;
 
 	fout << "***\n";
 	fout << id << "/" << password << "/" << apartment_number << "\n";

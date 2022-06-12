@@ -22,15 +22,21 @@
     <ClCompile Include="Airplane.cpp" />
     <ClCompile Include="Airplane_date.cpp" />
     <ClCompile Include="Airport.cpp" />
+    <ClCompile Include="AirportUser.cpp" />
     <ClCompile Include="Apart.cpp" />
+    <ClCompile Include="ApartUser.cpp" />
     <ClCompile Include="Console_airport.cpp" />
     <ClCompile Include="Console_apart.cpp" />
     <ClCompile Include="Console_restaurant.cpp" />
+    <ClCompile Include="newUserData.cpp" />
     <ClCompile Include="Restaruant.cpp" />
     <ClCompile Include="Console.cpp" />
-    <ClCompile Include="DataBase.cpp" />
+    <ClCompile Include="DataBase.cpp">
+      <SDLCheck Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</SDLCheck>
+    </ClCompile>
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RestaurantUser.cpp" />
     <ClCompile Include="Schedule_airplane.cpp" />
     <ClCompile Include="Schedule_restaurant.cpp" />
     <ClCompile Include="Schedule_StudyRoom.cpp" />
@@ -53,14 +59,18 @@
     <ClInclude Include="Airplane.h" />
     <ClInclude Include="Airplane_date.h" />
     <ClInclude Include="Airport.h" />
+    <ClInclude Include="AirportUser.h" />
     <ClInclude Include="Apart.h" />
+    <ClInclude Include="ApartUser.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="Console_airport.h" />
     <ClInclude Include="Console_apart.h" />
     <ClInclude Include="Console_restaurant.h" />
     <ClInclude Include="DataBase.h" />
     <ClInclude Include="Login.h" />
+    <ClInclude Include="newUserData.h" />
     <ClInclude Include="Restaurant.h" />
+    <ClInclude Include="RestaurantUser.h" />
     <ClInclude Include="Schedule_airplane.h" />
     <ClInclude Include="Schedule_restaurant.h" />
     <ClInclude Include="Schedule_StudyRoom.h" />

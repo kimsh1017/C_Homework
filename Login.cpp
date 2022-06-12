@@ -1,13 +1,16 @@
 #include "Login.h"
 
-int UserData_apart::study_room_id_total = 1;
-
 Login::Login() {
-	LoginDataBase = new DataBase[3]; // 유저 정보 데이터베이스 1.비행기 2.식당 3.독서실
+	LoginDataBase[0] = new AirportUser;
+	LoginDataBase[1] = new RestaurantUser;
+	LoginDataBase[2] = new ApartUser;
+	// 유저 정보 데이터베이스 1.비행기 2.식당 3.독서실
 	User = NULL;
 }
 Login::~Login() {
-	delete []LoginDataBase;
+	for (int i = 0; i < 3; i++) {
+		delete LoginDataBase[i];
+	}
 }
 
 void Login::sign_up(int place) { 
@@ -22,14 +25,13 @@ void Login::sign_up(int place) {
 	if (place == 3) { //아파트일 경우 세대수 입력 받기
 		id = Console::set_apartment_number();
 		
-		if (LoginDataBase[place - 1].check_id(id)) {
+		if (LoginDataBase[place - 1]->check_id(id)) {
 			cout << "이미 가입된 호수 입니다" << endl;
 			User = NULL;
 			Sleep(500);
 		}
 		else {
-			User = new UserData_apart; //생성자에서 static 증가
-			LoginDataBase[place - 1].sign_up(User, id); // id는 UserData에서 구현
+			LoginDataBase[place - 1]->sign_up(id); // id는 UserData에서 구현
 			
 			Console::clean(0);
 			cout << "회원가입에 성공했습니다" << endl;
@@ -39,7 +41,7 @@ void Login::sign_up(int place) {
 	else {
 		id = Console::set_id();
 
-		if (LoginDataBase[place - 1].check_id(id)) { // 아이디 중복 체크
+		if (LoginDataBase[place - 1]->check_id(id)) { // 아이디 중복 체크
 			cout << "사용이 불가능한 아이디 입니다" << endl;
 			Sleep(500);
 			User = NULL;
@@ -47,16 +49,14 @@ void Login::sign_up(int place) {
 		else {
 			switch (place) {
 			case 1: // 항공사 회원가입
-				User = new UserData_airport;
-				LoginDataBase[place - 1].sign_up(User, id);
+				LoginDataBase[place - 1]->sign_up(id);
 
 				Console::clean(0);
 				cout << "회원가입에 성공했습니다" << endl;
 				Sleep(1000);
 				break;
 			case 2: // 식당 회원가입
-				User = new UserData_restaurant;
-				LoginDataBase[place - 1].sign_up(User, id);
+				LoginDataBase[place - 1]->sign_up(id);
 
 				Console::clean(0);
 				cout << "회원가입에 성공했습니다" << endl;
@@ -74,10 +74,10 @@ void Login::sign_in(int place) {
 
 	string id = Console::set_id();
 	string password = Console::set_password();
-	User = LoginDataBase[place - 1].sign_in(id,password);
+	User = LoginDataBase[place - 1]->sign_in(id,password);
 }
 
-UserData* Login::sign_in_or_up(int place) {
+newUserData* Login::sign_in_or_up(int place) {
 	int login_menu;
 	printGreetMessage(place);
 

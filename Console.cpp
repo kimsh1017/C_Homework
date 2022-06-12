@@ -72,4 +72,11 @@ void Console::clean(int delay) {
 	system("cls");
 }
 
+int Console::set_age() {
+	int age;
+	cout << "³ªÀÌ >>";
+	cin >> age;
+	return age;
+}
+
 

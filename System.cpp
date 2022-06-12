@@ -3,6 +3,7 @@
 System::System() {
 	login = new Login;
 	UserNow = NULL;
+	user = NULL;
 
 	restaurant = new Restaurant;
 	apart = new Apart;
@@ -20,15 +21,15 @@ void System::running() {
 		if (UserNow != NULL) {
 			switch (place_menu) {
 			case 1:
-				airport->runServer(UserNow);
+				airport->runServer(user);
 				UserNow = NULL;
 				break;
 			case 2:
-				restaurant->runServer(UserNow);
+				restaurant->runServer(user);
 				UserNow = NULL;
 				break;
 			case 3:
-				apart->runserver(UserNow);
+				apart->runserver(user);
 				UserNow = NULL;
 				break;
 			}

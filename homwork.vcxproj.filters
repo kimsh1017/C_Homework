@@ -144,6 +144,18 @@
     <ClCompile Include="Walk_in.cpp">
       <Filter>소스 파일\Restaurant</Filter>
     </ClCompile>
+    <ClCompile Include="AirportUser.cpp">
+      <Filter>소스 파일\DataBase</Filter>
+    </ClCompile>
+    <ClCompile Include="ApartUser.cpp">
+      <Filter>소스 파일\DataBase</Filter>
+    </ClCompile>
+    <ClCompile Include="RestaurantUser.cpp">
+      <Filter>소스 파일\DataBase</Filter>
+    </ClCompile>
+    <ClCompile Include="newUserData.cpp">
+      <Filter>소스 파일\UserData</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -229,6 +241,18 @@
     </ClInclude>
     <ClInclude Include="Walk_in.h">
       <Filter>헤더 파일\Restaurant</Filter>
+    </ClInclude>
+    <ClInclude Include="AirportUser.h">
+      <Filter>헤더 파일\DataBase</Filter>
+    </ClInclude>
+    <ClInclude Include="RestaurantUser.h">
+      <Filter>헤더 파일\DataBase</Filter>
+    </ClInclude>
+    <ClInclude Include="ApartUser.h">
+      <Filter>헤더 파일\DataBase</Filter>
+    </ClInclude>
+    <ClInclude Include="newUserData.h">
+      <Filter>헤더 파일\UserData</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

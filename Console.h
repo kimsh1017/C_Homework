@@ -14,5 +14,6 @@ public:
 	static int set_login_menu();
 	static string set_apartment_number();
 	static void clean(int);
+	static int set_age();
 };
 #endif

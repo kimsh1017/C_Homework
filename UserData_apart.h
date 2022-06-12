@@ -17,7 +17,6 @@ class UserData_apart : public UserData {
 	int age;
 	string gender;
 	string apartment_number;
-	static int study_room_id_total;
 	vector <Ticket_apart> tickets;
 	int total_time[7];
 

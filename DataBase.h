@@ -1,6 +1,6 @@
 #ifndef DATABASE_H
 #define DATABASE_H
-#include "UserData.h"
+#include "newUserData.h"
 
 #include <iostream>
 using namespace std;
@@ -10,14 +10,15 @@ using namespace std;
 #include <fstream>
 
 class DataBase {
-	UserData* start;
-	UserData* last;
+protected:
+	const char* filename;
+	fstream fin;
+	fstream fout;
 public:
 	DataBase();
-	~DataBase();
 
-	void sign_up(UserData*, string);
-	UserData* sign_in(string,string);
-	bool check_id(string);
+	virtual void sign_up(string);
+	virtual newUserData* sign_in(string,string);
+	virtual bool check_id(string);
 };
 #endif
