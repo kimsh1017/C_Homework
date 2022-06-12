@@ -3,7 +3,10 @@
 #include "DataBase.h"
 
 class ApartUser :public DataBase {
+	int TotalApartId;
 public:
 	ApartUser();
+	void sign_up(string);
+	bool check_id(string);
 };
 #endif

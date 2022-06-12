@@ -13,7 +13,7 @@ Login::~Login() {
 	}
 }
 
-void Login::sign_up(int place) { 
+void Login::sign_up(int place) {
 	string id;
 
 	Console::clean(0);
