@@ -3,7 +3,6 @@
 System::System() {
 	login = new Login;
 	UserNow = NULL;
-	user = NULL;
 
 	restaurant = new Restaurant;
 	apart = new Apart;
@@ -21,9 +20,8 @@ void System::running() {
 		if (UserNow != NULL) {
 			switch (place_menu) {
 			case 1:
-				//airport->runServer(user);
+				airport->runServer(UserNow);
 				cout << "로그인 성공" << endl;
-				cout << UserNow->get_id() << " " << UserNow->get_age() << endl;
 				UserNow = NULL;
 				break;
 			case 2:

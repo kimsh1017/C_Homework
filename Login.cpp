@@ -77,6 +77,7 @@ void Login::sign_in(int place) {
 }
 
 newUserData* Login::sign_in_or_up(int place) {
+	User = NULL;
 	int login_menu;
 	printGreetMessage(place);
 

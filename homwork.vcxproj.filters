@@ -156,6 +156,9 @@
     <ClCompile Include="newUserData.cpp">
       <Filter>소스 파일\UserData</Filter>
     </ClCompile>
+    <ClCompile Include="ReservationData.cpp">
+      <Filter>소스 파일\Ticket</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -253,6 +256,9 @@
     </ClInclude>
     <ClInclude Include="newUserData.h">
       <Filter>헤더 파일\UserData</Filter>
+    </ClInclude>
+    <ClInclude Include="ReservationData.h">
+      <Filter>헤더 파일\TIcket</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

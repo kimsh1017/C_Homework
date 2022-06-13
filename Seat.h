@@ -10,15 +10,15 @@ using namespace std;
 #include "Console_airport.h"
 
 class Seat {
-	string name;
+	string id;
 	int cost;
 public:
 	Seat();
-	void appointment(UserData*);
+	void appointment(Ticket_airport*);
 	void set_cost_bussiness();
 	void set_cost_economy();
 	int get_cost();
-	string get_name();
+	string get_id();
 	void cancel();
 };
 #endif

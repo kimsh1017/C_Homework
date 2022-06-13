@@ -4,7 +4,7 @@ AirportUser::AirportUser()
 {
 	const char * filename = "AirportUser.txt";
 	fstream fin;
-	string id, password, temp, age_string;
+	string id, password, temp, age_string,name;
 
 	fin.open(filename, ios::in);
 
@@ -16,9 +16,10 @@ AirportUser::AirportUser()
 			if (temp == "***") {
 				getline(fin, id, '/');
 				getline(fin, password, '/');
-				getline(fin, age_string);
+				getline(fin, age_string, '/');
+				getline(fin, name);
 
-				userData.push_back(newUserData(id, password, stoi(age_string)));
+				userData.push_back(newUserData(id, password, stoi(age_string),name));
 			}
 		}
 	}
@@ -39,7 +40,8 @@ AirportUser::~AirportUser() {
 			fout << "***\n";
 			fout << userData[i].get_id() << '/';
 			fout << userData[i].get_password() << '/';
-			fout << userData[i].get_age() << '\n';
+			fout << userData[i].get_age() << '/';
+			fout << userData[i].get_name() << '\n';
 		}
 	}
 	fout.close();

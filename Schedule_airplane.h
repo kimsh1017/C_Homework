@@ -18,9 +18,9 @@ public:
 	~Schedule_airplane();
 	void set_seat_cost();
 	void setTime(string);
-	void appointment(UserData*, Ticket_airport*);
+	void appointment(Ticket_airport*);
 	void showSeats(float, Ticket_airport*);
-	void cancel(Ticket*);
+	void cancel(Ticket_airport*);
 	bool checkAppointed(int);
 };
 

@@ -7,12 +7,15 @@ using namespace std;
 
 class Ticket {
 protected:
+	string id;
 	string name;
 	int date;
 public:
 	Ticket();
 	void set_date(int);
 	int get_date();
+	string get_id();
+	string get_name();
 
 	virtual void showTicket();
 

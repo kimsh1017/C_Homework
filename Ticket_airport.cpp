@@ -1,12 +1,24 @@
 #include "Ticket_airport.h"
 
 
-Ticket_airport::Ticket_airport() {
-	departure = 0;
-	arrival = 0;
+Ticket_airport::Ticket_airport(string id ,int departure, int arrival,string name) {
+	this->id = id;
+	this->departure = departure;
+	this->arrival = arrival;
+	this->name = name;
 	time = 0;
 	date = 0;
 	seat_number = 0;
+}
+
+Ticket_airport::Ticket_airport(string id, int departure, int arrival, int date, int time, int seat_number)
+{
+	this->id = id;
+	this->departure = departure;
+	this->arrival = arrival;
+	this->date = date;
+	this->time = time;
+	this->seat_number = seat_number;
 }
 
 void Ticket_airport::set_route(int departure, int arrival) {

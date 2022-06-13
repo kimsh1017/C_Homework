@@ -9,6 +9,7 @@ using namespace std;
 class Console {
 public:
 	static string set_id();
+	static string set_name();
 	static string set_password();
 	static int set_place_menu();
 	static int set_login_menu();

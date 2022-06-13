@@ -79,4 +79,10 @@ int Console::set_age() {
 	return age;
 }
 
+string Console::set_name() {
+	string name;
+	cout << "ÀÌ¸§ >>";
+	cin >> name;
+	return name;
+}
 

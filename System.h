@@ -6,7 +6,6 @@ using namespace std;
 #include "Console.h"
 
 #include "Login.h"
-#include "UserData.h"
 #include "newUserData.h"
 
 #include "Restaurant.h"
@@ -15,7 +14,6 @@ using namespace std;
 
 class System {
 	Login* login;
-	UserData* user;
 	newUserData* UserNow;
 
 	Restaurant* restaurant;

@@ -1,19 +1,17 @@
 #include "Seat.h"
 
 Seat::Seat() {
-	name = "---";
+	id = "---";
 	cost = 0;
 }
-void Seat::appointment(UserData* User) {
-	this->name = User->get_name();
-	cout << User->get_name() << "님 예약되었습니다" << endl;
-	Sleep(1000);
+void Seat::appointment(Ticket_airport* reservation) {
+	this->id = reservation->get_id();
 }
-string Seat::get_name() {
-	return name;
+string Seat::get_id() {
+	return id;
 }
 void Seat::cancel() {
-	this->name = "---";
+	this->id = "---";
 }
 
 void Seat::set_cost_bussiness() { 

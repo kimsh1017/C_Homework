@@ -32,19 +32,23 @@ void Airplane::setDate() {
 	airplane_date[6].setDate("5월 7일 토요일");
 }
 
-void Airplane::appointment(UserData* User, Ticket_airport* appointment_data) {
-	int date, departure, arrival;
-	departure = appointment_data->get_departure();
-	arrival = appointment_data->get_arrival();
+void Airplane::appointment(Ticket_airport* reservation) {
+	int date;
 
-	date = Console_airport::set_date(appointment_data);
-	if (date != 0) {
-		appointment_data->set_date(date);
-		airplane_date[date - 1].appointment(User, appointment_data);
+	if (reservation->get_seat_number() != 0) { // 이미 완성된 예약
+		date = reservation->get_date();
+		airplane_date[date - 1].appointment(reservation);
+	}
+	else {
+		date = Console_airport::set_date(reservation);
+		if (date != 0) {
+			reservation->set_date(date);
+			airplane_date[date - 1].appointment(reservation);
+		}
 	}
 }
 
-void Airplane::cancel(Ticket* cancel_data) {
+void Airplane::cancel(Ticket_airport* cancel_data) {
 	int date = cancel_data->get_date();
 	airplane_date[date - 1].cancel(cancel_data);
 }

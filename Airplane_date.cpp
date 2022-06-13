@@ -16,17 +16,23 @@ void Airplane_date::setDate(string date) {
 	this->date = date;
 }
 
-void Airplane_date::appointment(UserData* User,Ticket_airport* appointment_data) {
+void Airplane_date::appointment(Ticket_airport* reservation) {
 	int time;
 
-	time = Console_airport::set_time(appointment_data);
+	if (reservation->get_seat_number() != 0) {
+		time = reservation->get_time();
+		schedules[time - 1].appointment(reservation);
+	}
+	else {
+		time = Console_airport::set_time(reservation);
 
-	if (time != 0) {
-		appointment_data->set_time(time);
-		schedules[time - 1].appointment(User, appointment_data);
+		if (time != 0) {
+			reservation->set_time(time);
+			schedules[time - 1].appointment(reservation);
+		}
 	}
 }
-void Airplane_date::cancel(Ticket* cancel_data) {
+void Airplane_date::cancel(Ticket_airport* cancel_data) {
 	int time = cancel_data->get_time();
 	schedules[time - 1].cancel(cancel_data);
 }

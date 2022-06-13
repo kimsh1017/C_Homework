@@ -4,8 +4,8 @@
 #include <iostream>
 #include <string>
 using namespace std;
-#include "Console_airport.h"
 
+#include "Console_airport.h"
 #include "Airplane_date.h"
 #include "Ticket.h"
 #include "Ticket_airport.h"
@@ -14,6 +14,7 @@ class Airplane {
 	string departure;
 	string arrival;
 	Airplane_date* airplane_date;
+
 public:
 	Airplane();
 	~Airplane();
@@ -23,8 +24,8 @@ public:
 
 	string getDeparture();
 	string getArrival();
-	void appointment(UserData*, Ticket_airport*);
-	void cancel(Ticket*);
+	void appointment(Ticket_airport*);
+	void cancel(Ticket_airport*);
 	int checkAppointed(int seat_number);
 };
 

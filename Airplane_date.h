@@ -17,8 +17,8 @@ public:
 	Airplane_date();
 	~Airplane_date();
 	void setDate(string);
-	void appointment(UserData*, Ticket_airport*);
-	void cancel(Ticket*);
+	void appointment(Ticket_airport*);
+	void cancel(Ticket_airport*);
 	int checkAppointed(int);
 };
 
