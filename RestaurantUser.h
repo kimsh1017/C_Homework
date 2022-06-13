@@ -5,5 +5,6 @@
 class RestaurantUser :public DataBase {
 public:
 	RestaurantUser();
+	~RestaurantUser();
 };
 #endif

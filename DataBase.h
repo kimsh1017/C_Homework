@@ -11,11 +11,10 @@ using namespace std;
 
 class DataBase {
 protected:
-	const char* filename;
-	fstream fin;
-	fstream fout;
+	vector <newUserData> userData;
 public:
 	DataBase();
+	virtual ~DataBase();
 
 	virtual void sign_up(string);
 	virtual newUserData* sign_in(string,string);

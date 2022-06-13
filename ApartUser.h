@@ -6,6 +6,7 @@ class ApartUser :public DataBase {
 	int TotalApartId;
 public:
 	ApartUser();
+	~ApartUser();
 	void sign_up(string);
 	bool check_id(string);
 };

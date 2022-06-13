@@ -27,7 +27,6 @@ void Login::sign_up(int place) {
 		
 		if (LoginDataBase[place - 1]->check_id(id)) {
 			cout << "이미 가입된 호수 입니다" << endl;
-			User = NULL;
 			Sleep(500);
 		}
 		else {
@@ -44,7 +43,6 @@ void Login::sign_up(int place) {
 		if (LoginDataBase[place - 1]->check_id(id)) { // 아이디 중복 체크
 			cout << "사용이 불가능한 아이디 입니다" << endl;
 			Sleep(500);
-			User = NULL;
 		}
 		else {
 			switch (place) {
@@ -68,6 +66,7 @@ void Login::sign_up(int place) {
 }
 void Login::sign_in(int place) {
 	Console::clean(0);
+
 	cout << endl;
 	cout << " [로그인] " << endl;
 	cout << endl;
@@ -88,7 +87,6 @@ newUserData* Login::sign_in_or_up(int place) {
 	}
 	else if(login_menu == 2) { // 2. 회원가입
 		sign_up(place);
-		User = NULL; //이 줄  지울 시 회원가입 이후 바로 자동 로그인
 	}
 	return User;
 }

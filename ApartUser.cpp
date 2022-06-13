@@ -2,78 +2,74 @@
 
 ApartUser::ApartUser()
 {
-	string temp;
-	filename = "ApartUser.txt";
+	fstream fin;
+	const char* filename = "ApartUser.txt";
 	TotalApartId = 1;
 
-	fout.open(filename, ios::out | ios::app);
+	string id, password, temp, age_string,apartment_number;
+
 	fin.open(filename, ios::in);
 
-	while (getline(fin, temp)) {
-		if (temp == "***") {
-			TotalApartId++;
+	if (!fin) {
+		cout << "파일 열기 오류 sign_up" << endl;
+	}
+	else {
+		while (getline(fin, temp)) {
+			if (temp == "***") {
+				getline(fin, id, '/');
+				getline(fin, password, '/');
+				getline(fin, age_string,'/');
+				getline(fin, apartment_number);
+
+				userData.push_back(newUserData(id, password, stoi(age_string),apartment_number));
+				TotalApartId++;
+			}
 		}
 	}
 	fin.close();
+}
+
+ApartUser::~ApartUser() {
+	const char* filename = "ApartUser.txt";
+	fstream fout;
+	fout.open(filename, ios::out);
+
+	if (!fout) {
+		cout << "파일 열기 오류" << endl;
+		Sleep(500);
+	}
+	else {
+		for (int i = 0; i < userData.size(); i++) {
+			fout << "***\n";
+			fout << userData[i].get_id() << '/';
+			fout << userData[i].get_password() << '/';
+			fout << userData[i].get_age() << '/';
+			fout << userData[i].get_apartment_number() << '\n';
+		}
+	}
 	fout.close();
 }
 
 void ApartUser::sign_up(string apartment_number) {
-	cout << apartment_number << "세대의 아이디는 " << TotalApartId << "입니다";
-	
-	string id = to_string(TotalApartId);
 	string password;
 	int age;
 
-	fout.open(filename, ios::out | ios::app);
-	fin.open(filename, ios::in);
+	cout << apartment_number << "세대의 아이디는 " << TotalApartId << "입니다";
 
-	if (!fout || !fin) {
-		cout << "파일 열기 오류 sign_up" << endl;
-		fin.close();
-		fout.close();
-	}
-	else {
-		password = Console::set_password();
-		age = Console::set_age();
-		fout << "***\n";
-		fout << id << '/' << password << '/' << age << '/' << apartment_number << '\n';
+	password = Console::set_password();
+	age = Console::set_age();
 
-		fin.close();
-		fout.close();
-	}
+	userData.push_back(newUserData(to_string(TotalApartId), password, age, apartment_number));
 
 	TotalApartId++;
 }
 
 bool ApartUser::check_id(string apartment_number)
 {
-	string temp, fileNumber;
-	fout.open(filename, ios::out | ios::app);
-	fin.open(filename, ios::in);
-
-	if (!fout || !fin) {
-		cout << "파일 열기 오류 check_id" << endl;
-		fin.close();
-		fout.close();
-		return NULL;
-	}
-	while (getline(fin, temp)) {
-		if (temp == "***") {
-			getline(fin, temp, '/');
-			getline(fin, temp, '/');
-			getline(fin, temp, '/');
-			getline(fin, fileNumber);
-
-			if (fileNumber == apartment_number) {
-				cout << "중복되는 호수가 존재합니다" << endl;
-				fin.close();
-				fout.close();
-				return true;
-			}
+	for(int i = 0; i < userData.size(); i++){
+		if (userData[i].get_apartment_number() == apartment_number) {
+			return true;
 		}
 	}
-	fin.close();
-	fout.close();
 	return false;
 }

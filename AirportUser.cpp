@@ -2,5 +2,45 @@
 
 AirportUser::AirportUser()
 {
-	filename = "AirportUser.txt";
+	const char * filename = "AirportUser.txt";
+	fstream fin;
+	string id, password, temp, age_string;
+
+	fin.open(filename, ios::in);
+
+	if (!fin) {
+		cout << "파일 열기 오류 sign_up" << endl;
+	}
+	else {
+		while (getline(fin, temp)) {
+			if (temp == "***") {
+				getline(fin, id, '/');
+				getline(fin, password, '/');
+				getline(fin, age_string);
+
+				userData.push_back(newUserData(id, password, stoi(age_string)));
+			}
+		}
+	}
+	fin.close();
+}
+
+AirportUser::~AirportUser() {
+	const char* filename = "AirportUser.txt";
+	fstream fout;
+	fout.open(filename, ios::out);
+
+	if (!fout) {
+		cout << "파일 열기 오류" << endl;
+		Sleep(500);
+	}
+	else {
+		for (int i = 0; i < userData.size(); i++) {
+			fout << "***\n";
+			fout << userData[i].get_id() << '/';
+			fout << userData[i].get_password() << '/';
+			fout << userData[i].get_age() << '\n';
+		}
+	}
+	fout.close();
 }

@@ -21,15 +21,21 @@ void System::running() {
 		if (UserNow != NULL) {
 			switch (place_menu) {
 			case 1:
-				airport->runServer(user);
+				//airport->runServer(user);
+				cout << "로그인 성공" << endl;
+				cout << UserNow->get_id() << " " << UserNow->get_age() << endl;
 				UserNow = NULL;
 				break;
 			case 2:
-				restaurant->runServer(user);
+				//restaurant->runServer(user);
+				cout << "로그인 성공" << endl;
+				cout << UserNow->get_id() << " " << UserNow->get_age() << endl;
 				UserNow = NULL;
 				break;
 			case 3:
-				apart->runserver(user);
+				//apart->runserver(user);
+				cout << "로그인 성공" << endl;
+				cout << UserNow->get_id() << " " << UserNow->get_age() << endl;
 				UserNow = NULL;
 				break;
 			}

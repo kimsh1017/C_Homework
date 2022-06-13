@@ -8,5 +8,6 @@ using namespace std;
 class AirportUser :public DataBase {
 public:
 	AirportUser();
+	~AirportUser();
 };
 #endif
