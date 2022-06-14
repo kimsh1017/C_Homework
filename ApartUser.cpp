@@ -50,13 +50,17 @@ ApartUser::~ApartUser() {
 
 void ApartUser::sign_up(string apartment_number) {
 	string password;
+	if (TotalApartId > 300) {
+		cout << "더 이상 가입할 수 없습니다 죄송합니다" << endl;
+	}
+	else {
+		cout << apartment_number << "세대의 아이디는 " << TotalApartId << "입니다" << endl;
 
-	cout << apartment_number << "세대의 아이디는 " << TotalApartId << "입니다" << endl;
+		password = Console::set_password();
+		userData.push_back(newUserData(to_string(TotalApartId), password, apartment_number));
 
-	password = Console::set_password();
-	userData.push_back(newUserData(to_string(TotalApartId), password, apartment_number));
-
-	TotalApartId++;
+		TotalApartId++;
+	}
 }
 
 bool ApartUser::check_id(string apartment_number)
