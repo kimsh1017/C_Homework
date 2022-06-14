@@ -147,7 +147,9 @@ void Restaurant::cancel() {
 				count++;
 				if (count == ticket_number) {
 					schedules[reservationData[i].get_date() - 1].cancel(&reservationData[i]);
-					reservationData.erase(reservationData.begin() + count - 1);
+					reservationData.erase(reservationData.begin() + i);
+					cout << "취소되었습니다" << endl;
+					Sleep(1000);
 					break;
 				}
 			}

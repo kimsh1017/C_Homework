@@ -14,18 +14,12 @@ public:
 	Ticket();
 	void set_date(int);
 	int get_date();
+
+	void set_id(string);
 	string get_id();
+
 	string get_name();
 
 	virtual void showTicket();
-
-	// Ticket_restaurant
-	virtual int get_table_number();
-
-	//Ticket_airport
-	virtual int get_departure();
-	virtual int get_arrival();
-	virtual int get_time();
-	virtual int get_seat_number();
 };
 #endif

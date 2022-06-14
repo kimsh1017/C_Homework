@@ -11,6 +11,9 @@ void Ticket::showTicket() {
 void Ticket::set_date(int date) {
 	this->date = date;
 }
+void Ticket::set_id(string id) {
+	this->id = id;
+}
 string Ticket::get_id() {
 	return id;
 }
@@ -21,19 +24,4 @@ string Ticket::get_name() {
 
 int Ticket::get_date() {
 	return date;
-}
-int Ticket::get_table_number() {
-	return 0;
-}
-int Ticket::get_departure() {
-	return 0;
-}
-int Ticket::get_arrival() {
-	return 0;
-}
-int Ticket::get_time() {
-	return 0;
-}
-int Ticket::get_seat_number() {
-	return 0;
 }

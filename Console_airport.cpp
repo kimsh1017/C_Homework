@@ -1,5 +1,9 @@
 #include "Console_airport.h"
 
+void Console_airport::clean(int delay) {
+	Sleep(delay);
+	system("cls");
+}
 int Console_airport::set_menu(string name) {
 	int menu = 0;
 
@@ -235,9 +239,4 @@ void Console_airport::printDataNow(Ticket_airport* appointment_data) {
 		cout << "[" << airport_list[departure - 1] << "->" << airport_list[arrival - 1] << "행 비행기 ]" << endl;
 	}
 	cout <<  endl;
-}
-
-void Console_airport::clean(int delay) {
-	Sleep(delay);
-	system("cls");
 }

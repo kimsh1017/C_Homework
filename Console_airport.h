@@ -3,11 +3,12 @@
 #include <iostream>
 using namespace std;
 #include<string>
-#include <Windows.h>
 #include "Ticket_airport.h"
+#include <Windows.h>
 
 class Console_airport {
 public:
+	static void clean(int);
 	static int set_menu(string);
 	static int set_date(Ticket_airport*);
 	static int set_departure();
@@ -19,6 +20,5 @@ public:
 	static int set_ticket_number(int);
 	static int set_stat_menu();
 	static void printDataNow(Ticket_airport*);
-	static void clean(int);
 };
 #endif

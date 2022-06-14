@@ -18,22 +18,22 @@ void System::running() {
 
 		// 로그인 성공시
 		if (UserNow != NULL) {
+			Console::clean(0);
+			cout << endl;
+			cout << "로그인 성공" << endl;
+			Sleep(500);
+
 			switch (place_menu) {
 			case 1:
 				airport->runServer(UserNow);
-				cout << "로그인 성공" << endl;
 				UserNow = NULL;
 				break;
 			case 2:
 				restaurant->runServer(UserNow);
-				cout << "로그인 성공" << endl;
-				cout << UserNow->get_id() << " " << UserNow->get_age() << endl;
 				UserNow = NULL;
 				break;
 			case 3:
-				//apart->runserver(user);
-				cout << "로그인 성공" << endl;
-				cout << UserNow->get_id() << " " << UserNow->get_age() << endl;
+				apart->runserver(UserNow);
 				UserNow = NULL;
 				break;
 			}
@@ -46,4 +46,5 @@ void System::running() {
 	delete login;
 	delete restaurant;
 	delete airport;
+	delete apart; 
 }

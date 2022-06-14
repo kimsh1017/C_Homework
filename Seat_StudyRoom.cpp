@@ -1,20 +1,15 @@
 #include "Seat_StudyRoom.h"
 
 Seat_StudyRoom::Seat_StudyRoom() {
-	name = "";
+	id = "";
 	gender = "";
 }
-void Seat_StudyRoom::appointment(UserData* User, Ticket_apart* appointment_data) {
-	name = appointment_data->get_name();
-	gender = appointment_data->get_gender();
-
-	User->appointment(appointment_data);
-
-	cout << appointment_data->get_name() << "님 예약되었습니다" << endl;
-	Sleep(1000);
+void Seat_StudyRoom::appointment(Ticket_apart* reservation) {
+	id = reservation->get_id();
+	gender = reservation->get_gender();
 }
 bool Seat_StudyRoom::checkSeat() { 
-	if (name == "" && gender == "") {
+	if (id == "" && gender == "") {
 		return true;
 	}
 	else {
@@ -24,10 +19,10 @@ bool Seat_StudyRoom::checkSeat() {
 string Seat_StudyRoom::get_gender() {
 	return gender;
 }
-string Seat_StudyRoom::get_name() {
-	return name;
+string Seat_StudyRoom::get_id() {
+	return id;
 }
 void Seat_StudyRoom::cancel() {
-	name = "";
+	id = "";
 	gender = "";
 }

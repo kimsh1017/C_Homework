@@ -2,7 +2,6 @@
 #define RESTAURANT_H
 
 #include "newUserData.h"
-#include "UserData_restaurant.h"
 #include "Schedule_restaurant.h"
 #include "Walk_in.h"
 #include "Ticket.h"

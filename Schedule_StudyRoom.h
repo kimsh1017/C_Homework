@@ -2,7 +2,6 @@
 #define SCHEDULE_STUDYROOM_H
 
 #include "Seat_StudyRoom.h"
-#include "UserData.h"
 #include "Ticket.h"
 #include "Ticket_apart.h"
 #include "Console_apart.h"
@@ -17,10 +16,11 @@ public:
 	Schedule_StudyRoom();
 	~Schedule_StudyRoom();
 
-	void appointment(UserData*, Ticket_apart*);
+	void appointment(Ticket_apart*);
 	void showSeats(string);
 	bool checkSeat(int, string);
-	void cancel(Ticket*);
+	bool checkId(string);
+	void cancel(Ticket_apart*);
 	bool checkAppointed(int);
 	int checkGender(string);
 };

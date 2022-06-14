@@ -6,7 +6,7 @@ ApartUser::ApartUser()
 	const char* filename = "ApartUser.txt";
 	TotalApartId = 1;
 
-	string id, password, temp, age_string,apartment_number, name;
+	string id, password, temp, apartment_number;
 
 	fin.open(filename, ios::in);
 
@@ -18,11 +18,9 @@ ApartUser::ApartUser()
 			if (temp == "***") {
 				getline(fin, id, '/');
 				getline(fin, password, '/');
-				getline(fin, age_string,'/');
-				getline(fin, name, '/');
 				getline(fin, apartment_number);
 
-				userData.push_back(newUserData(id, password, stoi(age_string),apartment_number,name));
+				userData.push_back(newUserData(id, password,apartment_number));
 				TotalApartId++;
 			}
 		}
@@ -44,8 +42,6 @@ ApartUser::~ApartUser() {
 			fout << "***\n";
 			fout << userData[i].get_id() << '/';
 			fout << userData[i].get_password() << '/';
-			fout << userData[i].get_age() << '/';
-			fout << userData[i].get_name() << '/';
 			fout << userData[i].get_apartment_number() << '\n';
 		}
 	}
@@ -53,16 +49,12 @@ ApartUser::~ApartUser() {
 }
 
 void ApartUser::sign_up(string apartment_number) {
-	string password,name;
-	int age;
+	string password;
 
-	cout << apartment_number << "세대의 아이디는 " << TotalApartId << "입니다";
+	cout << apartment_number << "세대의 아이디는 " << TotalApartId << "입니다" << endl;
 
 	password = Console::set_password();
-	name = Console::set_name();
-	age = Console::set_age();
-
-	userData.push_back(newUserData(to_string(TotalApartId), password, age, name, apartment_number));
+	userData.push_back(newUserData(to_string(TotalApartId), password, apartment_number));
 
 	TotalApartId++;
 }

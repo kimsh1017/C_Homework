@@ -58,18 +58,13 @@ int Console::set_login_menu() {
 
 string Console::set_apartment_number() {
 	string apartment_number = "";
-	
+
 	cout << "세대를 입력해주세요 : 101동 ___호 >>";
 	cout << "(101~999사이의 숫자로 입력해주세요)" << endl;
 	moveCursor(28, 4);
 	cin >> apartment_number;
 
 	return apartment_number;
-}
-
-void Console::clean(int delay) {
-	Sleep(delay);
-	system("cls");
 }
 
 int Console::set_age() {
@@ -84,5 +79,10 @@ string Console::set_name() {
 	cout << "이름 >>";
 	cin >> name;
 	return name;
+}
+
+void Console::clean(int delay) {
+	Sleep(delay);
+	system("cls");
 }
 

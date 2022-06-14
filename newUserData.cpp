@@ -9,13 +9,15 @@ newUserData::newUserData(string id, string password, int age, string name)
 	this->apartment_number = "";
 }
 
-newUserData::newUserData(string id, string password, int age, string apartment_number, string name)
+newUserData::newUserData(string id, string password, string apartment_number)
 {
+	// 아파트 유저용 데이터
+	this->name = "";
+	this->age = 0;
+
 	this->id = id;
 	this->password = password;
-	this->age = age;
 	this->apartment_number = apartment_number;
-	this->name = name;
 }
 
 string newUserData::get_id()

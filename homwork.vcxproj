@@ -29,7 +29,6 @@
     <ClCompile Include="Console_apart.cpp" />
     <ClCompile Include="Console_restaurant.cpp" />
     <ClCompile Include="newUserData.cpp" />
-    <ClCompile Include="ReservationData.cpp" />
     <ClCompile Include="Restaruant.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="DataBase.cpp">
@@ -50,10 +49,6 @@
     <ClCompile Include="Ticket_airport.cpp" />
     <ClCompile Include="Ticket_apart.cpp" />
     <ClCompile Include="Ticket_restaurant.cpp" />
-    <ClCompile Include="UserData.cpp" />
-    <ClCompile Include="UserData_airport.cpp" />
-    <ClCompile Include="UserData_apart.cpp" />
-    <ClCompile Include="UserData_restaurant.cpp" />
     <ClCompile Include="Walk_in.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -70,7 +65,6 @@
     <ClInclude Include="DataBase.h" />
     <ClInclude Include="Login.h" />
     <ClInclude Include="newUserData.h" />
-    <ClInclude Include="ReservationData.h" />
     <ClInclude Include="Restaurant.h" />
     <ClInclude Include="RestaurantUser.h" />
     <ClInclude Include="Schedule_airplane.h" />
@@ -85,10 +79,6 @@
     <ClInclude Include="Ticket_airport.h" />
     <ClInclude Include="Ticket_apart.h" />
     <ClInclude Include="Ticket_restaurant.h" />
-    <ClInclude Include="UserData.h" />
-    <ClInclude Include="UserData_airport.h" />
-    <ClInclude Include="UserData_apart.h" />
-    <ClInclude Include="UserData_restaurant.h" />
     <ClInclude Include="Walk_in.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

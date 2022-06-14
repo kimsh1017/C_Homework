@@ -8,7 +8,7 @@ class newUserData {
 	int age;
 public:
 	newUserData(string, string, int, string);
-	newUserData(string, string, int, string, string);
+	newUserData(string, string, string);
 	string get_id();
 	string get_password();
 	int get_age();

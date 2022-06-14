@@ -5,6 +5,15 @@ Ticket_apart::Ticket_apart() {
 	date = 0;
 	time = 0;
 	gender = "";
+	seat_number = 0;
+}
+Ticket_apart::Ticket_apart(string id, string name, int date, int time, int seat_number, string gender) {
+	this->id = id;
+	this->name = name;
+	this->date = date;
+	this->time = time;
+	this->seat_number = seat_number;
+	this->gender = gender;
 }
 
 void Ticket_apart::set_time(int time)

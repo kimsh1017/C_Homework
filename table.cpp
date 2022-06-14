@@ -24,8 +24,6 @@ string Table::get_appointed(int people) {
 
 void Table::cancel() {
 	id = "---";
-	cout << "취소되었습니다" << endl;
-	Sleep(1000);
 }
 string Table::get_id() {
 	return id;

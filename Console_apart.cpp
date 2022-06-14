@@ -45,50 +45,9 @@ int  Console_apart::set_date() {
 	return date;
 }
 
-int Console_apart::set_time( UserData* User, int date) {
+int Console_apart::set_time(Ticket_apart* reservation) {// 삭제 가능 문자 예외처리용으로 남김
 	int time = -1;
-	int total_time = User->getTotalTime(date);
-	Ticket* data;
-
-	if (total_time >= 4) {
-		clean(0);
-		cout << endl;
-
-		cout << "5월 " << date << "일 ]" << endl;
-		cout << "이미 4시간 예약이 완료됐습니다" << endl;
-	}
-	else {
-		clean(0);
-		cout << endl;
-
-		cout << "예약하실 시간을 입력해주세요." << endl;
-		cout << "영업시간: 09시 ~ 23시 , 세대당 하루 최대 4시간 예약 가능합니다" << endl;
-		cout << endl;
-		cout << "[ 101동 " << User->get_id() << "호  5월 " << date << "일]" << endl;
-		cout << "현재 " << total_time << "시간 예약중" << endl;
-		cout << "한 번에 1시간씩 예약 가능합니다" << endl;
-
-		cout << endl;
-		while (time == -1) {
-			cout << "입실 시간 (돌아가기 : 0)>>";
-			cin >> time;
-
-			if ((time < 9 || time> 22) && (time != 0)) {
-				cout << "잘못된 입력입니다. 영업시간: 09시 ~23시" << endl;
-				time = -1;
-				Sleep(500);
-			}
-			for (int i = 0; i < User->get_tickets_size(); i++) {// 시간 중복 예외처리
-				data = User->getTicket(i + 1);
-				if (date == data->get_date() &&
-					time == data->get_time()) {
-					cout << "이 시간에 이미 예약한 좌석이 있습니다" << endl;
-					time = -1;
-					break;
-				}
-			}
-		}
-	}
+	cin >> time;
 	return time;
 }
 
@@ -149,6 +108,7 @@ int Console_apart::set_ticket_number(int tickets_size) {
 		if (ticket_number > tickets_size || ticket_number < 0) {
 			ticket_number = -1;
 			cout << "잘못된 입력입니다" << endl;
+			Sleep(500);
 		}
 	}
 	return ticket_number;
@@ -186,11 +146,6 @@ int Console_apart::set_stat_detail() {
 	return menu;
 }
 
-void Console_apart::clean(int delay) {
-	Sleep(delay);
-	system("cls");
-}
-
 int Console_apart::set_seat_stat_number() {
 	int n = -1;
 	while (n == -1) {
@@ -203,4 +158,9 @@ int Console_apart::set_seat_stat_number() {
 		}
 	}
 	return n;
+}
+
+void Console_apart::clean(int delay) {
+	Sleep(delay);
+	system("cls");
 }

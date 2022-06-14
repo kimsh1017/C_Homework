@@ -27,7 +27,7 @@ void Login::sign_up(int place) {
 		
 		if (LoginDataBase[place - 1]->check_id(id)) {
 			cout << "이미 가입된 호수 입니다" << endl;
-			Sleep(500);
+			Sleep(1000);
 		}
 		else {
 			LoginDataBase[place - 1]->sign_up(id);
@@ -42,7 +42,7 @@ void Login::sign_up(int place) {
 
 		if (LoginDataBase[place - 1]->check_id(id)) { // 아이디 중복 체크
 			cout << "사용이 불가능한 아이디 입니다" << endl;
-			Sleep(500);
+			Sleep(1000);
 		}
 		else {
 			switch (place) {

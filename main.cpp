@@ -11,16 +11,3 @@ int main() {
 	system->running();
 	delete system;
 }
-
-
-/*
-airport 구현 성공
-식당 구현성공
-
-식당 ui 고치기 (컴파일 시간 줄이기 / walk-in ui 개선)
-독서실 구현 필요
-나이 예약 제한
-
-예외처리 구현
-코드 깔끔하게?
-*/

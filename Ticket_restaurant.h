@@ -13,10 +13,10 @@ class Ticket_restaurant :public Ticket{
 public:
 	Ticket_restaurant();
 	Ticket_restaurant(string, int, int, int);
+
 	void showTicket();
 	void set_table_number(int);
 	void set_people(int);
-	void set_id(string);
 
 	int get_table_number();
 	int get_people();

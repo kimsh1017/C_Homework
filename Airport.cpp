@@ -128,7 +128,7 @@ void Airport::runServer(newUserData* User) {
 		switch (menu) {
 		case 1:
 			appointment();
-			if (reservationData.size() != check_appointed) { // 예약 성공시
+			if (reservationData.size() != check_appointed) { //여기 수정 필요
 				menu = 4; // 로그아웃
 			}
 			break;

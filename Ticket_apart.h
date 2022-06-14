@@ -14,6 +14,8 @@ class Ticket_apart :public Ticket {
 	string gender;
 public:
 	Ticket_apart();
+	Ticket_apart(string, string, int, int, int, string);
+
 	void set_time(int);
 	void set_seat_number(int);
 	void set_gender(string);

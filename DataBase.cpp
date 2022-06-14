@@ -12,7 +12,8 @@ newUserData* DataBase::sign_in(string id,string password) {
 			return &userData[i];
 		}
 	}
-	cout << "로그인에 실패했습니다" << endl;
+	cout << "ID 혹은 비밀번호가 틀립니다" << endl;
+	Sleep(1000);
 	return NULL;
 }
 

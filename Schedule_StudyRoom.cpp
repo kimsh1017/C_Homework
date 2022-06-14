@@ -13,44 +13,55 @@ Schedule_StudyRoom::~Schedule_StudyRoom() {
 	delete[]seats;
 }
 
-void Schedule_StudyRoom::appointment(UserData* User, Ticket_apart* appointment_data) {
+void Schedule_StudyRoom::appointment(Ticket_apart* reservation) {
 	string gender;
 	string name;
 	int age = 0;
 	int seat_number = -1;
 
-	age = Console_apart::set_age();
-	if (age <= 13) {
-		cout << endl;
-		cout << "13세 이하는 예약이 불가능합니다" << endl;
-		Sleep(1000);
+	if (reservation->get_seat_number() != 0) {
+		seat_number = reservation->get_seat_number();
+		if (seat_number % 15 == 0) {
+			seats[seat_number / 15 - 1][14].appointment(reservation);
+		}
+		else {
+			seats[seat_number / 15][seat_number % 15 - 1].appointment(reservation);
+		}
 	}
 	else {
-		gender = Console_apart::set_gender();
-		name = Console_apart::set_name();
+		age = Console_apart::set_age();
+		if (age <= 13) {
+			cout << endl;
+			cout << "13세 이하는 예약이 불가능합니다" << endl;
+			Sleep(1000);
+		}
+		else {
+			gender = Console_apart::set_gender();
+			name = Console_apart::set_name();
 
-		showSeats(gender); // 좌석 보여주기
+			while (seat_number == -1) {
+				showSeats(gender); // 좌석 보여주기
+				seat_number = Console_apart::set_seat_number();
 
-		while (seat_number == -1) {
-			seat_number = Console_apart::set_seat_number();
-			if (seat_number != 0) {
-				if (checkSeat(seat_number, gender) == false) {
-					cout << "예약이 불가능한 좌석입니다" << endl;
-					seat_number = -1;
+				if (seat_number != 0) {
+					if (checkSeat(seat_number, gender) == false) {
+						cout << "예약이 불가능한 좌석입니다" << endl;
+						seat_number = -1;
+					}
 				}
 			}
-		}
 
-		if (seat_number != 0) {
-			appointment_data->set_name(name);
-			appointment_data->set_gender(gender);
-			appointment_data->set_seat_number(seat_number);
+			if (seat_number != 0) {
+				reservation->set_name(name);
+				reservation->set_gender(gender);
+				reservation->set_seat_number(seat_number);
 
-			if (seat_number % 15 == 0) {
-				seats[seat_number / 15 - 1][14].appointment(User, appointment_data);
-			}
-			else {
-				seats[seat_number / 15][seat_number % 15 - 1].appointment(User, appointment_data);
+				if (seat_number % 15 == 0) {
+					seats[seat_number / 15 - 1][14].appointment(reservation);
+				}
+				else {
+					seats[seat_number / 15][seat_number % 15 - 1].appointment(reservation);
+				}
 			}
 		}
 	}
@@ -107,7 +118,7 @@ bool Schedule_StudyRoom::checkSeat(int seat_number, string gender) {
 	}
 }
 
-void Schedule_StudyRoom::cancel(Ticket* cancel_data) {
+void Schedule_StudyRoom::cancel(Ticket_apart* cancel_data) {
 	int seat_number;
 	seat_number = cancel_data->get_seat_number();
 
@@ -127,6 +138,7 @@ bool Schedule_StudyRoom::checkAppointed(int seat_number) {
 		return seats[seat_number / 15][seat_number % 15 - 1].checkSeat();
 	}
 }
+
 int Schedule_StudyRoom::checkGender(string gender) {
 	int result = 0;
 	for (int i = 0; i < 15; i++) {
@@ -135,4 +147,15 @@ int Schedule_StudyRoom::checkGender(string gender) {
 		}
 	}
 	return result;
+}
+
+bool Schedule_StudyRoom::checkId(string id) {
+	for (int i = 0; i < 15; i++) {
+		for (int j = 0; j < 15; j++) {
+			if (seats[i][j].get_id() == id) {
+				return true;
+			}
+		}
+	}
+	return false;
 }

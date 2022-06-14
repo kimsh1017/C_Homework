@@ -29,11 +29,6 @@ void Ticket_restaurant::set_table_number(int table_number) {
 void Ticket_restaurant::set_people(int people) {
 	this->people = people;
 }
-void Ticket_restaurant::set_id(string id) {
-	this->id = id;
-}
-
-
 
 int Ticket_restaurant::get_table_number() {
 	return table_number;

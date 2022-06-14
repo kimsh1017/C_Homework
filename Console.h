@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include<string>
-using namespace std;
 #include <Windows.h>
+using namespace std;
 
 class Console {
 public:
@@ -14,7 +14,7 @@ public:
 	static int set_place_menu();
 	static int set_login_menu();
 	static string set_apartment_number();
-	static void clean(int);
 	static int set_age();
+	static void clean(int);
 };
 #endif
