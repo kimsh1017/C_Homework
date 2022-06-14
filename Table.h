@@ -4,17 +4,16 @@
 #include <iostream>
 #include <string>
 using namespace std;
-#include "UserData.h"
+#include "Ticket_restaurant.h"
 #include "Console_restaurant.h"
 
 class Table {
 	int seat_number;
-	string name;
 	string id;
 public:
 	Table();
 	void set_seat_number(int);
-	void appointment(UserData*);
+	void appointment(string);
 	string get_appointed(int);
 	void cancel();
 	string get_name();

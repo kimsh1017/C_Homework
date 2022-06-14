@@ -1,8 +1,7 @@
 #include "Table.h"
 
 Table::Table() {
-	name = "---";
-	id = "";
+	id = "---";
 	seat_number = 0;
 }
 
@@ -10,16 +9,12 @@ void Table::set_seat_number(int number) {
 	this->seat_number = number;
 }
 
-void Table::appointment(UserData* User) {
-	this->name = User->get_name();
-	this->id = User->get_id();
-	cout << endl;
-	cout << name << "님 예약되었습니다" << endl;
-	Console_restaurant::clean(1000);
+void Table::appointment(string id) {
+	this->id = id;
 }
 
 string Table::get_appointed(int people) {
-	if (this->name == "---" && people <= this->seat_number) {
+	if (this->id == "---" && people <= this->seat_number) {
 		return "가능";
 	}
 	else {
@@ -28,13 +23,9 @@ string Table::get_appointed(int people) {
 }
 
 void Table::cancel() {
-	name = "---";
-	id = "";
+	id = "---";
 	cout << "취소되었습니다" << endl;
 	Sleep(1000);
-}
-string Table::get_name() {
-	return name;
 }
 string Table::get_id() {
 	return id;

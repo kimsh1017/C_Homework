@@ -9,9 +9,8 @@ using namespace std;
 #include "Console_restaurant.h"
 
 class Schedule_restaurant {
-	UserData* User;
 	string date;
-	Table* reservation_4;
+	Table* tables;
 public:
 	Schedule_restaurant();
 	~Schedule_restaurant();
@@ -19,9 +18,9 @@ public:
 	void setTableSeat();
 	void setDate(string);
 
-	void appointment(UserData*,Ticket_restaurant* );
+	void appointment(Ticket_restaurant* );
 	void show_table(Ticket_restaurant*);
-	void cancel(int);
+	void cancel(Ticket_restaurant* );
 
 	bool checkTable(int);
 };

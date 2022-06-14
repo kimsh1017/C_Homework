@@ -6,19 +6,21 @@
 using namespace std;
 #include "Console_restaurant.h"
 #include "Table.h"
-#include "UserData.h"
+#include "newUserData.h"
 #include <deque>
 #include "iomanip"
+#include <fstream>
 
 class Walk_in {
-	UserData* User;
+	newUserData* User;
 	Table* table;
 	deque <string> waitingList;
 public:
 	Walk_in();
 	~Walk_in();
+	void setWalkInData();
 
-	void running(UserData*);
+	void running(newUserData*);
 	bool checkTableUser();
 	bool checkListUser();
 	void showTable();

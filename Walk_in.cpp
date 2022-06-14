@@ -5,12 +5,64 @@ Walk_in::Walk_in() {
 	table[0].set_seat_number(4);
 	table[1].set_seat_number(4);
 	User = NULL;
+
+	setWalkInData();
 }
 Walk_in::~Walk_in() {
+	fstream fout("WalkInData.txt", ios::out);
+	string temp;
+	if (!fout) {
+		cout << "파일 열기 오류 " << endl;
+		Sleep(500);
+	}
+	else {
+		for (int i = 0; i < 2; i++) {
+			if (table[i].get_id() != "---") {
+				fout << "***\n";
+				fout << table[i].get_id() << '/' << i << '\n';
+			}
+		}
+		while(!waitingList.empty()) {
+			fout << "@@@\n";
+			fout << waitingList.front() << '\n';
+			waitingList.pop_front();
+		}
+	}
+	fout.close();
 	delete []table;
 }
+void Walk_in::setWalkInData() {
+	fstream fin("WalkInData.txt",ios::in);
+	string temp,id;
+	int table_number;
 
-void Walk_in::running(UserData* User) {
+	if (!fin) {
+		cout << "파일 열기 오류 " << endl;
+		Sleep(500);
+	}
+	else {
+		while (getline(fin, temp)) {
+			if (temp == "***") {
+
+				getline(fin, temp,'/');
+				id = temp;
+
+				getline(fin, temp);
+				table_number = stoi(temp);
+
+				table[table_number].appointment(id);
+			}
+			else if (temp == "@@@") {
+				getline(fin, id);
+				waitingList.push_back(id);
+			}
+		}
+	}
+	fin.close();
+}
+
+
+void Walk_in::running(newUserData* User) {
 	this->User = User;
 	int people = 0;
 	int menu = 0;
@@ -112,7 +164,7 @@ void Walk_in::showTable() {
 }
 
 bool Walk_in::checkTableEmpty() {
-	if (table[0].get_id() != "" && table[1].get_id() != "") {
+	if (table[0].get_id() != "---" && table[1].get_id() != "---") {
 		return false;
 	}
 	return true;
@@ -129,12 +181,12 @@ void Walk_in::seatTable() {
 			cout << "잘못된 입력입니다" << endl;
 			table_number = 0;
 		}
-		else if (table[table_number - 1].get_id() != "") {
+		else if (table[table_number - 1].get_id() != "---") {
 			cout << "앉을 수 없는 자리입니다" << endl;
 			table_number = 0;
 		}
 		else {
-			table[table_number - 1].appointment(User);
+			table[table_number - 1].appointment(User->get_id());
 		}
 	}
 }

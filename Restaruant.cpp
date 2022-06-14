@@ -6,9 +6,27 @@ Restaurant::Restaurant() {
 
 	set_date(); // 스케줄에 요일 날짜 설정
 	walkInServer = new Walk_in;
+
+	setReservationData();
 }
 Restaurant::~Restaurant() {
+	fstream fout("ReservationRestaurant.txt", ios::out);
+	if (!fout) {
+		cout << "파일 열기 오류" << endl;
+		Sleep(500);
+	}
+	else {
+		for (int i = 0; i < reservationData.size(); i++) {
+			fout << "***\n";
+			fout << reservationData[i].get_id() << '/';
+			fout << reservationData[i].get_date() << '/';
+			fout << reservationData[i].get_table_number() << '/';
+			fout << reservationData[i].get_people() << '\n';
+		}
+	}
+	fout.close();
 	delete[]schedules;
+	delete walkInServer;
 }
 
 void Restaurant::set_date() { // 요일 날짜 설정
@@ -21,13 +39,50 @@ void Restaurant::set_date() { // 요일 날짜 설정
 	schedules[6].setDate("5월 7일 토요일");
 }
 
+void Restaurant::setReservationData() { // 파일에서 예약 불러오기
+	fstream fin("ReservationRestaurant.txt", ios::in);
+	string id, temp;
+	int date, people, table_number;
+
+	if (!fin) {
+		cout << "파일 열기 오류" << endl;
+		Sleep(500);
+	}
+	else {
+		while (getline(fin, temp)) {
+			if (temp == "***") {
+				getline(fin, temp, '/');
+				id = temp;
+
+				getline(fin, temp, '/');
+				date = stoi(temp);
+
+				getline(fin, temp, '/');
+				table_number = stoi(temp);
+
+				getline(fin, temp);
+				people = stoi(temp);
+
+				reservationData.push_back(Ticket_restaurant(id, date,table_number,people));
+			}
+		}
+		for (int i = 0; i < reservationData.size(); i++) {
+			cout << reservationData[i].get_id() << endl;
+			int date = reservationData[i].get_date();
+			schedules[date-1].appointment(&reservationData[i]);
+		}
+	}
+
+	fin.close();
+}
+
 void Restaurant::appointment() {
 	int date = Console_restaurant::set_date();
-
+	reservationData.push_back(Ticket_restaurant());
 	if (date != 0) {
-		appointment_data = new Ticket_restaurant;
-		appointment_data->set_date(date);
-		schedules[date - 1].appointment(User, appointment_data);
+		reservationData.back().set_id(User->get_id());
+		reservationData.back().set_date(date);
+		schedules[date - 1].appointment(&reservationData.back());
 	}
 }
 
@@ -35,10 +90,9 @@ void Restaurant::walk_in() {
 	walkInServer->running(User);
 }
 
-void Restaurant::runServer(UserData* User) {
+void Restaurant::runServer(newUserData* User) {
 	int menu = 0;
-	this->User = User;
-	int check_appointed = User->get_tickets_size(); // 현재까지 예약 수
+	this->User = User; 
 
 	while (menu != 5) {  //menu 5 = 로그아웃
 		menu = Console_restaurant::set_menu(User->get_name());
@@ -50,8 +104,13 @@ void Restaurant::runServer(UserData* User) {
 			}
 			else {
 				appointment();
-				if (User->get_tickets_size() != check_appointed) {
+				if (reservationData.back().get_table_number() != 0) {
+					cout << "예약되었습니다" << endl;
+					Console_restaurant::clean(1000);
 					menu = 5;
+				}
+				else {
+					reservationData.erase(reservationData.end() - 1);
 				}
 			}
 			break;
@@ -69,22 +128,34 @@ void Restaurant::runServer(UserData* User) {
 }
 
 void Restaurant::cancel() {
-	Ticket* ticket = NULL;
 	int ticket_number;
+	int count = 1;
 
-	// User 에서 테이블 정보 받아오기
-	User->showTickets();
-	ticket_number = Console_restaurant::set_ticket_number(User->get_tickets_size());
-	ticket = User->getTicket(ticket_number);
-
+	for (int i = 0; i < reservationData.size(); i++) {
+		if (reservationData[i].get_id() == User->get_id()) {
+			cout << count << "번 예약" << endl;
+			reservationData[i].showTicket();
+			count++;
+		}
+	}	
+	ticket_number = Console_restaurant::set_ticket_number(count-1);//?? count-1?
+	count = 0;
 	// 받은 정보로 테이블 객체 접근해 취소하기
-	if (ticket != NULL) {
-		schedules[ticket->get_date() - 1].cancel(ticket->get_table_number());
-		User->cancel(ticket_number);
+	if (ticket_number != 0) {
+		for (int i = 0; i < reservationData.size(); i++) {
+			if (reservationData[i].get_id() == User->get_id()) {
+				count++;
+				if (count == ticket_number) {
+					schedules[reservationData[i].get_date() - 1].cancel(&reservationData[i]);
+					reservationData.erase(reservationData.begin() + count - 1);
+					break;
+				}
+			}
+		}
 	}
 }
 
-void Restaurant::showStat() {
+void Restaurant::showStat() { // walkin??
 	int stat_menu = 0;
 	int table_stat[6] = {0,};
 
@@ -92,7 +163,12 @@ void Restaurant::showStat() {
 
 	if (stat_menu == 1) { // 고객의 지금까지의 예약 횟수 보여주기
 		Console_restaurant::clean(0);
-		User->showTickets();
+		
+		for (int i = 0; i < reservationData.size(); i++) {
+			if (reservationData[i].get_id() == User->get_id()) {
+				reservationData[i].showTicket();
+			}
+		}
 		while (stat_menu != 0) {
 			cout << "돌아가기 : 0 >>";
 			cin >> stat_menu;

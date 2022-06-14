@@ -30,7 +30,7 @@ void Login::sign_up(int place) {
 			Sleep(500);
 		}
 		else {
-			LoginDataBase[place - 1]->sign_up(id); // id는 UserData에서 구현
+			LoginDataBase[place - 1]->sign_up(id);
 			
 			Console::clean(0);
 			cout << "회원가입에 성공했습니다" << endl;

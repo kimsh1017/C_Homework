@@ -25,7 +25,7 @@ void System::running() {
 				UserNow = NULL;
 				break;
 			case 2:
-				//restaurant->runServer(user);
+				restaurant->runServer(UserNow);
 				cout << "로그인 성공" << endl;
 				cout << UserNow->get_id() << " " << UserNow->get_age() << endl;
 				UserNow = NULL;
